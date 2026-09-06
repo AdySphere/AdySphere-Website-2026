@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AdySphere Research Agent",
-  description: "Private space-tech ideation agent for AdySphere.",
+  title: "SpaceSphere",
+  description: "Private space-tech ideation agent.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

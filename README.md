@@ -1,4 +1,4 @@
-# AdySphere Research Agent
+# SpaceSphere
 
 A private space-tech ideation agent. It's built to think and pitch like someone constantly
 proposing cutting-edge space-tech solutions — grounded in real orbital mechanics, launch cadence,
@@ -8,7 +8,7 @@ LEO satellite orbit determination).
 
 ## Stack
 
-- Next.js 14 (App Router) + TypeScript + Tailwind
+- Next.js 15 (App Router) + TypeScript + Tailwind
 - Anthropic Claude API (`@anthropic-ai/sdk`) with tool use for live data
 - Live data tools:
   - `search_arxiv` — recent papers from arXiv
