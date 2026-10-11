@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import type { MetadataRoute } from "next";
 import { getCaseStudies, getInsights, getResearch, slugify } from "@/lib/content";
 import { getCategories } from "@/lib/insights";

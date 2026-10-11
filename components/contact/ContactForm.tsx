@@ -5,6 +5,15 @@ import { useEffect, useRef, useState } from "react";
 type Status = { state: "idle" } | { state: "sending" } | { state: "sent" } | { state: "error"; message: string };
 
 const interests = ["Business X-Ray", "Implementation", "AI Enablement", "Other"] as const;
+type Interest = (typeof interests)[number];
+
+/** ?interest=ai-enablement (etc.) preselects an option, so pages can link straight to the right one. */
+const interestBySlug: Record<string, Interest> = {
+  "x-ray": "Business X-Ray",
+  implementation: "Implementation",
+  "ai-enablement": "AI Enablement",
+  other: "Other",
+};
 const sizes = ["1-50", "51-200", "201-1,000", "1,000+"] as const;
 
 const fieldClass =
@@ -12,12 +21,15 @@ const fieldClass =
 const labelClass = "text-sm font-medium text-navy-900";
 
 /** Booking form. Posts to /api/contact, which emails the team. Honeypot + timing check + server-side rate limit. */
-export function ContactForm({ defaultInterest = "Business X-Ray" }: { defaultInterest?: (typeof interests)[number] }) {
+export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
+  const [interest, setInterest] = useState<Interest>("Business X-Ray");
   const startedAt = useRef(0);
 
   useEffect(() => {
     startedAt.current = Date.now();
+    const fromUrl = interestBySlug[new URLSearchParams(window.location.search).get("interest") ?? ""];
+    if (fromUrl) setInterest(fromUrl);
   }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -78,19 +90,20 @@ export function ContactForm({ defaultInterest = "Business X-Ray" }: { defaultInt
       <fieldset className="flex flex-col gap-3 sm:col-span-2">
         <legend className={`${labelClass} mb-3`}>I&rsquo;m interested in</legend>
         <div className="flex flex-wrap gap-2">
-          {interests.map((interest) => (
+          {interests.map((item) => (
             <label
-              key={interest}
+              key={item}
               className="cursor-pointer border border-slate/40 bg-white px-4 py-2.5 text-sm has-[:checked]:border-navy-900 has-[:checked]:bg-navy-900 has-[:checked]:text-ivory has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-teal-ink"
             >
               <input
                 type="radio"
                 name="interest"
-                value={interest}
-                defaultChecked={interest === defaultInterest}
+                value={item}
+                checked={item === interest}
+                onChange={() => setInterest(item)}
                 className="sr-only"
               />
-              {interest}
+              {item}
             </label>
           ))}
         </div>

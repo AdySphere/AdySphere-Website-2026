@@ -10,17 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const interestBySlug = {
-  "x-ray": "Business X-Ray",
-  implementation: "Implementation",
-  "ai-enablement": "AI Enablement",
-  other: "Other",
-} as const;
-
-export default async function ContactPage({ searchParams }: { searchParams: Promise<{ interest?: string }> }) {
-  const { interest } = await searchParams;
-  const defaultInterest = interestBySlug[interest as keyof typeof interestBySlug] ?? "Business X-Ray";
-
+export default function ContactPage() {
   return (
     <>
       <PageHeader
@@ -58,7 +48,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
             </div>
           </dl>
           <div>
-            <ContactForm defaultInterest={defaultInterest} />
+            <ContactForm />
             <BookingEmbed />
           </div>
         </div>
