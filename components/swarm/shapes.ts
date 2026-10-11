@@ -22,7 +22,8 @@ async function sampleArt(url: string, count: number): Promise<{ pts: Float32Arra
   img.src = url;
   await img.decode();
 
-  const res = 220;
+  // Fine enough to keep the eye, lips and thin circuit traces of the artwork.
+  const res = 320;
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = res;
   const ctx = canvas.getContext("2d", { willReadFrequently: true })!;

@@ -263,7 +263,7 @@ export default function SwarmScene({ artUrl, onReady }: { artUrl: string; onRead
   useEffect(() => {
     let cancelled = false;
     const small = window.matchMedia("(max-width: 767px)").matches;
-    buildSwarm(artUrl, small ? 7000 : 16000)
+    buildSwarm(artUrl, small ? 9000 : 22000)
       .then((d) => !cancelled && setData(d))
       .catch(() => {});
     return () => {

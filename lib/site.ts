@@ -36,10 +36,10 @@ export const nav = [
 ] as const;
 
 /**
- * Artwork the hero turns into particles. Bright (teal) pixels become particles; use a dark or transparent background.
- * TODO: replace the placeholder with the real circuit-face image, e.g. "/brand/hero-face.png".
+ * Artwork the hero turns into particles: the AdySphere circuit face. Bright (teal) pixels become particles;
+ * the background is transparent. hero-face.png is the full-quality source; the site serves the lighter WebP.
  */
-export const heroArt = "/brand/hero-face.svg";
+export const heroArt = "/brand/hero-face.webp";
 
 /**
  * Background video for the Dubai skyline section. Leave null to show the code-drawn skyline.

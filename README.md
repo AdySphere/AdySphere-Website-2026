@@ -96,8 +96,9 @@ Put your files in `public/brand/` with these names (see `public/brand/README.md`
 The hero turns an image into particles: bright, teal pixels become particles, which stream in and form the image.
 Dark parts of the image, or transparent ones, are ignored.
 
-1. Save the image as `public/brand/hero-face.png` (square, at least 800 x 800, on black or transparent).
-2. In `lib/site.ts`, set `heroArt = "/brand/hero-face.png"`.
+1. Save the image as `public/brand/hero-face.png` (square, at least 800 x 800, transparent or on black), and a WebP
+   copy as `hero-face.webp`.
+2. `heroArt` in `lib/site.ts` points at the WebP.
 
 The same image is shown as a still picture before the particles start, and for visitors who prefer reduced motion.
 The particles start on the visitor's first interaction (move, scroll, tap), which keeps page load fast.
@@ -133,7 +134,7 @@ Search the code for `TODO` to find them all:
 - Founder photo and personal LinkedIn (`lib/site.ts`)
 - Research projects, publications and tools (`content/research/`)
 - The real `mark.svg`
-- The real hero artwork (`heroArt` in `lib/site.ts`) and, optionally, a skyline video (`cityVideo`)
+- Optionally, a skyline video (`cityVideo` in `lib/site.ts`)
 
 ## Deploying
 
