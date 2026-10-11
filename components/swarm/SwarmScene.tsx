@@ -12,7 +12,7 @@ function placement(shape: ShapeName, W: number, H: number): Xform {
   const wide = W > H * 1.05;
   switch (shape) {
     case "face":
-      return [0, H * 0.02, Math.min(H * 1.0, W * 1.05), 1.5];
+      return [0, H * 0.02, Math.min(H * 1.0, W * 1.05), 1.1];
     case "scatter":
       return [0, 0, W * 0.5, 0.45];
     case "wave":

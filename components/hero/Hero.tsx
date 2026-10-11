@@ -25,7 +25,7 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_38%_30%_at_50%_50%,rgb(0_0_0/0.55),transparent_80%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_48%_34%_at_50%_50%,rgb(0_0_0/0.82),rgb(0_0_0/0.45)_55%,transparent_85%)]"
       />
 
       <div className="relative mx-auto max-w-5xl text-center">
@@ -35,13 +35,13 @@ export function Hero() {
         </p>
         <h1
           id="hero-title"
-          className="hero-rise mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-ivory [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
+          className="hero-rise hero-headline mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-ivory [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
         >
           <span className="sm:whitespace-nowrap">Your ERP records the business.</span>
           <br />
           It doesn&rsquo;t run it. <span className="text-gradient sm:whitespace-nowrap">We enable both.</span>
         </h1>
-        <p className="hero-rise mx-auto mt-7 max-w-xl text-base leading-relaxed text-ivory-dim [animation-delay:160ms] sm:text-lg">
+        <p className="hero-rise hero-headline mx-auto mt-7 max-w-xl text-base leading-relaxed text-ivory [animation-delay:160ms] sm:text-lg">
           {site.positioning}
         </p>
         <div className="hero-rise mt-10 flex flex-col items-center justify-center gap-3 [animation-delay:240ms] sm:flex-row sm:gap-6">
