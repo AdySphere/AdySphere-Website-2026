@@ -1,0 +1,9 @@
+<!-- PLACEHOLDER brand mark. Replace with the real mark.svg.
+     For the 3D hero: filled paths are extruded into the "A"; paths with fill="none" (the orbit) are skipped,
+     because the orbit is rendered as an animated ring. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <path id="a-left" fill="#F8F7F5" d="M17 92 L24 92 L59 12 L55 12 Z"/>
+  <path id="a-right" fill="#F8F7F5" d="M55 8 L66 8 L84 92 L71 92 Z"/>
+  <path id="orbit" fill="none" stroke="#34C4C9" stroke-width="3" stroke-linecap="round"
+        d="M10 66 C 18 50, 74 40, 92 46 C 99 49, 86 60, 64 66"/>
+</svg>

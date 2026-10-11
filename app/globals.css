@@ -1,23 +1,135 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html,
-body {
-  height: 100%;
+@theme {
+  /* Brand palette, taken from the AdySphere Co. offerings deck. */
+  --color-navy-950: #011827;
+  --color-navy-900: #01253b;
+  --color-navy-800: #06324d;
+  --color-navy-700: #064e68;
+  --color-ivory: #f8f7f5;
+  --color-ivory-dim: #cdd8de;
+  --color-mist: #a9c3cf;
+  --color-slate: #4a5a68;
+  --color-cloud: #e3e6e8;
+  --color-mint: #e8f3f4;
+  --color-ink: #0b0c0e;
+  --color-teal: #34c4c9;
+  --color-teal-deep: #0e7c8c;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Z-index scale: base 0, hero overlay 10, header 40, mobile menu 50. */
+
+:root {
+  color-scheme: dark;
+  --accent-gradient: linear-gradient(110deg, #0b0c0e 0%, #01253b 45%, #0e7c8c 100%);
+}
+
+html {
+  background: var(--color-navy-900);
+  color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background-color: #05060a;
+  background: var(--color-navy-900);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-teal-deep);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: transform 300ms var(--ease-out-expo), background-color 300ms var(--ease-out-expo),
+    border-color 300ms var(--ease-out-expo), color 300ms var(--ease-out-expo);
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility btn-primary {
+  @apply btn bg-ivory text-ink hover:bg-white;
+}
+
+@utility btn-secondary {
+  @apply btn border border-ivory/30 text-ivory hover:border-ivory/70;
+}
+
+@utility accent-rule {
+  height: 1px;
+  background: var(--accent-gradient);
+}
+
+/* Hero ------------------------------------------------------------------ */
+
+/* The deck cover gradient: black, through brand navy, to teal. */
+.hero-backdrop {
+  background:
+    radial-gradient(ellipse 55% 50% at 72% 46%, rgb(14 124 140 / 0.28), transparent 70%),
+    linear-gradient(120deg, #0b0c0e 0%, #01253b 48%, #064e68 78%, #0e7c8c 100%);
+}
+
+/* Static star field, shown before WebGL loads and as the reduced-motion fallback. */
+.hero-stars {
+  opacity: 0.55;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(127, 212, 255, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(199, 146, 255, 0.08), transparent);
+    radial-gradient(1px 1px at 12% 18%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 34% 72%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 12%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 81% 64%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 92% 28%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 48%, #cdd8de 50%, transparent 51%),
+    radial-gradient(1px 1px at 67% 88%, #cdd8de 50%, transparent 51%),
+    radial-gradient(1px 1px at 47% 38%, #cdd8de 50%, transparent 51%);
+  background-size: 420px 420px;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+.hero-mark {
+  left: 50%;
+  top: 30%;
+  width: min(52vw, 260px);
+  transform: translate(-50%, -50%);
 }
-::-webkit-scrollbar-thumb {
-  background-color: #1e2434;
-  border-radius: 4px;
+
+@media (min-aspect-ratio: 11/10) {
+  .hero-mark {
+    left: 72%;
+    top: 47%;
+    width: min(26vw, 380px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    animation: hero-rise 900ms var(--ease-out-expo) both;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
 }

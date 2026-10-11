@@ -1,47 +1,20 @@
-# SpaceSphere
+# AdySphere Co. website
 
-A private space-tech ideation agent. It's built to think and pitch like someone constantly
-proposing cutting-edge space-tech solutions — grounded in real orbital mechanics, launch cadence,
-and current research rather than vague futurism — and connects ideas back to Adyasha's own
-research background (molecular cloud dynamics/star formation, pulsar search algorithms, ML-based
-LEO satellite orbit determination).
+Marketing site for AdySphere Co., a Dubai-based Microsoft AI Cloud Partner.
+Built with Next.js (App Router), TypeScript, Tailwind CSS v4, React Three Fiber and Motion.
 
-## Stack
+> Work in progress: the scaffold and the 3D homepage hero are in place. The other pages, the MDX content,
+> the contact form, SEO and `DEPLOY.md` come next.
 
-- Next.js 15 (App Router) + TypeScript + Tailwind
-- Anthropic Claude API (`@anthropic-ai/sdk`) with tool use for live data
-- Live data tools:
-  - `search_arxiv` — recent papers from arXiv
-  - `get_upcoming_launches` — upcoming launch schedule (Launch Library 2 API)
-  - `get_near_earth_objects` — near-Earth asteroid close-approach data (NASA NeoWs)
-
-## Setup
+## Run locally
 
 ```bash
 npm install
-cp .env.example .env.local
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run typecheck
 ```
 
-Edit `.env.local`:
+## Brand files
 
-```
-ANTHROPIC_API_KEY=sk-ant-...   # required
-CLAUDE_MODEL=claude-sonnet-5   # optional, this is the default
-NASA_API_KEY=...               # optional, defaults to NASA's public DEMO_KEY (rate-limited)
-```
-
-Then run:
-
-```bash
-npm run dev
-```
-
-Open http://localhost:3000.
-
-## Notes
-
-- `.env.local` is gitignored — never commit real API keys.
-- The chat UI shows a collapsible "N live lookups used" section under any reply that called a
-  tool, so you can see exactly what data grounded the answer.
-- All three tools are public/free APIs; `NASA_API_KEY` is the only optional one (get one free at
-  https://api.nasa.gov if you hit DEMO_KEY's rate limit).
+Logo files live in `public/brand/`. See `public/brand/README.md` for the file names and how the 3D hero uses `mark.svg`.

@@ -1,18 +1,14 @@
-import Chat from "@/components/Chat";
+import { Hero } from "@/components/hero/Hero";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col px-4 py-8">
-      <header className="mb-6">
-        <h1 className="text-xl font-semibold tracking-tight text-white">
-          Space<span className="text-accent">Sphere</span>
-        </h1>
-        <p className="mt-1 text-sm text-slate-400">
-          Private space-tech ideation partner — pitches, sanity-checks, and grounds ideas in live
-          research, launch schedules, and near-Earth object data.
-        </p>
-      </header>
-      <Chat />
-    </main>
+    <>
+      <Hero />
+      {/* Remaining homepage sections are built after the hero is approved. */}
+      <section className="mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="accent-rule mb-10 max-w-xs" />
+        <p className="max-w-xl text-ivory-dim">TODO: trust strip and the rest of the homepage.</p>
+      </section>
+    </>
   );
 }
