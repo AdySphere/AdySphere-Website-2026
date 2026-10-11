@@ -14,14 +14,17 @@ export const organizationSchema = {
   image: `${site.url}/opengraph-image`,
   description: site.description,
   email: site.email,
-  telephone: site.phone,
+  telephone: [site.phone, site.phoneUk],
   foundingDate: "2025-09",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Dubai",
     addressCountry: "AE",
   },
-  areaServed: { "@type": "Country", name: "United Arab Emirates" },
+  areaServed: [
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "United Kingdom" },
+  ],
   founder: { "@id": founderId },
   sameAs: [site.linkedin, site.instagram],
   knowsAbout: [

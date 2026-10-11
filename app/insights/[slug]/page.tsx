@@ -46,7 +46,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           {meta.draft && <span className="ml-3 border border-dashed border-mist/50 px-1.5">Draft</span>}
         </p>
       </PageHeader>
-      <article className="tone-light">
+      <article className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <Mdx source={post.body} />
           <ul className="mt-14 flex flex-wrap gap-2" aria-label="Tags">
@@ -54,7 +54,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
               <li key={tag}>
                 <Link
                   href={`/insights/tag/${slugify(tag)}`}
-                  className="border border-cloud px-3 py-1.5 text-sm text-slate hover:border-navy-900"
+                  className="border border-ivory/10 px-3 py-1.5 text-sm text-ivory-dim hover:border-ivory/60"
                 >
                   {tag}
                 </Link>

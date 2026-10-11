@@ -41,7 +41,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </dl>
       </PageHeader>
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <Mdx source={study.body} />
         </div>

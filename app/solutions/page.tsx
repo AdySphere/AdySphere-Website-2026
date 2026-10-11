@@ -32,14 +32,14 @@ export default function SolutionsPage() {
       {offers.map((offer, i) => {
         const dark = i % 2 === 1;
         return (
-          <section key={offer.slug} id={offer.slug} className={`${dark ? "tone-dark" : "tone-light"} scroll-mt-20`}>
+          <section key={offer.slug} id={offer.slug} className={`${dark ? "tone-dark" : "tone-ink"} scroll-mt-20`}>
             <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-8">
               <div>
-                <p className={`font-mono text-xs uppercase tracking-[0.16em] ${dark ? "text-teal" : "text-teal-ink"}`}>
+                <p className={`font-mono text-xs uppercase tracking-[0.16em] ${dark ? "text-teal" : "text-teal"}`}>
                   {offer.step}
                 </p>
                 <h2 className="mt-3 font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">{offer.name}</h2>
-                <p className={`mt-6 max-w-lg text-lg leading-relaxed ${dark ? "text-ivory-dim" : "text-slate"}`}>
+                <p className={`mt-6 max-w-lg text-lg leading-relaxed ${dark ? "text-ivory-dim" : "text-ivory-dim"}`}>
                   {offer.summary}
                 </p>
                 {offer.slug === "ai-enablement" && (
@@ -51,15 +51,15 @@ export default function SolutionsPage() {
               <dl className="grid gap-8">
                 <div>
                   <dt className="font-medium">Who it&rsquo;s for</dt>
-                  <dd className={`mt-2 leading-relaxed ${dark ? "text-ivory-dim" : "text-slate"}`}>{offer.forWho}</dd>
+                  <dd className={`mt-2 leading-relaxed ${dark ? "text-ivory-dim" : "text-ivory-dim"}`}>{offer.forWho}</dd>
                 </div>
                 <div>
                   <dt className="font-medium">What&rsquo;s included</dt>
                   <dd className="mt-3">
                     <ul className="grid gap-2.5">
                       {offer.included.map((item) => (
-                        <li key={item} className={`flex gap-3 leading-relaxed ${dark ? "text-ivory-dim" : "text-slate"}`}>
-                          <Check size={18} className={`mt-1 shrink-0 ${dark ? "text-teal" : "text-teal-ink"}`} aria-hidden />
+                        <li key={item} className={`flex gap-3 leading-relaxed ${dark ? "text-ivory-dim" : "text-ivory-dim"}`}>
+                          <Check size={18} className={`mt-1 shrink-0 ${dark ? "text-teal" : "text-teal"}`} aria-hidden />
                           {item}
                         </li>
                       ))}
@@ -68,7 +68,7 @@ export default function SolutionsPage() {
                 </div>
                 <div>
                   <dt className="font-medium">How it starts</dt>
-                  <dd className={`mt-2 leading-relaxed ${dark ? "text-ivory-dim" : "text-slate"}`}>{offer.starts}</dd>
+                  <dd className={`mt-2 leading-relaxed ${dark ? "text-ivory-dim" : "text-ivory-dim"}`}>{offer.starts}</dd>
                 </div>
               </dl>
             </div>
@@ -76,21 +76,21 @@ export default function SolutionsPage() {
         );
       })}
 
-      <section className="tone-light border-t border-cloud" id="modules">
+      <section className="tone-ink border-t border-ivory/10" id="modules">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-2xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             The Dynamics 365 modules we implement.
           </h2>
-          <ul className="mt-14 grid gap-px bg-cloud sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-14 grid gap-px bg-ivory/10 sm:grid-cols-2 lg:grid-cols-4">
             {modules.map((m, i) => (
-              <li key={m.name} className={`flex flex-col p-7 ${i === 0 ? "tone-dark" : "bg-ivory"}`}>
+              <li key={m.name} className={`spotlight flex flex-col p-7 ${i === 0 ? "tone-dark" : "bg-navy-950"}`}>
                 <h3 className="font-serif text-xl leading-snug">{m.name}</h3>
-                <p className={`mt-3 text-sm ${i === 0 ? "text-teal" : "text-teal-ink"}`}>{m.forWho}</p>
-                <p className={`mt-3 text-sm leading-relaxed ${i === 0 ? "text-ivory-dim" : "text-slate"}`}>{m.included}</p>
+                <p className={`mt-3 text-sm ${i === 0 ? "text-teal" : "text-teal"}`}>{m.forWho}</p>
+                <p className={`mt-3 text-sm leading-relaxed ${i === 0 ? "text-ivory-dim" : "text-ivory-dim"}`}>{m.included}</p>
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm text-slate">
+          <p className="mt-6 text-sm text-ivory-dim">
             Every module starts the same way: a Business X-Ray or a scoping workshop, then a fixed plan.
           </p>
         </div>

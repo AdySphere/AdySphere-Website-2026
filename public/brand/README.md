@@ -7,6 +7,7 @@ Drop the real files here with these exact names. Everything on the site points a
 | `wordmark-dark.png` / `.svg` | Ivory wordmark for navy backgrounds (header, footer) |
 | `wordmark-light.png` / `.svg` | Black wordmark for ivory backgrounds |
 | `wordmark-gradient.png` / `.svg` | Black-to-teal gradient wordmark |
+| `hero-face.svg` | **Placeholder** artwork for the particle hero. Replace with the real circuit-face image (see the main README). |
 | `microsoft-ai-cloud-partner.png` | Microsoft AI Cloud Partner badge (trust strip) |
 | `mark.svg` | The slanted "A" with orbit. Static hero fallback, favicon source, and the shape the 3D hero extrudes |
 | `mark.glb` | Optional. If present, the 3D hero loads this model instead of extruding `mark.svg` |

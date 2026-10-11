@@ -19,6 +19,7 @@ export function Journey() {
 
         <div className="relative mt-16">
           <div aria-hidden className="accent-rule absolute left-0 right-0 top-[7px] hidden md:block" />
+          <div aria-hidden className="rule-travel absolute left-0 right-0 top-[7px] hidden h-px md:block" />
           <ol className="relative grid gap-12 md:grid-cols-3 md:gap-8">
           {offers.map((offer, i) => (
             <li key={offer.slug} className="relative">

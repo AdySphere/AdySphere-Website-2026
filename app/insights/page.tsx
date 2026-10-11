@@ -19,7 +19,7 @@ export default function InsightsPage() {
         title="Plain writing on Dynamics 365 and AI in operations."
         intro="What we see in real implementations, written for the people who run the business."
       />
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
           <CategoryNav categories={getCategories()} />
           <div className="mt-10">

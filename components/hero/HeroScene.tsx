@@ -1,16 +1,13 @@
 "use client";
 
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { Environment, Lightformer, Stars, Trail, useGLTF } from "@react-three/drei";
-import { SVGLoader } from "three/addons/loaders/SVGLoader.js";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import type { MotionValue } from "motion/react";
 import { departments } from "@/lib/site";
 
-const TEAL = new THREE.Color("#34c4c9");
-const MARK_HEIGHT = 2.2;
-const RING_RADIUS = 1.55;
+const ART_SIZE = 3.4; // world units across the artwork
+const RING_RADIUS = 1.9;
 const TAU = Math.PI * 2;
 
 type Pointer = { x: number; y: number };
@@ -18,13 +15,15 @@ type Pointer = { x: number; y: number };
 export type HeroSceneProps = {
   progress: MotionValue<number>;
   active: boolean;
-  glbUrl: string | null;
+  /** Image whose bright pixels become particles: the circuit face. */
+  artUrl: string;
   onReady: () => void;
 };
 
-export default function HeroScene({ progress, active, glbUrl, onReady }: HeroSceneProps) {
+export default function HeroScene({ progress, active, artUrl, onReady }: HeroSceneProps) {
   const pointer = usePointerTarget();
   const labels = useRef<(HTMLDivElement | null)[]>([]);
+  const points = useArtPoints(artUrl);
 
   return (
     <div className="relative h-full w-full">
@@ -32,50 +31,22 @@ export default function HeroScene({ progress, active, glbUrl, onReady }: HeroSce
         dpr={[1, 2]}
         frameloop={active ? "always" : "never"}
         camera={{ position: [0, 0, 7], fov: 35 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
         aria-hidden
       >
-        <ambientLight intensity={0.45} />
-        <directionalLight position={[3, 4, 5]} intensity={2.2} color="#fff6e6" />
-        <directionalLight position={[-4, -2, 2]} intensity={0.6} color={TEAL} />
-        <Environment resolution={256} frames={1}>
-          <Lightformer form="rect" intensity={3} color="#f8f7f5" position={[0, 4, 4]} scale={[8, 1.5, 1]} />
-          <Lightformer form="rect" intensity={1.4} color="#f8f7f5" position={[0, 0, 6]} scale={[6, 3, 1]} />
-          <Lightformer
-            form="rect"
-            intensity={1.6}
-            color="#34c4c9"
-            position={[-5, 0, 2]}
-            rotation-y={Math.PI / 2}
-            scale={[6, 2, 1]}
-          />
-          <Lightformer
-            form="rect"
-            intensity={0.8}
-            color="#ffffff"
-            position={[5, -1, 1]}
-            rotation-y={-Math.PI / 2}
-            scale={[4, 4, 1]}
-          />
-        </Environment>
-
-        <Stars radius={60} depth={40} count={1600} factor={2.2} saturation={0} fade speed={0.3} />
-
-        <Rig progress={progress} pointer={pointer}>
-          <Suspense fallback={null}>
-            {glbUrl ? <GlbMark url={glbUrl} /> : <SvgMark />}
-            <ReadySignal onReady={onReady} />
-          </Suspense>
-          <Orbit progress={progress} labels={labels} />
-        </Rig>
+        {points && (
+          <Rig progress={progress} pointer={pointer}>
+            <Particles data={points} progress={progress} labels={labels} onReady={onReady} />
+          </Rig>
+        )}
       </Canvas>
-      {/* Department labels live in the DOM so they stay crisp; Orbit positions them every frame. */}
+      {/* Department labels live in the DOM so they stay crisp; Particles positions them every frame. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         {departments.map((dept, i) => (
           <div
             key={dept}
             ref={(el) => void (labels.current[i] = el)}
-            className="absolute left-0 top-0 whitespace-nowrap border border-teal/40 bg-navy-950/75 px-2 py-1 font-mono text-[11px] tracking-wide text-ivory opacity-0 will-change-transform"
+            className="absolute left-0 top-0 whitespace-nowrap border border-teal/40 bg-navy-950/70 px-2 py-1 font-mono text-[11px] tracking-wide text-ivory opacity-0 backdrop-blur-sm will-change-transform"
           >
             {dept}
           </div>
@@ -111,9 +82,116 @@ function usePointerTarget() {
   return target;
 }
 
+type ArtPoints = {
+  count: number;
+  target: Float32Array;
+  start: Float32Array;
+  node: Float32Array;
+  seed: Float32Array;
+  tint: Float32Array;
+};
+
+/**
+ * Rasterises the artwork into a small canvas and turns bright pixels into particle targets.
+ * Each particle also gets a start position (streaming in from the right, along the circuit lines)
+ * and a destination in one of the five department clusters, or on the stream leading to it.
+ */
+function useArtPoints(url: string) {
+  const [data, setData] = useState<ArtPoints | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const img = new Image();
+    img.decoding = "async";
+    img.onload = () => {
+      if (cancelled) return;
+      const res = 220;
+      const canvas = document.createElement("canvas");
+      canvas.width = canvas.height = res;
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx) return;
+      ctx.drawImage(img, 0, 0, res, res);
+      const pixels = ctx.getImageData(0, 0, res, res).data;
+
+      // Bright, teal-ish pixels on a dark or transparent background.
+      const on = new Uint8Array(res * res);
+      for (let i = 0; i < res * res; i++) {
+        const r = pixels[i * 4];
+        const g = pixels[i * 4 + 1];
+        const b = pixels[i * 4 + 2];
+        const a = pixels[i * 4 + 3];
+        if (a > 120 && (g + b) / 2 > 70 && g + b > r * 1.4) on[i] = 1;
+      }
+      // Edge pixels trace the outline (profile, circuit lines) and get extra, brighter particles.
+      const candidates: number[] = [];
+      const edges: number[] = [];
+      for (let i = 0; i < res * res; i++) {
+        if (!on[i]) continue;
+        candidates.push(i);
+        const x = i % res;
+        if (x === 0 || x === res - 1 || !on[i - 1] || !on[i + 1] || !on[i - res] || !on[i + res]) edges.push(i);
+      }
+      if (candidates.length === 0) return;
+
+      const small = window.matchMedia("(max-width: 767px)").matches;
+      const count = Math.min(small ? 8000 : 18000, candidates.length * 3);
+      const target = new Float32Array(count * 3);
+      const start = new Float32Array(count * 3);
+      const node = new Float32Array(count * 3);
+      const seed = new Float32Array(count);
+      const tint = new Float32Array(count);
+
+      for (let i = 0; i < count; i++) {
+        const onEdge = edges.length > 0 && Math.random() < 0.35;
+        const pool = onEdge ? edges : candidates;
+        const px = pool[Math.floor(Math.random() * pool.length)];
+        const u = (px % res) / res + (Math.random() - 0.5) / res;
+        const v = Math.floor(px / res) / res + (Math.random() - 0.5) / res;
+        const x = (u - 0.5) * ART_SIZE;
+        const y = -(v - 0.5) * ART_SIZE;
+        // A shallow relief: the profile sits forward, the circuits trail back.
+        const z = (0.5 - u) * 0.35 + (Math.random() - 0.5) * 0.06;
+        target.set([x, y, z], i * 3);
+
+        start.set(
+          [x + 3.5 + Math.random() * 5, y + (Math.random() - 0.5) * 0.25, z + (Math.random() - 0.5) * 1.5],
+          i * 3,
+        );
+
+        const lobe = i % departments.length;
+        const angle = -Math.PI / 2 + (lobe * TAU) / departments.length;
+        const nx = Math.cos(angle) * RING_RADIUS;
+        const ny = Math.sin(angle) * RING_RADIUS;
+        if (Math.random() < 0.3) {
+          // On the data stream from the centre to the department.
+          const t = Math.random();
+          node.set([nx * t, ny * t, (Math.random() - 0.5) * 0.05], i * 3);
+        } else {
+          // In the department's cluster.
+          const r = Math.cbrt(Math.random()) * 0.2;
+          const th = Math.random() * TAU;
+          const ph = Math.acos(2 * Math.random() - 1);
+          node.set([nx + r * Math.sin(ph) * Math.cos(th), ny + r * Math.sin(ph) * Math.sin(th), r * Math.cos(ph)], i * 3);
+        }
+
+        seed[i] = Math.random();
+        tint[i] = onEdge ? 0.55 : Math.random() < 0.05 ? 1 : 0;
+      }
+
+      setData({ count, target, start, node, seed, tint });
+    };
+    img.src = url;
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
+
+  return data;
+}
+
 const smooth = (a: number, b: number, v: number) => THREE.MathUtils.smoothstep(v, a, b);
 
-/** Positions the whole composition: right-hand side on desktop, top on mobile, centred once the departments unfold. */
+/** Positions the composition: right-hand side on desktop, top on mobile, centred once it splits. */
 function Rig({
   progress,
   pointer,
@@ -131,268 +209,192 @@ function Rig({
     const g = group.current;
     if (!g) return;
     p.current = THREE.MathUtils.damp(p.current, progress.get(), 6, delta);
-    const e = smooth(0.18, 0.45, p.current);
+    const e = smooth(0.15, 0.45, p.current);
 
     const wide = viewport.aspect > 1.1;
-    const restX = wide ? viewport.width * 0.25 : 0;
-    const restY = wide ? 0 : viewport.height * 0.28;
-    const restScale = wide ? Math.min(1, viewport.width / 7.5) : Math.min(1, viewport.width / 4.4);
-    const openScale = Math.min(1, viewport.width / 6.6, viewport.height / 5.3);
+    const restX = wide ? viewport.width * 0.24 : 0;
+    const restY = wide ? 0 : viewport.height * 0.24;
+    const restScale = wide ? Math.min(1, viewport.width / 8.5) : Math.min(1, viewport.width / 4.6);
+    const openScale = Math.min(1, viewport.width / 5.4, viewport.height / 5);
 
     g.position.x = THREE.MathUtils.lerp(restX, 0, e);
     g.position.y = THREE.MathUtils.lerp(restY, 0, e);
     g.scale.setScalar(THREE.MathUtils.lerp(restScale, openScale, e));
 
     const { x, y } = pointer.current;
-    g.rotation.y = THREE.MathUtils.damp(g.rotation.y, x * 0.18, 3, delta);
-    g.rotation.x = THREE.MathUtils.damp(g.rotation.x, y * 0.12, 3, delta);
+    g.rotation.y = THREE.MathUtils.damp(g.rotation.y, x * 0.3, 3, delta);
+    g.rotation.x = THREE.MathUtils.damp(g.rotation.x, y * 0.18, 3, delta);
   });
 
   return <group ref={group}>{children}</group>;
 }
 
-function useMarkMotion() {
-  const ref = useRef<THREE.Group>(null);
-  useFrame(({ clock }) => {
-    if (!ref.current) return;
-    const t = clock.elapsedTime;
-    ref.current.rotation.y = Math.sin(t * 0.32) * 0.38;
-    ref.current.position.y = Math.sin(t * 0.6) * 0.03;
-  });
-  return ref;
-}
+const vertexShader = /* glsl */ `
+  attribute vec3 aStart;
+  attribute vec3 aNode;
+  attribute float aSeed;
+  attribute float aTint;
+  uniform float uTime;
+  uniform float uAssemble;
+  uniform float uSplit;
+  uniform float uRing;
+  uniform float uSize;
+  uniform float uPixelRatio;
+  varying float vAlpha;
+  varying float vTint;
+  varying float vPulse;
 
-function MarkMaterial() {
-  return (
-    <meshPhysicalMaterial
-      color="#efe8d6"
-      metalness={0.6}
-      roughness={0.32}
-      anisotropy={0.7}
-      clearcoat={0.3}
-      clearcoatRoughness={0.35}
-      envMapIntensity={1.6}
-    />
-  );
-}
+  vec2 rotate(vec2 p, float a) {
+    float c = cos(a), s = sin(a);
+    return vec2(c * p.x - s * p.y, s * p.x + c * p.y);
+  }
 
-/** Extrudes the filled paths of mark.svg. Stroked paths (the orbit) are skipped; the orbit is drawn as the ring. */
-function SvgMark() {
-  const data = useLoader(SVGLoader, "/brand/mark.svg");
-  const ref = useMarkMotion();
+  void main() {
+    // Assemble: particles stream in from the right, circuits first, then the face.
+    float u = position.x / ${ART_SIZE.toFixed(1)} + 0.5;
+    float delay = (1.0 - u) * 0.55 + aSeed * 0.25;
+    float a = clamp((uAssemble - delay) / 0.6, 0.0, 1.0);
+    a = 1.0 - pow(1.0 - a, 3.0);
+    vec3 pos = mix(aStart, position, a);
+
+    // Idle drift.
+    pos += 0.012 * vec3(sin(uTime * 1.1 + position.y * 9.0 + aSeed * 6.28), cos(uTime * 0.9 + position.x * 7.0), 0.0);
+
+    // Split into the five department clusters, which slowly turn.
+    float s = clamp(uSplit * 1.5 - aSeed * 0.5, 0.0, 1.0);
+    s = s * s * (3.0 - 2.0 * s);
+    vec3 node = aNode;
+    node.xy = rotate(node.xy, uRing);
+    pos = mix(pos, node, s);
+
+    // A pulse that sweeps right to left, like signal running along the circuits.
+    float sweep = fract(uTime * 0.18);
+    vPulse = 0.7 * smoothstep(0.035, 0.0, abs((1.0 - u) - (sweep * 1.6 - 0.3))) * (1.0 - s);
+
+    vec4 mv = modelViewMatrix * vec4(pos, 1.0);
+    gl_Position = projectionMatrix * mv;
+    float size = uSize * (0.55 + aSeed * 0.9) * (1.0 + aTint * 0.5);
+    gl_PointSize = size * uPixelRatio * (7.0 / -mv.z);
+    vAlpha = a * (0.75 + 0.35 * aSeed);
+    vTint = aTint;
+  }
+`;
+
+const fragmentShader = /* glsl */ `
+  uniform vec3 uColor;
+  uniform vec3 uHighlight;
+  varying float vAlpha;
+  varying float vTint;
+  varying float vPulse;
+
+  void main() {
+    vec2 c = gl_PointCoord - 0.5;
+    float d = length(c);
+    if (d > 0.5) discard;
+    float soft = smoothstep(0.5, 0.0, d);
+    vec3 color = mix(uColor, uHighlight, max(vTint, vPulse * 0.8));
+    gl_FragColor = vec4(color, soft * vAlpha * (0.75 + vPulse * 0.6));
+  }
+`;
+
+function Particles({
+  data,
+  progress,
+  labels,
+  onReady,
+}: {
+  data: ArtPoints;
+  progress: MotionValue<number>;
+  labels: React.RefObject<(HTMLDivElement | null)[]>;
+  onReady: () => void;
+}) {
+  const material = useRef<THREE.ShaderMaterial>(null);
+  const points = useRef<THREE.Points>(null);
+  const { gl, camera, size } = useThree();
+  const p = useRef(0);
+  const ring = useRef(0);
+  const ready = useRef(false);
+  const world = useMemo(() => new THREE.Vector3(), []);
 
   const geometry = useMemo(() => {
-    const shapes = data.paths
-      .filter((path) => {
-        const fill = (path.userData?.style as { fill?: string } | undefined)?.fill;
-        return fill && fill !== "none";
-      })
-      .flatMap((path) => path.toShapes());
-    const geo = new THREE.ExtrudeGeometry(shapes, {
-      depth: 9,
-      bevelEnabled: true,
-      bevelThickness: 1.4,
-      bevelSize: 0.7,
-      bevelSegments: 5,
-      curveSegments: 12,
-    });
-    geo.center();
-    geo.computeBoundingBox();
-    const height = geo.boundingBox!.max.y - geo.boundingBox!.min.y;
-    const s = MARK_HEIGHT / height;
-    geo.scale(s, s, s);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(data.target, 3));
+    geo.setAttribute("aStart", new THREE.BufferAttribute(data.start, 3));
+    geo.setAttribute("aNode", new THREE.BufferAttribute(data.node, 3));
+    geo.setAttribute("aSeed", new THREE.BufferAttribute(data.seed, 1));
+    geo.setAttribute("aTint", new THREE.BufferAttribute(data.tint, 1));
     return geo;
   }, [data]);
 
   useEffect(() => () => geometry.dispose(), [geometry]);
 
-  return (
-    <group ref={ref}>
-      {/* SVG y points down; a half turn about X flips it upright without inverting the faces. */}
-      <mesh geometry={geometry} rotation-x={Math.PI}>
-        <MarkMaterial />
-      </mesh>
-    </group>
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uAssemble: { value: 0 },
+      uSplit: { value: 0 },
+      uRing: { value: 0 },
+      uSize: { value: 2.0 },
+      uPixelRatio: { value: Math.min(gl.getPixelRatio(), 2) },
+      uColor: { value: new THREE.Color("#34c4c9") },
+      uHighlight: { value: new THREE.Color("#e8f3f4") },
+    }),
+    [gl],
   );
-}
 
-function GlbMark({ url }: { url: string }) {
-  const { scene } = useGLTF(url);
-  const ref = useMarkMotion();
-  const model = useMemo(() => {
-    const clone = scene.clone(true);
-    const box = new THREE.Box3().setFromObject(clone);
-    const size = box.getSize(new THREE.Vector3());
-    const center = box.getCenter(new THREE.Vector3());
-    const s = MARK_HEIGHT / size.y;
-    clone.position.copy(center.multiplyScalar(-s));
-    clone.scale.setScalar(s);
-    return clone;
-  }, [scene]);
-
-  return (
-    <group ref={ref}>
-      <primitive object={model} />
-    </group>
+  const nodes = useMemo(
+    () =>
+      departments.map((_, i) => {
+        const angle = -Math.PI / 2 + (i * TAU) / departments.length;
+        return new THREE.Vector2(Math.cos(angle) * RING_RADIUS, Math.sin(angle) * RING_RADIUS);
+      }),
+    [],
   );
-}
 
-function ReadySignal({ onReady }: { onReady: () => void }) {
-  const done = useRef(false);
-  useFrame(() => {
-    if (done.current) return;
-    done.current = true;
-    onReady();
-  });
-  return null;
-}
-
-/**
- * The orbit sweep: a teal ring with a comet and trail. On scroll the ring widens, turns to face the viewer
- * and the comet splits into five nodes, one per department.
- */
-function Orbit({
-  progress,
-  labels,
-}: {
-  progress: MotionValue<number>;
-  labels: React.RefObject<(HTMLDivElement | null)[]>;
-}) {
-  const tilt = useRef<THREE.Group>(null);
-  const ring = useRef<THREE.Group>(null);
-  const ringMat = useRef<THREE.MeshBasicMaterial>(null);
-  const glowMat = useRef<THREE.MeshBasicMaterial>(null);
-  const nodes = useRef<(THREE.Group | null)[]>([]);
-  const spokes = useRef<THREE.BufferGeometry>(null);
-  const spokeMat = useRef<THREE.LineBasicMaterial>(null);
-  const trail = useRef<THREE.Mesh>(null);
-  const comet = useRef<THREE.Group>(null);
-  const angle = useRef(0.6);
-  const p = useRef(0);
-
-  const spokePositions = useMemo(() => new Float32Array(departments.length * 6), []);
-
-  useLayoutEffect(() => {
-    spokes.current?.setAttribute("position", new THREE.BufferAttribute(spokePositions, 3));
-  }, [spokePositions]);
-
-  const world = useMemo(() => new THREE.Vector3(), []);
-
-  useFrame(({ camera, size }, delta) => {
+  useFrame((_, delta) => {
+    const m = material.current;
+    const obj = points.current;
+    if (!m || !obj) return;
+    if (!ready.current) {
+      ready.current = true;
+      onReady();
+    }
     p.current = THREE.MathUtils.damp(p.current, progress.get(), 6, delta);
-    const expand = smooth(0.2, 0.48, p.current);
-    const split = smooth(0.32, 0.56, p.current);
+    const split = smooth(0.22, 0.55, p.current);
+    ring.current += delta * 0.06 * split;
 
-    angle.current += delta * 0.85 * (1 - 0.88 * split);
+    m.uniforms.uTime.value += delta;
+    m.uniforms.uAssemble.value = Math.min(1.5, m.uniforms.uAssemble.value + delta * 0.45);
+    m.uniforms.uSplit.value = split;
+    m.uniforms.uRing.value = ring.current;
 
-    if (tilt.current) {
-      tilt.current.rotation.x = THREE.MathUtils.lerp(-1.2, -0.62, expand);
-      tilt.current.rotation.z = THREE.MathUtils.lerp(-0.3, -0.08, expand);
-    }
-    const radius = RING_RADIUS * (1 + 0.42 * expand);
-    ring.current?.scale.setScalar(radius / RING_RADIUS);
-    if (ringMat.current) ringMat.current.opacity = 0.55 * (1 - split) + 0.08 * split;
-    if (glowMat.current) glowMat.current.opacity = 0.14 * (1 - split);
-
-    const step = TAU / departments.length;
-    nodes.current.forEach((node, i) => {
-      if (!node) return;
-      const a = angle.current + i * step * split;
-      const x = Math.cos(a) * radius;
-      const y = Math.sin(a) * radius;
-      node.position.set(x, y, 0);
-      if (i === 0) comet.current?.position.set(x, y, 0);
-      node.visible = i === 0 || split > 0.01;
-      node.scale.setScalar(i === 0 ? 1 : split);
-      spokePositions.set([0, 0, 0, x, y, 0], i * 6);
-
+    const labelOpacity = smooth(0.55, 0.9, split);
+    obj.updateWorldMatrix(true, false);
+    const c = Math.cos(ring.current);
+    const s = Math.sin(ring.current);
+    nodes.forEach((n, i) => {
       const label = labels.current[i];
-      if (label) {
-        const opacity = smooth(0.5, 0.9, split);
-        label.style.opacity = String(opacity);
-        if (opacity > 0) {
-          node.updateWorldMatrix(true, false);
-          world.setFromMatrixPosition(node.matrixWorld).project(camera);
-          const lx = ((world.x + 1) / 2) * size.width;
-          const ly = ((1 - world.y) / 2) * size.height - 22;
-          label.style.transform = `translate3d(${lx}px, ${ly}px, 0) translate(-50%, -50%)`;
-        }
-      }
+      if (!label) return;
+      label.style.opacity = String(labelOpacity);
+      if (labelOpacity <= 0) return;
+      world.set(c * n.x - s * n.y, s * n.x + c * n.y, 0).applyMatrix4(obj.matrixWorld).project(camera);
+      const lx = ((world.x + 1) / 2) * size.width;
+      const ly = ((1 - world.y) / 2) * size.height - 30;
+      label.style.transform = `translate3d(${lx}px, ${ly}px, 0) translate(-50%, -50%)`;
     });
-    if (spokes.current) spokes.current.attributes.position.needsUpdate = true;
-    if (spokeMat.current) spokeMat.current.opacity = 0.35 * split;
-    if (trail.current) {
-      const mat = trail.current.material as THREE.Material;
-      mat.transparent = true;
-      mat.opacity = 1 - smooth(0, 0.6, split);
-    }
   });
 
   return (
-    <group position={[0, -0.18, 0]}>
-      <group ref={tilt}>
-        <group ref={ring}>
-          <mesh>
-            <torusGeometry args={[RING_RADIUS, 0.012, 12, 160]} />
-            <meshBasicMaterial ref={ringMat} color={TEAL} transparent opacity={0.55} toneMapped={false} />
-          </mesh>
-          <mesh>
-            <torusGeometry args={[RING_RADIUS, 0.06, 12, 160]} />
-            <meshBasicMaterial
-              ref={glowMat}
-              color={TEAL}
-              transparent
-              opacity={0.14}
-              blending={THREE.AdditiveBlending}
-              depthWrite={false}
-              toneMapped={false}
-            />
-          </mesh>
-        </group>
-
-        <lineSegments>
-          <bufferGeometry ref={spokes} />
-          <lineBasicMaterial ref={spokeMat} color={TEAL} transparent opacity={0} toneMapped={false} />
-        </lineSegments>
-
-        {/* The comet and its trail ride on the first node; drei types the Trail ref as the geometry, but it is forwarded to the line mesh. */}
-        <group ref={comet}>
-          <Trail ref={trail as never} width={1.4} length={5} color={TEAL} attenuation={(t) => t * t}>
-            <mesh>
-              <sphereGeometry args={[0.02, 8, 8]} />
-              <meshBasicMaterial color="#e8f3f4" toneMapped={false} />
-            </mesh>
-          </Trail>
-        </group>
-
-        {departments.map((dept, i) => (
-          <group key={dept} ref={(el) => void (nodes.current[i] = el)}>
-            <Node />
-          </group>
-        ))}
-      </group>
-    </group>
-  );
-}
-
-function Node() {
-  return (
-    <group>
-      <mesh>
-        <sphereGeometry args={[0.05, 20, 20]} />
-        <meshBasicMaterial color="#e8f3f4" toneMapped={false} />
-      </mesh>
-      <mesh>
-        <sphereGeometry args={[0.13, 20, 20]} />
-        <meshBasicMaterial
-          color={TEAL}
-          transparent
-          opacity={0.28}
-          blending={THREE.AdditiveBlending}
-          depthWrite={false}
-          toneMapped={false}
-        />
-      </mesh>
-    </group>
+    <points ref={points} geometry={geometry} frustumCulled={false}>
+      <shaderMaterial
+        ref={material}
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        uniforms={uniforms}
+        transparent
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
   );
 }

@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact: book a Business X-Ray",
-  description: "Book a Business X-Ray or talk to AdySphere Co. about Dynamics 365, Power Platform and AI Enablement in Dubai, UAE.",
+  description: "Book a Business X-Ray or talk to AdySphere Co. about Dynamics 365, Power Platform and AI Enablement in Dubai, UAE and the United Kingdom.",
   alternates: { canonical: "/contact" },
 };
 
@@ -40,6 +40,11 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
               <dd className="mt-1 text-lg">
                 <a href={site.phoneHref} className="text-ivory hover:underline">
                   {site.phone}
+                </a>
+              </dd>
+              <dd className="mt-1 text-lg">
+                <a href={site.phoneUkHref} className="text-ivory hover:underline">
+                  {site.phoneUk}
                 </a>
               </dd>
             </div>

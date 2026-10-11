@@ -26,7 +26,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
   return (
     <>
       <PageHeader eyebrow="Insights" title={`Tagged: ${tag}`} />
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
           <CategoryNav categories={getCategories()} />
           <div className="mt-10">

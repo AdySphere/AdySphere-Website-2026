@@ -80,7 +80,7 @@ export function DepartmentsDiagram() {
         </ul>
       </div>
 
-      <div id="department-example" aria-live="polite" className="flex flex-col justify-between bg-mint p-8 sm:p-10">
+      <div id="department-example" aria-live="polite" className="flex flex-col justify-between glass p-8 sm:p-10">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active}
@@ -89,12 +89,12 @@ export function DepartmentsDiagram() {
             exit={reduce ? undefined : { opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="eyebrow text-teal-ink">{active}</p>
-            <p className="mt-5 font-serif text-2xl leading-snug text-navy-900 sm:text-3xl">&ldquo;{example.question}&rdquo;</p>
-            <p className="mt-5 leading-relaxed text-slate">{example.action}</p>
+            <p className="eyebrow text-teal">{active}</p>
+            <p className="mt-5 font-serif text-2xl leading-snug text-ivory sm:text-3xl">&ldquo;{example.question}&rdquo;</p>
+            <p className="mt-5 leading-relaxed text-ivory-dim">{example.action}</p>
           </motion.div>
         </AnimatePresence>
-        <p className="mt-10 border-t border-navy-900/10 pt-5 text-sm leading-relaxed text-slate">
+        <p className="mt-10 border-t border-ivory/10 pt-5 text-sm leading-relaxed text-ivory-dim">
           Every department plugs into the same layer, so each one sees across the business. A person approves the actions
           that matter.
         </p>

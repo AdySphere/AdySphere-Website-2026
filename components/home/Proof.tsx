@@ -41,7 +41,7 @@ function CaseCard({ study, large = false }: { study: ReturnType<typeof getCaseSt
   return (
     <Link
       href={`/case-studies/${study.slug}`}
-      className={`group flex h-full flex-col justify-between border border-ivory/10 p-7 transition-colors duration-300 hover:border-teal/60 sm:p-9 ${
+      className={`spotlight group flex h-full flex-col justify-between border border-ivory/10 p-7 transition-colors duration-300 hover:border-teal/60 sm:p-9 ${
         large ? "tone-gradient min-h-[22rem]" : "bg-navy-800"
       }`}
     >

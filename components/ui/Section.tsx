@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from "react";
 export type Tone = "light" | "dark" | "gradient" | "space";
 
 const toneClass: Record<Tone, string> = {
-  light: "tone-light",
+  light: "tone-ink",
   dark: "tone-dark",
   gradient: "tone-gradient",
   space: "tone-space",

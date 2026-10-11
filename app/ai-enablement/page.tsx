@@ -51,7 +51,7 @@ export default function AiEnablementPage() {
       />
 
       {/* Two ways in */}
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             Two ways in. One standard.
@@ -74,17 +74,17 @@ export default function AiEnablementPage() {
                 ))}
               </ul>
             </Reveal>
-            <Reveal delay={0.08} className="flex flex-col bg-mint p-8 sm:p-10">
-              <p className="eyebrow text-teal-ink">Standalone</p>
-              <h3 className="mt-4 font-serif text-3xl leading-snug text-navy-900">For enterprises on other systems.</h3>
-              <ul className="mt-8 grid gap-3 text-slate">
+            <Reveal delay={0.08} className="spotlight glass flex flex-col p-8 sm:p-10">
+              <p className="eyebrow text-teal">Standalone</p>
+              <h3 className="mt-4 font-serif text-3xl leading-snug text-ivory">For enterprises on other systems.</h3>
+              <ul className="mt-8 grid gap-3 text-ivory-dim">
                 {[
                   "Connects to SAP, Oracle, other ERPs and in-house systems through Power Platform connectors and APIs",
                   "Same governance: your tenant, your access rules, a full audit trail",
                   "No ERP replacement required to start",
                 ].map((t) => (
                   <li key={t} className="flex gap-3 leading-relaxed">
-                    <Check size={18} className="mt-1 shrink-0 text-teal-ink" aria-hidden />
+                    <Check size={18} className="mt-1 shrink-0 text-teal" aria-hidden />
                     {t}
                   </li>
                 ))}
@@ -124,12 +124,12 @@ export default function AiEnablementPage() {
       </section>
 
       {/* One layer, every department */}
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             One layer. Every department sees across the business.
           </h2>
-          <p className="mt-6 max-w-2xl leading-relaxed text-slate">
+          <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">
             A finance question often needs project data. A service answer often needs the contract. Because every
             department plugs into the same layer, the answer comes from the whole business, not one silo.
           </p>
@@ -160,19 +160,19 @@ export default function AiEnablementPage() {
       </section>
 
       {/* How it starts */}
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             Start small. Prove value. Scale.
           </h2>
-          <ol className="mt-14 grid gap-px bg-cloud sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-14 grid gap-px bg-ivory/10 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
-              <li key={step.name} className={`flex flex-col p-7 ${i === 0 ? "tone-dark" : "bg-ivory"}`}>
+              <li key={step.name} className={`spotlight flex flex-col p-7 ${i === 0 ? "tone-dark" : "bg-navy-950"}`}>
                 <h3 className="flex items-center gap-2 font-serif text-2xl">
                   {i === 0 ? "AI Enablement Blueprint" : step.name}
                   {i < steps.length - 1 && <ArrowRight size={18} aria-hidden className="text-teal-deep lg:hidden" />}
                 </h3>
-                <p className={`mt-3 text-sm leading-relaxed ${i === 0 ? "text-ivory-dim" : "text-slate"}`}>{step.body}</p>
+                <p className={`mt-3 text-sm leading-relaxed ${i === 0 ? "text-ivory-dim" : "text-ivory-dim"}`}>{step.body}</p>
               </li>
             ))}
           </ol>

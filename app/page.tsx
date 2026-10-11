@@ -3,6 +3,7 @@ import { TrustStrip } from "@/components/home/TrustStrip";
 import { Problem } from "@/components/home/Problem";
 import { Journey } from "@/components/home/Journey";
 import { AiEnablement } from "@/components/home/AiEnablement";
+import { CitySection } from "@/components/city/CitySection";
 import { Proof } from "@/components/home/Proof";
 import { Founder } from "@/components/home/Founder";
 import { ResearchTeaser } from "@/components/home/ResearchTeaser";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <TrustStrip />
       <Problem />
       <Journey />
+      <CitySection />
       <AiEnablement />
       <Proof />
       <Founder />

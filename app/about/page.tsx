@@ -30,10 +30,10 @@ export default function AboutPage() {
         intro="AdySphere Co. implements Dynamics 365 and Power Platform properly, then enables AI that removes work across your departments."
       />
 
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
           <h2 className="font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">Why we exist.</h2>
-          <div className="grid max-w-2xl gap-5 text-lg leading-relaxed text-slate">
+          <div className="grid max-w-2xl gap-5 text-lg leading-relaxed text-ivory-dim">
             <p>
               Too many Dynamics 365 projects are sold on licences and delivered without understanding how the business
               actually runs. The system goes live, and the spreadsheets stay.
@@ -76,7 +76,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:gap-20 lg:px-8">
           <div>
             <h2 className="font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">Microsoft partnership.</h2>
@@ -92,17 +92,17 @@ export default function AboutPage() {
           <dl className="grid gap-8">
             <div>
               <dt className="font-medium">Verified Microsoft AI Cloud Partner</dt>
-              <dd className="mt-2 leading-relaxed text-slate">Partner Launch benefits.</dd>
+              <dd className="mt-2 leading-relaxed text-ivory-dim">Partner Launch benefits.</dd>
             </div>
             <div>
               <dt className="font-medium">Microsoft indirect reseller</dt>
-              <dd className="mt-2 leading-relaxed text-slate">
+              <dd className="mt-2 leading-relaxed text-ivory-dim">
                 Licensing, implementation and AI can sit under one roof, with one point of contact.
               </dd>
             </div>
             <div>
               <dt className="font-medium">Registration</dt>
-              <dd className="mt-2 leading-relaxed text-slate">{site.legalNote}</dd>
+              <dd className="mt-2 leading-relaxed text-ivory-dim">{site.legalNote}</dd>
             </div>
           </dl>
         </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
           <h2 className="font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">How we work.</h2>
           <ul className="mt-14 grid gap-px bg-ivory/10 sm:grid-cols-2">
             {values.map((v) => (
-              <li key={v.title} className="bg-navy-900 p-8">
+              <li key={v.title} className="spotlight bg-navy-900 p-8">
                 <h3 className="font-serif text-2xl">{v.title}</h3>
                 <p className="mt-3 max-w-md leading-relaxed text-ivory-dim">{v.body}</p>
               </li>

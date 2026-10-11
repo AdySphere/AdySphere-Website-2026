@@ -1,11 +1,13 @@
 export const site = {
   name: "AdySphere Co.",
-  legalNote: "Registered in Ajman NuVentures Centre Freezone, operating from Dubai, UAE.",
+  legalNote: "Registered in Ajman NuVentures Centre Freezone, operating from Dubai, UAE, with a presence in the United Kingdom.",
   url: "https://adysphere.com",
   email: "mallicka@adysphere.com",
   phone: "+971 58 532 3522",
   phoneHref: "tel:+971585323522",
-  location: "Dubai, UAE",
+  phoneUk: "+44 7301 839764",
+  phoneUkHref: "tel:+447301839764",
+  location: "Dubai, UAE and United Kingdom",
   linkedin: "https://www.linkedin.com/company/adysphere-co",
   instagram: "https://www.instagram.com/adysphere/",
   positioning: "We implement Dynamics 365 and Power Platform properly, then enable AI that removes work instead of adding it.",
@@ -32,6 +34,20 @@ export const nav = [
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
 ] as const;
+
+/**
+ * Artwork the hero turns into particles. Bright (teal) pixels become particles; use a dark or transparent background.
+ * TODO: replace the placeholder with the real circuit-face image, e.g. "/brand/hero-face.png".
+ */
+export const heroArt = "/brand/hero-face.svg";
+
+/**
+ * Background video for the Dubai skyline section. Leave null to show the code-drawn skyline.
+ * To use real footage: add an MP4 (H.264, 1920x1080, 10-20 s loop, under ~6 MB) and a poster frame to /public/media,
+ * then set e.g. { src: "/media/dubai-skyline.mp4", poster: "/media/dubai-skyline.jpg" }.
+ * Free licensed sources: pexels.com/search/videos/dubai%20skyline, pixabay.com/videos/search/dubai.
+ */
+export const cityVideo: { src: string; poster: string } | null = null;
 
 /** One label for the booking intent, used everywhere. */
 export const bookCta = { href: "/contact", label: "Book a Business X-Ray" } as const;
@@ -210,6 +226,6 @@ export const faqs = [
   },
   {
     q: "Where are you based?",
-    a: "AdySphere Co. is registered in Ajman NuVentures Centre Freezone and operates from Dubai, UAE.",
+    a: "AdySphere Co. is registered in Ajman NuVentures Centre Freezone and operates from Dubai, UAE, with a presence in the United Kingdom.",
   },
 ] as const;

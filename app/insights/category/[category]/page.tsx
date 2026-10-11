@@ -26,7 +26,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   return (
     <>
       <PageHeader eyebrow="Insights" title={category} />
-      <section className="tone-light">
+      <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
           <CategoryNav categories={getCategories()} active={category} />
           <div className="mt-10">

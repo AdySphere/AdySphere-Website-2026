@@ -91,6 +91,29 @@ Put your files in `public/brand/` with these names (see `public/brand/README.md`
 - `mark.svg`: the brand mark. Used for the static hero fallback and social images. **Currently a placeholder.**
 - `mark.glb`: optional 3D model. If present, the 3D hero loads it instead of extruding `mark.svg`.
 
+## Swap in the hero artwork (particle face)
+
+The hero turns an image into particles: bright, teal pixels become particles, which stream in and form the image.
+Dark parts of the image, or transparent ones, are ignored.
+
+1. Save the image as `public/brand/hero-face.png` (square, at least 800 x 800, on black or transparent).
+2. In `lib/site.ts`, set `heroArt = "/brand/hero-face.png"`.
+
+The same image is shown as a still picture before the particles start, and for visitors who prefer reduced motion.
+The particles start on the visitor's first interaction (move, scroll, tap), which keeps page load fast.
+
+## Swap in a real Dubai skyline video
+
+The homepage skyline section draws an animated Dubai skyline in code. To use real footage instead:
+
+1. Get a licensed clip (for example from Pexels or Pixabay, both free for commercial use). Aim for 1920x1080, H.264 MP4,
+   a 10 to 20 second loop, under about 6 MB. Export one frame as a JPG poster.
+2. Save them as `public/media/dubai-skyline.mp4` and `public/media/dubai-skyline.jpg`.
+3. In `lib/site.ts`, set `cityVideo = { src: "/media/dubai-skyline.mp4", poster: "/media/dubai-skyline.jpg" }`.
+
+The video only loads when the section is near the screen, pauses when it scrolls away, and stays still for visitors
+who prefer reduced motion.
+
 ## Contact form
 
 The forms on the homepage and `/contact` post to `app/api/contact/route.ts`, which emails `mallicka@adysphere.com` through [Resend](https://resend.com).
@@ -110,6 +133,7 @@ Search the code for `TODO` to find them all:
 - Founder photo and personal LinkedIn (`lib/site.ts`)
 - Research projects, publications and tools (`content/research/`)
 - The real `mark.svg`
+- The real hero artwork (`heroArt` in `lib/site.ts`) and, optionally, a skyline video (`cityVideo`)
 
 ## Deploying
 

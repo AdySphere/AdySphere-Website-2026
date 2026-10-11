@@ -10,7 +10,7 @@ export function Footer() {
           <Image src="/brand/wordmark-dark.png" alt="AdySphere Co." width={1704} height={271} sizes="160px" className="h-6 w-auto" />
           <p className="mt-5 text-sm leading-relaxed text-ivory-dim">
             Microsoft AI Cloud Partner and indirect reseller. Registered in Ajman NuVentures Centre Freezone,
-            operating from Dubai, UAE.
+            operating from Dubai, UAE, with a presence in the United Kingdom.
           </p>
         </div>
 
@@ -35,6 +35,9 @@ export function Footer() {
           <span>{site.email}</span>
           <a href={site.phoneHref} className="transition-colors hover:text-ivory">
             {site.phone}
+          </a>
+          <a href={site.phoneUkHref} className="transition-colors hover:text-ivory">
+            {site.phoneUk}
           </a>
           <span>{site.location}</span>
           <span className="mt-2 flex gap-5">

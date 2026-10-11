@@ -64,7 +64,7 @@ export default function ResearchPage() {
           ) : (
             <ul className="mt-10 grid gap-4 md:grid-cols-2">
               {projects.map((p) => (
-                <li key={p.slug} className="flex flex-col border border-ivory/10 bg-navy-950/60 p-7 sm:p-8">
+                <li key={p.slug} className="spotlight flex flex-col border border-ivory/10 bg-navy-950/60 p-7 sm:p-8">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <StatusTag status={p.meta.status} draft={p.meta.draft} />
                     <span className="font-mono text-xs text-mist">{p.meta.area}</span>

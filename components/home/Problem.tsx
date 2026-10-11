@@ -21,27 +21,27 @@ const problems = [
 
 export function Problem() {
   return (
-    <section className="tone-light">
+    <section className="tone-ink">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-8">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <p className="eyebrow text-teal-ink">The problem</p>
+          <p className="eyebrow text-teal">The problem</p>
           <h2 className="mt-4 font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             The work gets lost between systems.
           </h2>
-          <p className="mt-6 max-w-md leading-relaxed text-slate">
+          <p className="mt-6 max-w-md leading-relaxed text-ivory-dim">
             Most UAE businesses we meet already own good software. The cost sits in the gaps between it.
           </p>
         </div>
-        <ol className="divide-y divide-cloud border-y border-cloud">
+        <ol className="divide-y divide-ivory/10 border-y border-ivory/10">
           {problems.map(({ icon: Icon, title, body }, i) => (
             <li key={title}>
-              <Reveal delay={i * 0.06} className="grid grid-cols-[auto_1fr] gap-6 py-9">
-                <span className="flex size-12 items-center justify-center bg-navy-900 text-teal">
+              <Reveal delay={i * 0.06} className="spotlight grid grid-cols-[auto_1fr] gap-6 px-4 py-9 sm:px-6">
+                <span className="flex size-12 items-center justify-center border border-teal/30 bg-teal/10 text-teal">
                   <Icon size={24} weight="regular" aria-hidden />
                 </span>
                 <div>
                   <h3 className="font-serif text-2xl leading-snug">{title}</h3>
-                  <p className="mt-3 max-w-[52ch] leading-relaxed text-slate">{body}</p>
+                  <p className="mt-3 max-w-[52ch] leading-relaxed text-ivory-dim">{body}</p>
                 </div>
               </Reveal>
             </li>
