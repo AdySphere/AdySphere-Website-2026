@@ -8,6 +8,7 @@ Drop the real files here with these exact names. Everything on the site points a
 | `wordmark-light.png` / `.svg` | Black wordmark for ivory backgrounds |
 | `wordmark-gradient.png` / `.svg` | Black-to-teal gradient wordmark |
 | `hero-face.png` / `.webp` | The circuit-face artwork the hero turns into particles (transparent background). The site serves the WebP. |
+| `wallpaper.webp` | Brand wallpaper (wordmark and circuit face), used full-width on the About page. |
 | `microsoft-ai-cloud-partner.png` | Microsoft AI Cloud Partner badge (trust strip) |
 | `mark.svg` | The slanted "A" with orbit. Static hero fallback, favicon source, and the shape the 3D hero extrudes |
 | `mark.glb` | Optional. If present, the 3D hero loads this model instead of extruding `mark.svg` |

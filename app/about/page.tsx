@@ -46,6 +46,19 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Brand moment: the AdySphere Co wordmark and circuit face, shown whole. */}
+      <section aria-label="AdySphere Co." className="bg-[#03111d]">
+        <div className="relative mx-auto aspect-[16/9] w-full max-w-[1672px]">
+          <Image
+            src="/brand/wallpaper.webp"
+            alt="The AdySphere Co wordmark beside a teal circuit-line face in profile"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+
       <section className="tone-dark">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-16 md:py-28 lg:px-8">
           <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-navy-800">
