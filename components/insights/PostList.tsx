@@ -21,7 +21,7 @@ export function PostList({ posts }: { posts: Entry<InsightMeta>[] }) {
             {post.meta.draft && <span className="border border-dashed border-ivory/30 px-1.5">Draft</span>}
           </div>
           <div>
-            <h2 className="font-serif text-2xl leading-snug sm:text-3xl">
+            <h2 className="font-display text-2xl leading-snug sm:text-3xl">
               <Link href={`/insights/${post.slug}`} className="hover:text-teal">
                 {post.meta.title}
               </Link>

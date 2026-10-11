@@ -4,10 +4,10 @@ import { site } from "@/lib/site";
 
 export function FinalCta() {
   return (
-    <section className="tone-gradient" id="book">
+    <section data-swarm="vortex" className="relative" id="book">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
         <div>
-          <h2 className="font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">Book a Business <span className="whitespace-nowrap">X-Ray.</span></h2>
+          <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">Book a Business <span className="whitespace-nowrap">X-Ray.</span></h2>
           <p className="mt-6 max-w-md leading-relaxed text-ivory-dim">
             A paid, department-by-department diagnostic of how your business runs today. You get a written report and a
             prioritised roadmap of what to fix first.

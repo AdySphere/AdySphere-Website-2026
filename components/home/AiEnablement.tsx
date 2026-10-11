@@ -4,10 +4,10 @@ import { DepartmentsDiagram } from "./DepartmentsDiagram";
 
 export function AiEnablement() {
   return (
-    <section className="tone-ink" id="ai-enablement">
+    <section data-swarm="sphere" className="relative" id="ai-enablement">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <div className="max-w-3xl">
-          <h2 className="font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             One AI layer across every department. Not one bot per task.
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">

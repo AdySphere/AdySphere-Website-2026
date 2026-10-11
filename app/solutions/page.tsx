@@ -38,7 +38,7 @@ export default function SolutionsPage() {
                 <p className={`font-mono text-xs uppercase tracking-[0.16em] ${dark ? "text-teal" : "text-teal"}`}>
                   {offer.step}
                 </p>
-                <h2 className="mt-3 font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">{offer.name}</h2>
+                <h2 className="mt-3 font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">{offer.name}</h2>
                 <p className={`mt-6 max-w-lg text-lg leading-relaxed ${dark ? "text-ivory-dim" : "text-ivory-dim"}`}>
                   {offer.summary}
                 </p>
@@ -78,13 +78,13 @@ export default function SolutionsPage() {
 
       <section className="tone-ink border-t border-ivory/10" id="modules">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-24 lg:px-8">
-          <h2 className="max-w-2xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="max-w-2xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             The Dynamics 365 modules we implement.
           </h2>
           <ul className="mt-14 grid gap-px bg-ivory/10 sm:grid-cols-2 lg:grid-cols-4">
             {modules.map((m, i) => (
               <li key={m.name} className={`spotlight flex flex-col p-7 ${i === 0 ? "tone-dark" : "bg-navy-950"}`}>
-                <h3 className="font-serif text-xl leading-snug">{m.name}</h3>
+                <h3 className="font-display text-xl leading-snug">{m.name}</h3>
                 <p className={`mt-3 text-sm ${i === 0 ? "text-teal" : "text-teal"}`}>{m.forWho}</p>
                 <p className={`mt-3 text-sm leading-relaxed ${i === 0 ? "text-ivory-dim" : "text-ivory-dim"}`}>{m.included}</p>
               </li>
@@ -98,7 +98,7 @@ export default function SolutionsPage() {
 
       <section className="tone-dark" id="faq">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-          <h2 className="font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">Questions buyers ask us.</h2>
+          <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">Questions buyers ask us.</h2>
           <div className="divide-y divide-ivory/10 border-y border-ivory/10">
             {faqs.map((f) => (
               <details key={f.q} className="group py-6">

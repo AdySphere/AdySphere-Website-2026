@@ -45,7 +45,7 @@ export function DepartmentsDiagram() {
         </svg>
 
         <div className="absolute left-1/2 top-1/2 flex size-[34%] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-teal/50 bg-navy-950 text-center">
-          <span className="font-serif text-lg leading-tight text-ivory sm:text-xl">Shared AI layer</span>
+          <span className="font-display text-lg leading-tight text-ivory sm:text-xl">Shared AI layer</span>
           <span className="mt-1 px-3 font-mono text-[10px] uppercase tracking-[0.14em] text-mist">in your tenant</span>
         </div>
 
@@ -90,7 +90,7 @@ export function DepartmentsDiagram() {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="eyebrow text-teal">{active}</p>
-            <p className="mt-5 font-serif text-2xl leading-snug text-ivory sm:text-3xl">&ldquo;{example.question}&rdquo;</p>
+            <p className="mt-5 font-display text-2xl leading-snug text-ivory sm:text-3xl">&ldquo;{example.question}&rdquo;</p>
             <p className="mt-5 leading-relaxed text-ivory-dim">{example.action}</p>
           </motion.div>
         </AnimatePresence>

@@ -1,53 +1,59 @@
-"use client";
-
 import Link from "next/link";
-import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { HeroStage } from "./HeroStage";
-import { bookCta, site } from "@/lib/site";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { bookCta, heroArt, site } from "@/lib/site";
 
 /**
- * Scroll story: the copy fades first, then the orbit widens and splits into the five departments AI connects,
- * then the whole stage fades into the next section. Reduced motion gets a single static screen.
+ * Centred hero inside the particle swarm (see components/swarm). Before the swarm starts, and for reduced motion,
+ * the artwork shows as a still image behind the text.
  */
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-
-  const copyOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const copyY = useTransform(scrollYProgress, [0, 0.2], [0, -48]);
-  const stageOpacity = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
-
   return (
-    <section ref={ref} aria-labelledby="hero-title" className={reduce ? "relative" : "relative h-[260vh]"}>
-      <div className="sticky top-0 h-[100dvh] min-h-[560px] overflow-hidden">
-        <motion.div style={reduce ? undefined : { opacity: stageOpacity }} className="absolute inset-0">
-          <HeroStage progress={scrollYProgress} />
-        </motion.div>
+    <section
+      data-swarm="face"
+      aria-labelledby="hero-title"
+      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-4 pb-16 pt-28 sm:px-6"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={heroArt}
+        alt=""
+        aria-hidden
+        width={800}
+        height={800}
+        fetchPriority="high"
+        className="hero-still pointer-events-none absolute left-1/2 top-1/2 w-[min(92vw,88vh)] -translate-x-1/2 -translate-y-1/2 opacity-20 transition-opacity sm:opacity-35 duration-1000"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_38%_30%_at_50%_50%,rgb(0_0_0/0.55),transparent_80%)]"
+      />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-4 pb-16 pt-24 sm:px-6 lg:items-center lg:px-8 lg:pb-0">
-          <motion.div style={reduce ? undefined : { opacity: copyOpacity, y: copyY }} className="max-w-xl lg:max-w-[42rem]">
-            <h1
-              id="hero-title"
-              className="hero-rise font-serif text-[2.2rem] leading-[1.1] tracking-tight text-ivory sm:text-5xl lg:text-[3.3rem]"
-            >
-              <span className="block lg:whitespace-nowrap">Your ERP records the business.</span>{" "}
-              <span className="block">It doesn&rsquo;t run it.</span>{" "}
-              <em className="block pb-1 italic text-teal">We enable both.</em>
-            </h1>
-            <p className="hero-rise mt-6 max-w-[46ch] text-base leading-relaxed text-ivory-dim sm:text-lg [animation-delay:120ms]">
-              {site.positioning}
-            </p>
-            <div className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row [animation-delay:240ms]">
-              <Link href={bookCta.href} className="btn-primary">
-                {bookCta.label}
-              </Link>
-              <Link href="/ai-enablement" className="btn-secondary">
-                See AI Enablement
-              </Link>
-            </div>
-          </motion.div>
+      <div className="relative mx-auto max-w-5xl text-center">
+        <p className="hero-rise inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs text-ivory-dim backdrop-blur">
+          <span className="size-1.5 rounded-full bg-teal" aria-hidden />
+          Microsoft AI Cloud Partner, Dubai &amp; UK
+        </p>
+        <h1
+          id="hero-title"
+          className="hero-rise mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-ivory [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
+        >
+          <span className="sm:whitespace-nowrap">Your ERP records the business.</span>
+          <br />
+          It doesn&rsquo;t run it. <span className="text-gradient sm:whitespace-nowrap">We enable both.</span>
+        </h1>
+        <p className="hero-rise mx-auto mt-7 max-w-xl text-base leading-relaxed text-ivory-dim [animation-delay:160ms] sm:text-lg">
+          {site.positioning}
+        </p>
+        <div className="hero-rise mt-10 flex flex-col items-center justify-center gap-3 [animation-delay:240ms] sm:flex-row sm:gap-6">
+          <Link href={bookCta.href} className="btn-primary group !pr-2">
+            {bookCta.label}
+            <span className="ml-1 inline-flex size-7 items-center justify-center rounded-full bg-ink text-ivory transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight size={14} aria-hidden />
+            </span>
+          </Link>
+          <Link href="/ai-enablement" className="text-sm font-medium text-ivory underline-offset-8 hover:underline">
+            See AI Enablement
+          </Link>
         </div>
       </div>
     </section>

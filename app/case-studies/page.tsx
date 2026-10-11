@@ -36,7 +36,7 @@ export default function CaseStudiesPage() {
                   <p className={`font-mono text-xs uppercase tracking-[0.14em] ${i % 3 === 0 ? "text-teal" : "text-teal"}`}>
                     {study.meta.industry}
                   </p>
-                  <h2 className="mt-4 font-serif text-3xl leading-snug">{study.meta.title}</h2>
+                  <h2 className="mt-4 font-display text-3xl leading-snug">{study.meta.title}</h2>
                   <p className={`mt-4 leading-relaxed ${i % 3 === 0 ? "text-ivory-dim" : "text-ivory-dim"}`}>{study.meta.summary}</p>
                 </div>
                 <div className="mt-8 flex flex-wrap items-center justify-between gap-4">

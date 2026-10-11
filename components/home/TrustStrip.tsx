@@ -17,7 +17,7 @@ const stack = [
 
 export function TrustStrip() {
   return (
-    <section aria-label="Credentials" className="border-y border-ivory/10 bg-black">
+    <section data-swarm="hold" aria-label="Credentials" className="border-y border-ivory/10 bg-black">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-8 gap-y-5 px-4 py-7 sm:px-6 lg:px-8">
         <span className="bg-white px-2 py-1">
           <Image
@@ -46,7 +46,7 @@ export function TrustStrip() {
             <li
               key={i}
               aria-hidden={i >= stack.length}
-              className="whitespace-nowrap font-serif text-2xl text-ivory/40 sm:text-3xl"
+              className="whitespace-nowrap font-display text-2xl text-ivory/40 sm:text-3xl"
             >
               {item}
             </li>

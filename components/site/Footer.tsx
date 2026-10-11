@@ -4,7 +4,7 @@ import { nav, site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ivory/10 bg-navy-950">
+    <footer className="relative z-10 border-t border-ivory/10 bg-navy-950">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
         <div className="max-w-sm">
           <Image src="/brand/wordmark-dark.png" alt="AdySphere Co." width={1704} height={271} sizes="160px" className="h-6 w-auto" />

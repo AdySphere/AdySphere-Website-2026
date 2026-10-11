@@ -69,7 +69,7 @@ export function Header() {
           <ul className="flex flex-col">
             {nav.map((item) => (
               <li key={item.href} className="border-b border-ivory/10">
-                <Link href={item.href} className="block py-4 font-serif text-2xl text-ivory">
+                <Link href={item.href} className="block py-4 font-display text-2xl text-ivory">
                   {item.label}
                 </Link>
               </li>

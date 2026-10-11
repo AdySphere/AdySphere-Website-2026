@@ -46,7 +46,7 @@ export default function ResearchPage() {
           <dl className="mt-10 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
             {areas.map((a) => (
               <div key={a.name} className="border-l border-teal/40 pl-5">
-                <dt className="font-serif text-2xl text-ivory">{a.name}</dt>
+                <dt className="font-display text-2xl text-ivory">{a.name}</dt>
                 <dd className="mt-3 leading-relaxed text-ivory-dim">{a.body}</dd>
               </div>
             ))}
@@ -69,7 +69,7 @@ export default function ResearchPage() {
                     <StatusTag status={p.meta.status} draft={p.meta.draft} />
                     <span className="font-mono text-xs text-mist">{p.meta.area}</span>
                   </div>
-                  <h3 className="mt-5 font-serif text-2xl leading-snug text-ivory">
+                  <h3 className="mt-5 font-display text-2xl leading-snug text-ivory">
                     <Link href={`/research/${p.slug}`} className="hover:text-teal">
                       {p.meta.title}
                     </Link>
@@ -135,7 +135,7 @@ export default function ResearchPage() {
 
       <section aria-labelledby="collaborate" className="border-t border-ivory/10">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-          <h2 id="collaborate" className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight text-ivory sm:text-5xl">
+          <h2 id="collaborate" className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight text-ivory sm:text-5xl">
             Collaborate with us.
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">

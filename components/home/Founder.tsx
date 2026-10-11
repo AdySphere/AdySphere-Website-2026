@@ -4,7 +4,7 @@ import { founder, site } from "@/lib/site";
 
 export function Founder() {
   return (
-    <section className="tone-light">
+    <section data-swarm="hold" className="tone-light">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-16 md:py-28 lg:px-8">
         <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-mint">
           {founder.photo ? (
@@ -17,7 +17,7 @@ export function Founder() {
         </div>
         <div>
           <p className="eyebrow text-teal-ink">Founder-led</p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">{founder.name}</h2>
+          <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">{founder.name}</h2>
           <p className="mt-2 text-slate">{founder.title}, {site.name}</p>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-900">{founder.shortBio}</p>
           <a

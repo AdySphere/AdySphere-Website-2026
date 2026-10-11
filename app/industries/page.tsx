@@ -25,7 +25,7 @@ export default function IndustriesPage() {
             {industries.map((industry, i) => (
               <li key={industry.name}>
                 <Reveal className="grid gap-4 py-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:py-14">
-                  <h2 className="font-serif text-3xl leading-tight sm:text-4xl">
+                  <h2 className="font-display text-3xl leading-tight sm:text-4xl">
                     <span aria-hidden className="mr-4 font-mono text-sm text-teal">
                       {String(i + 1).padStart(2, "0")}
                     </span>

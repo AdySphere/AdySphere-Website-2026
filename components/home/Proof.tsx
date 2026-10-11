@@ -8,10 +8,10 @@ export function Proof() {
   if (!lead) return null;
 
   return (
-    <section className="tone-dark">
+    <section data-swarm="helix" className="relative">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <p className="eyebrow text-teal">Proof</p>
-        <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+        <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
           Delivered in production, across industries.
         </h2>
 
@@ -42,12 +42,12 @@ function CaseCard({ study, large = false }: { study: ReturnType<typeof getCaseSt
     <Link
       href={`/case-studies/${study.slug}`}
       className={`spotlight group flex h-full flex-col justify-between border border-ivory/10 p-7 transition-colors duration-300 hover:border-teal/60 sm:p-9 ${
-        large ? "tone-gradient min-h-[22rem]" : "bg-navy-800"
+        large ? "tone-gradient min-h-[22rem]" : "glass"
       }`}
     >
       <div>
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-teal">{study.meta.industry}</p>
-        <h3 className={`mt-4 font-serif leading-snug text-ivory ${large ? "text-3xl sm:text-4xl" : "text-2xl"}`}>
+        <h3 className={`mt-4 font-display leading-snug text-ivory ${large ? "text-3xl sm:text-4xl" : "text-2xl"}`}>
           {study.meta.title}
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-ivory-dim">{study.meta.scope}</p>

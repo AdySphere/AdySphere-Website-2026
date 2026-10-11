@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Header } from "@/components/site/Header";
@@ -9,15 +8,6 @@ import { site } from "@/lib/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
-
-const playfair = localFont({
-  src: [
-    { path: "./fonts/playfair-display-latin-wght-normal.woff2", style: "normal", weight: "400 900" },
-    { path: "./fonts/playfair-display-latin-wght-italic.woff2", style: "italic", weight: "400 900" },
-  ],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -45,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en-GB"
-      className={`${playfair.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="min-h-[100dvh] overflow-x-clip">
         <JsonLd data={organizationSchema} />

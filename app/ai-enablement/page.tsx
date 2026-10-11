@@ -44,7 +44,7 @@ export default function AiEnablementPage() {
         eyebrow="AI Enablement"
         title={
           <>
-            AI that removes work. <em className="italic text-teal">Not AI that adds it.</em>
+            AI that removes work. <em className="text-gradient not-italic">Not AI that adds it.</em>
           </>
         }
         intro="Most AI arrives as another tool to check. We enable AI inside the systems your teams already run, so it reads live data, acts within your security, and gives people time back."
@@ -53,13 +53,13 @@ export default function AiEnablementPage() {
       {/* Two ways in */}
       <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             Two ways in. One standard.
           </h2>
           <div className="mt-14 grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
             <Reveal className="tone-gradient flex flex-col p-8 sm:p-10">
               <p className="eyebrow text-teal">Built into Dynamics 365</p>
-              <h3 className="mt-4 font-serif text-3xl leading-snug">For businesses on Dynamics 365 and Power Platform.</h3>
+              <h3 className="mt-4 font-display text-3xl leading-snug">For businesses on Dynamics 365 and Power Platform.</h3>
               <ul className="mt-8 grid gap-3 text-ivory-dim">
                 {[
                   "Built on Dataverse, Copilot Studio and Power Automate, with Claude for deeper reasoning",
@@ -76,7 +76,7 @@ export default function AiEnablementPage() {
             </Reveal>
             <Reveal delay={0.08} className="spotlight glass flex flex-col p-8 sm:p-10">
               <p className="eyebrow text-teal">Standalone</p>
-              <h3 className="mt-4 font-serif text-3xl leading-snug text-ivory">For enterprises on other systems.</h3>
+              <h3 className="mt-4 font-display text-3xl leading-snug text-ivory">For enterprises on other systems.</h3>
               <ul className="mt-8 grid gap-3 text-ivory-dim">
                 {[
                   "Connects to SAP, Oracle, other ERPs and in-house systems through Power Platform connectors and APIs",
@@ -97,7 +97,7 @@ export default function AiEnablementPage() {
       {/* Enablement vs usage */}
       <section className="tone-dark">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             AI enablement is not AI usage.
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">
@@ -126,7 +126,7 @@ export default function AiEnablementPage() {
       {/* One layer, every department */}
       <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             One layer. Every department sees across the business.
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">
@@ -142,7 +142,7 @@ export default function AiEnablementPage() {
       {/* Governance */}
       <section className="tone-dark">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             Your data stays in your tenant.
           </h2>
           <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2">
@@ -150,7 +150,7 @@ export default function AiEnablementPage() {
               <li key={title} className="grid grid-cols-[auto_1fr] gap-5">
                 <Icon size={28} className="text-teal" aria-hidden />
                 <div>
-                  <h3 className="font-serif text-2xl">{title}</h3>
+                  <h3 className="font-display text-2xl">{title}</h3>
                   <p className="mt-2 max-w-md leading-relaxed text-ivory-dim">{body}</p>
                 </div>
               </li>
@@ -162,13 +162,13 @@ export default function AiEnablementPage() {
       {/* How it starts */}
       <section className="tone-ink">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="max-w-3xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             Start small. Prove value. Scale.
           </h2>
           <ol className="mt-14 grid gap-px bg-ivory/10 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <li key={step.name} className={`spotlight flex flex-col p-7 ${i === 0 ? "tone-dark" : "bg-navy-950"}`}>
-                <h3 className="flex items-center gap-2 font-serif text-2xl">
+                <h3 className="flex items-center gap-2 font-display text-2xl">
                   {i === 0 ? "AI Enablement Blueprint" : step.name}
                   {i < steps.length - 1 && <ArrowRight size={18} aria-hidden className="text-teal-deep lg:hidden" />}
                 </h3>

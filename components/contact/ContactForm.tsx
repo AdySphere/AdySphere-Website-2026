@@ -43,7 +43,7 @@ export function ContactForm({ defaultInterest = "Business X-Ray" }: { defaultInt
   if (status.state === "sent") {
     return (
       <div role="status" className="bg-white p-8 text-navy-900">
-        <p className="font-serif text-2xl">Thank you. We have your request.</p>
+        <p className="font-display text-2xl">Thank you. We have your request.</p>
         <p className="mt-3 leading-relaxed text-slate">
           We will reply within one working day to arrange a call. If it is urgent, call us on +971 58 532 3522.
         </p>

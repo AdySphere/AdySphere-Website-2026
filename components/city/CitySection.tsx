@@ -32,7 +32,7 @@ export function CitySection() {
   }, []);
 
   return (
-    <section ref={section} aria-labelledby="city-title" className="relative h-[78vh] min-h-[480px] overflow-hidden bg-black">
+    <section ref={section} data-swarm="hold" aria-labelledby="city-title" className="relative h-[78vh] min-h-[480px] overflow-hidden bg-black">
       <div className="absolute inset-0">
         {cityVideo ? (
           <video
@@ -53,8 +53,8 @@ export function CitySection() {
       <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.7),rgb(0_0_0/0.15)_45%,transparent_70%)]" />
       <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-start px-4 pt-20 sm:px-6 md:pt-28 lg:px-8">
         <p className="font-mono text-xs uppercase tracking-[0.16em] text-teal">25.1972° N, 55.2744° E</p>
-        <h2 id="city-title" className="mt-4 max-w-2xl font-serif text-4xl leading-[1.1] tracking-tight text-ivory sm:text-6xl">
-          Built in Dubai. <em className="italic text-teal">Working across the UAE and the UK.</em>
+        <h2 id="city-title" className="mt-4 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight text-ivory sm:text-6xl">
+          Built in Dubai. <em className="text-gradient not-italic">Working across the UAE and the UK.</em>
         </h2>
         <p className="mt-5 max-w-lg leading-relaxed text-ivory-dim">
           Founder-led, close to the businesses we serve, and in the room from the first workshop to go-live.

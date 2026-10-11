@@ -11,9 +11,9 @@ const lines: Record<string, string> = {
 
 export function Journey() {
   return (
-    <section className="tone-dark overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <h2 className="max-w-2xl font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+    <section data-swarm="wave" className="relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 pb-48 pt-20 sm:px-6 md:pb-64 md:pt-28 lg:px-8">
+        <h2 className="max-w-2xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
           One journey, in the right order.
         </h2>
 
@@ -26,7 +26,7 @@ export function Journey() {
               <Reveal delay={i * 0.1}>
                 <span aria-hidden className="block size-[15px] border-2 border-teal bg-navy-900" />
                 <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-teal">{offer.step}</p>
-                <h3 className="mt-2 font-serif text-2xl">{offer.name}</h3>
+                <h3 className="mt-2 font-display text-2xl">{offer.name}</h3>
                 <p className="mt-3 max-w-sm leading-relaxed text-ivory-dim">{lines[offer.slug]}</p>
                 <Link
                   href={offer.href}

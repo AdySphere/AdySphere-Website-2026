@@ -21,11 +21,11 @@ const problems = [
 
 export function Problem() {
   return (
-    <section className="tone-ink">
+    <section data-swarm="scatter" className="relative">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-8">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <p className="eyebrow text-teal">The problem</p>
-          <h2 className="mt-4 font-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+          <h2 className="mt-4 font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
             The work gets lost between systems.
           </h2>
           <p className="mt-6 max-w-md leading-relaxed text-ivory-dim">
@@ -40,7 +40,7 @@ export function Problem() {
                   <Icon size={24} weight="regular" aria-hidden />
                 </span>
                 <div>
-                  <h3 className="font-serif text-2xl leading-snug">{title}</h3>
+                  <h3 className="font-display text-2xl leading-snug">{title}</h3>
                   <p className="mt-3 max-w-[52ch] leading-relaxed text-ivory-dim">{body}</p>
                 </div>
               </Reveal>

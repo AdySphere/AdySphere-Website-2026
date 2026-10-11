@@ -30,7 +30,7 @@ export function NextStep({
     <section className="tone-gradient">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-20 sm:px-6 md:grid-cols-[1fr_auto] md:items-end md:py-24 lg:px-8">
         <div>
-          <h2 className="font-serif text-3xl leading-tight text-ivory sm:text-4xl">{keepXRay(title)}</h2>
+          <h2 className="font-display text-3xl leading-tight text-ivory sm:text-4xl">{keepXRay(title)}</h2>
           <p className="mt-4 max-w-xl leading-relaxed text-ivory-dim">{body}</p>
         </div>
         <Link href={href} className="btn-primary self-start md:self-end">

@@ -18,7 +18,8 @@
   /* Teal dark enough for small text on ivory (AA). */
   --color-teal-ink: #0a6573;
 
-  --font-serif: var(--font-playfair), Georgia, serif;
+  /* Headlines: Geist, set tight. The serif lives only in the AdySphere Co wordmark image. */
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
@@ -56,6 +57,7 @@ body {
 
 @utility btn {
   display: inline-flex;
+  border-radius: 9999px;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -139,6 +141,13 @@ body {
   color: var(--color-ivory);
 }
 
+@utility text-gradient {
+  background: linear-gradient(90deg, #34c4c9 0%, #5ea8ff 60%, #2b5cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @utility accent-rule {
   height: 1px;
   background: var(--accent-gradient);
@@ -166,22 +175,6 @@ body {
     radial-gradient(1px 1px at 67% 88%, #cdd8de 50%, transparent 51%),
     radial-gradient(1px 1px at 47% 38%, #cdd8de 50%, transparent 51%);
   background-size: 420px 420px;
-}
-
-/* Still version of the hero artwork. Matches where the particle scene puts it. */
-.hero-art {
-  left: 50%;
-  top: 26%;
-  width: min(74vw, 340px);
-  transform: translate(-50%, -50%);
-}
-
-@media (min-aspect-ratio: 11/10) {
-  .hero-art {
-    left: 74%;
-    top: 50%;
-    width: min(40vw, 620px);
-  }
 }
 
 /* Faint technical grid, fading out towards the edges. */
@@ -218,7 +211,9 @@ body {
 }
 .prose-site h2 {
   margin-top: 2.2em;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
   font-size: 1.75rem;
   line-height: 1.25;
 }
@@ -315,4 +310,22 @@ body::after {
   to {
     transform: translateX(-50%);
   }
+}
+
+/* Headlines set in Geist: medium weight, tight tracking. */
+.font-display {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* Homepage swarm: hide the still hero artwork once the particles are live. */
+html[data-swarm-state="live"] .hero-still {
+  opacity: 0;
+}
+
+.swarm-backdrop {
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 100%, rgb(14 124 140 / 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 0%, rgb(1 37 59 / 0.6), transparent 70%),
+    #000;
 }
