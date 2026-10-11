@@ -135,7 +135,7 @@ function Rig({
 
     const wide = viewport.aspect > 1.1;
     const restX = wide ? viewport.width * 0.25 : 0;
-    const restY = wide ? 0 : viewport.height * 0.25;
+    const restY = wide ? 0 : viewport.height * 0.28;
     const restScale = wide ? Math.min(1, viewport.width / 7.5) : Math.min(1, viewport.width / 4.4);
     const openScale = Math.min(1, viewport.width / 6.6, viewport.height / 5.3);
 

@@ -33,7 +33,8 @@ export function Hero() {
               className="hero-rise font-serif text-[2.2rem] leading-[1.1] tracking-tight text-ivory sm:text-5xl lg:text-[3.3rem]"
             >
               <span className="block lg:whitespace-nowrap">Your ERP records the business.</span>{" "}
-              <em className="block pb-1 italic text-teal">We make it run it.</em>
+              <span className="block">It doesn&rsquo;t run it.</span>{" "}
+              <em className="block pb-1 italic text-teal">We enable both.</em>
             </h1>
             <p className="hero-rise mt-6 max-w-[46ch] text-base leading-relaxed text-ivory-dim sm:text-lg [animation-delay:120ms]">
               {site.positioning}
