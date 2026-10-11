@@ -1,14 +1,25 @@
 import { Hero } from "@/components/hero/Hero";
+import { TrustStrip } from "@/components/home/TrustStrip";
+import { Problem } from "@/components/home/Problem";
+import { Journey } from "@/components/home/Journey";
+import { AiEnablement } from "@/components/home/AiEnablement";
+import { Proof } from "@/components/home/Proof";
+import { Founder } from "@/components/home/Founder";
+import { ResearchTeaser } from "@/components/home/ResearchTeaser";
+import { FinalCta } from "@/components/home/FinalCta";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      {/* Remaining homepage sections are built after the hero is approved. */}
-      <section className="mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
-        <div className="accent-rule mb-10 max-w-xs" />
-        <p className="max-w-xl text-ivory-dim">TODO: trust strip and the rest of the homepage.</p>
-      </section>
+      <TrustStrip />
+      <Problem />
+      <Journey />
+      <AiEnablement />
+      <Proof />
+      <Founder />
+      <ResearchTeaser />
+      <FinalCta />
     </>
   );
 }

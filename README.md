@@ -1,20 +1,116 @@
 # AdySphere Co. website
 
 Marketing site for AdySphere Co., a Dubai-based Microsoft AI Cloud Partner.
-Built with Next.js (App Router), TypeScript, Tailwind CSS v4, React Three Fiber and Motion.
 
-> Work in progress: the scaffold and the 3D homepage hero are in place. The other pages, the MDX content,
-> the contact form, SEO and `DEPLOY.md` come next.
+Next.js (App Router) · TypeScript · Tailwind CSS v4 · React Three Fiber + drei (3D hero) · Motion · MDX.
 
 ## Run locally
 
+Requires Node.js 20 or later.
+
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # production build
-npm run typecheck
+cp .env.example .env.local   # then add your Resend key (see below)
+npm run dev                  # http://localhost:3000
 ```
 
-## Brand files
+Other commands:
 
-Logo files live in `public/brand/`. See `public/brand/README.md` for the file names and how the 3D hero uses `mark.svg`.
+```bash
+npm run build      # production build
+npm run start      # serve the production build
+npm run typecheck  # TypeScript only
+```
+
+## Where things live
+
+| Path | What it is |
+|---|---|
+| `app/` | Pages. One folder per URL (`app/solutions/page.tsx` is `/solutions`). |
+| `components/hero/` | The 3D hero. `HeroScene.tsx` is the WebGL scene; `HeroStage.tsx` handles lazy loading and fallbacks. |
+| `components/home/` | Homepage sections. |
+| `lib/site.ts` | **Most copy lives here**: contact details, offers, modules, industries, FAQ, founder. Edit this first. |
+| `content/case-studies/` | Case studies (MDX). |
+| `content/research/` | Research projects (MDX), plus `publications.json` and `tools.json`. |
+| `content/insights/` | Insights blog posts (MDX). |
+| `public/brand/` | Logo files. |
+| `public/llms.txt` | Plain-text summary for AI assistants and search tools. |
+
+## Add an Insights post
+
+Create `content/insights/my-post-slug.mdx`:
+
+```mdx
+---
+title: "Your title"
+description: "One or two sentences. Used on the listing, in search results and for social sharing."
+date: "2026-11-01"
+category: "Dynamics 365"          # one category; new categories get their own page automatically
+tags: ["Project Operations", "Finance"]
+draft: false                      # true shows a Draft label and keeps it out of the sitemap and search
+---
+
+Write the post in Markdown. Use ## for section headings.
+```
+
+The URL is `/insights/my-post-slug`. Category and tag pages update on the next build.
+
+## Add a research project
+
+Research is a separate collection and never appears in Insights. Create `content/research/project-slug.mdx`:
+
+```mdx
+---
+title: "Project title"
+status: "Exploring"               # Exploring | Active | Published
+area: "Computational astrophysics"
+abstract: "Two or three sentences."
+methods: ["Method one", "Method two"]
+links: { paper: "https://...", code: "https://github.com/...", data: "https://..." }
+date: "2026-11-01"
+draft: false
+---
+
+The project write-up.
+```
+
+Publications go in `content/research/publications.json`, and datasets and tools in `content/research/tools.json`.
+
+The two `DRAFT` projects in `content/research/` are placeholders: replace or delete them.
+
+## Add or edit a case study
+
+Edit the MDX files in `content/case-studies/`. Every `outcome` is currently `TODO`. Only replace it with numbers the client has approved.
+
+## Swap in the logo files
+
+Put your files in `public/brand/` with these names (see `public/brand/README.md`):
+
+- `wordmark-dark.png` / `.svg`: ivory wordmark for dark backgrounds. The header and footer use the PNG.
+- `wordmark-light.png` / `.svg`: black wordmark for light backgrounds.
+- `mark.svg`: the brand mark. Used for the static hero fallback and social images. **Currently a placeholder.**
+- `mark.glb`: optional 3D model. If present, the 3D hero loads it instead of extruding `mark.svg`.
+
+## Contact form
+
+The forms on the homepage and `/contact` post to `app/api/contact/route.ts`, which emails `mallicka@adysphere.com` through [Resend](https://resend.com).
+
+1. Create a Resend account and verify the `adysphere.com` domain.
+2. Set `RESEND_API_KEY` (and optionally `CONTACT_TO`, `CONTACT_FROM`) in `.env.local` and in Vercel.
+3. Optional: set `NEXT_PUBLIC_BOOKING_URL` to a Calendly or Microsoft Bookings link to show a booking calendar under the form.
+
+Spam protection: a hidden honeypot field, a minimum fill time, and a per-IP rate limit.
+
+## Things still marked TODO
+
+Search the code for `TODO` to find them all:
+
+- Certifications in the trust strip (`components/home/TrustStrip.tsx`)
+- Case study outcomes (`content/case-studies/`)
+- Founder photo and personal LinkedIn (`lib/site.ts`)
+- Research projects, publications and tools (`content/research/`)
+- The real `mark.svg`
+
+## Deploying
+
+See [DEPLOY.md](./DEPLOY.md).

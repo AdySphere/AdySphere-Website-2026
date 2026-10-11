@@ -1,0 +1,40 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { NextStep } from "@/components/ui/NextStep";
+import { CategoryNav, PostList } from "@/components/insights/PostList";
+import { getInsights, slugify } from "@/lib/content";
+import { getCategories, getTags, tagFromSlug } from "@/lib/insights";
+
+export function generateStaticParams() {
+  return getTags().map((t) => ({ tag: slugify(t) }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ tag: string }> }): Promise<Metadata> {
+  const tag = tagFromSlug((await params).tag);
+  if (!tag) return {};
+  return {
+    title: `Articles tagged ${tag}`,
+    description: `AdySphere Co. articles tagged ${tag}.`,
+    alternates: { canonical: `/insights/tag/${slugify(tag)}` },
+  };
+}
+
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
+  const tag = tagFromSlug((await params).tag);
+  if (!tag) notFound();
+  return (
+    <>
+      <PageHeader eyebrow="Insights" title={`Tagged: ${tag}`} />
+      <section className="tone-light">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+          <CategoryNav categories={getCategories()} />
+          <div className="mt-10">
+            <PostList posts={getInsights().filter((p) => p.meta.tags.includes(tag))} />
+          </div>
+        </div>
+      </section>
+      <NextStep />
+    </>
+  );
+}

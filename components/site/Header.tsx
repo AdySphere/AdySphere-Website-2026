@@ -10,6 +10,8 @@ import { bookCta, nav } from "@/lib/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  // The research lab carries no sales calls to action.
+  const showCta = !pathname.startsWith("/research");
 
   useEffect(() => setOpen(false), [pathname]);
 
@@ -44,9 +46,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link href={bookCta.href} className="btn-primary hidden !py-2.5 sm:inline-flex">
-            {bookCta.label}
-          </Link>
+          {showCta && (
+            <Link href={bookCta.href} className="btn-primary hidden !py-2.5 sm:inline-flex">
+              {bookCta.label}
+            </Link>
+          )}
           <button
             type="button"
             className="inline-flex size-10 items-center justify-center text-ivory lg:hidden"

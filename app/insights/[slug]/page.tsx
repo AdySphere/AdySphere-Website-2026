@@ -1,0 +1,69 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { NextStep } from "@/components/ui/NextStep";
+import { Mdx } from "@/components/ui/Mdx";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { articleSchema } from "@/lib/schema";
+import { formatDate, getInsight, getInsights, slugify } from "@/lib/content";
+import { site } from "@/lib/site";
+
+export function generateStaticParams() {
+  return getInsights().map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const post = getInsight((await params).slug);
+  if (!post) return {};
+  return {
+    title: post.meta.title,
+    description: post.meta.description,
+    alternates: { canonical: `/insights/${post.slug}` },
+    openGraph: { type: "article", publishedTime: post.meta.date },
+    robots: post.meta.draft ? { index: false } : undefined,
+  };
+}
+
+export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
+  const post = getInsight((await params).slug);
+  if (!post) notFound();
+  const { meta } = post;
+
+  return (
+    <>
+      <JsonLd
+        data={articleSchema({
+          title: meta.title,
+          description: meta.description,
+          date: meta.date,
+          url: `${site.url}/insights/${post.slug}`,
+        })}
+      />
+      <PageHeader eyebrow={meta.category} title={meta.title} intro={meta.description}>
+        <p className="mt-8 font-mono text-xs text-mist">
+          <time dateTime={meta.date}>{formatDate(meta.date)}</time>
+          {meta.draft && <span className="ml-3 border border-dashed border-mist/50 px-1.5">Draft</span>}
+        </p>
+      </PageHeader>
+      <article className="tone-light">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <Mdx source={post.body} />
+          <ul className="mt-14 flex flex-wrap gap-2" aria-label="Tags">
+            {meta.tags.map((tag) => (
+              <li key={tag}>
+                <Link
+                  href={`/insights/tag/${slugify(tag)}`}
+                  className="border border-cloud px-3 py-1.5 text-sm text-slate hover:border-navy-900"
+                >
+                  {tag}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+      <NextStep />
+    </>
+  );
+}
