@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | AdySphere Co.",
   },
   description:
-    "Dubai-based Microsoft AI Cloud Partner implementing Dynamics 365 and Power Platform, and building an AI Brain across your departments.",
+    "Dubai-based Microsoft AI Cloud Partner implementing Dynamics 365 and Power Platform, and enabling AI that removes work across your departments.",
   applicationName: site.name,
 };
 

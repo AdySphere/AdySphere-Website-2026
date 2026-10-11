@@ -7,7 +7,7 @@ import { HeroStage } from "./HeroStage";
 import { bookCta, site } from "@/lib/site";
 
 /**
- * Scroll story: the copy fades first, then the orbit widens and splits into the five Brain lobes,
+ * Scroll story: the copy fades first, then the orbit widens and splits into the five departments AI connects,
  * then the whole stage fades into the next section. Reduced motion gets a single static screen.
  */
 export function Hero() {
@@ -27,12 +27,13 @@ export function Hero() {
         </motion.div>
 
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-4 pb-16 pt-24 sm:px-6 lg:items-center lg:px-8 lg:pb-0">
-          <motion.div style={reduce ? undefined : { opacity: copyOpacity, y: copyY }} className="max-w-xl lg:max-w-[34rem]">
+          <motion.div style={reduce ? undefined : { opacity: copyOpacity, y: copyY }} className="max-w-xl lg:max-w-[42rem]">
             <h1
               id="hero-title"
-              className="hero-rise font-serif text-[2.6rem] leading-[1.05] tracking-tight text-ivory sm:text-6xl lg:text-[4.25rem]"
+              className="hero-rise font-serif text-[2.2rem] leading-[1.1] tracking-tight text-ivory sm:text-5xl lg:text-[3.3rem]"
             >
-              Your Microsoft stack, <em className="italic text-teal">with a brain.</em>
+              <span className="block lg:whitespace-nowrap">Your ERP records the business.</span>{" "}
+              <em className="block pb-1 italic text-teal">We make it run it.</em>
             </h1>
             <p className="hero-rise mt-6 max-w-[46ch] text-base leading-relaxed text-ivory-dim sm:text-lg [animation-delay:120ms]">
               {site.positioning}
@@ -41,8 +42,8 @@ export function Hero() {
               <Link href={bookCta.href} className="btn-primary">
                 {bookCta.label}
               </Link>
-              <Link href="/ai-brain" className="btn-secondary">
-                See the AI Brain
+              <Link href="/ai-enablement" className="btn-secondary">
+                See AI Enablement
               </Link>
             </div>
           </motion.div>

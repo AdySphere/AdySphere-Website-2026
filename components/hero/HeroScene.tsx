@@ -6,7 +6,7 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Environment, Lightformer, Stars, Trail, useGLTF } from "@react-three/drei";
 import { SVGLoader } from "three/addons/loaders/SVGLoader.js";
 import type { MotionValue } from "motion/react";
-import { lobes } from "@/lib/site";
+import { departments } from "@/lib/site";
 
 const TEAL = new THREE.Color("#34c4c9");
 const MARK_HEIGHT = 2.2;
@@ -69,15 +69,15 @@ export default function HeroScene({ progress, active, glbUrl, onReady }: HeroSce
           <Orbit progress={progress} labels={labels} />
         </Rig>
       </Canvas>
-      {/* Lobe labels live in the DOM so they stay crisp; Orbit positions them every frame. */}
+      {/* Department labels live in the DOM so they stay crisp; Orbit positions them every frame. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {lobes.map((lobe, i) => (
+        {departments.map((dept, i) => (
           <div
-            key={lobe}
+            key={dept}
             ref={(el) => void (labels.current[i] = el)}
             className="absolute left-0 top-0 whitespace-nowrap border border-teal/40 bg-navy-950/75 px-2 py-1 font-mono text-[11px] tracking-wide text-ivory opacity-0 will-change-transform"
           >
-            {lobe}
+            {dept}
           </div>
         ))}
       </div>
@@ -113,7 +113,7 @@ function usePointerTarget() {
 
 const smooth = (a: number, b: number, v: number) => THREE.MathUtils.smoothstep(v, a, b);
 
-/** Positions the whole composition: right-hand side on desktop, top on mobile, centred once the Brain unfolds. */
+/** Positions the whole composition: right-hand side on desktop, top on mobile, centred once the departments unfold. */
 function Rig({
   progress,
   pointer,
@@ -134,9 +134,9 @@ function Rig({
     const e = smooth(0.18, 0.45, p.current);
 
     const wide = viewport.aspect > 1.1;
-    const restX = wide ? viewport.width * 0.22 : 0;
-    const restY = wide ? 0 : viewport.height * 0.17;
-    const restScale = wide ? Math.min(1, viewport.width / 7) : Math.min(1, viewport.width / 3.6);
+    const restX = wide ? viewport.width * 0.25 : 0;
+    const restY = wide ? 0 : viewport.height * 0.25;
+    const restScale = wide ? Math.min(1, viewport.width / 7.5) : Math.min(1, viewport.width / 4.4);
     const openScale = Math.min(1, viewport.width / 6.6, viewport.height / 5.3);
 
     g.position.x = THREE.MathUtils.lerp(restX, 0, e);
@@ -249,7 +249,7 @@ function ReadySignal({ onReady }: { onReady: () => void }) {
 
 /**
  * The orbit sweep: a teal ring with a comet and trail. On scroll the ring widens, turns to face the viewer
- * and the comet splits into five nodes, one per Brain lobe.
+ * and the comet splits into five nodes, one per department.
  */
 function Orbit({
   progress,
@@ -270,7 +270,7 @@ function Orbit({
   const angle = useRef(0.6);
   const p = useRef(0);
 
-  const spokePositions = useMemo(() => new Float32Array(lobes.length * 6), []);
+  const spokePositions = useMemo(() => new Float32Array(departments.length * 6), []);
 
   useLayoutEffect(() => {
     spokes.current?.setAttribute("position", new THREE.BufferAttribute(spokePositions, 3));
@@ -294,7 +294,7 @@ function Orbit({
     if (ringMat.current) ringMat.current.opacity = 0.55 * (1 - split) + 0.08 * split;
     if (glowMat.current) glowMat.current.opacity = 0.14 * (1 - split);
 
-    const step = TAU / lobes.length;
+    const step = TAU / departments.length;
     nodes.current.forEach((node, i) => {
       if (!node) return;
       const a = angle.current + i * step * split;
@@ -365,8 +365,8 @@ function Orbit({
           </Trail>
         </group>
 
-        {lobes.map((lobe, i) => (
-          <group key={lobe} ref={(el) => void (nodes.current[i] = el)}>
+        {departments.map((dept, i) => (
+          <group key={dept} ref={(el) => void (nodes.current[i] = el)}>
             <Node />
           </group>
         ))}

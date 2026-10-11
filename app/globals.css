@@ -108,16 +108,16 @@ body {
 
 .hero-mark {
   left: 50%;
-  top: 30%;
-  width: min(52vw, 260px);
+  top: 24%;
+  width: min(40vw, 200px);
   transform: translate(-50%, -50%);
 }
 
 @media (min-aspect-ratio: 11/10) {
   .hero-mark {
-    left: 72%;
+    left: 75%;
     top: 47%;
-    width: min(26vw, 380px);
+    width: min(24vw, 360px);
   }
 }
 
