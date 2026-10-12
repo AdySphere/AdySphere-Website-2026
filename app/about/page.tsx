@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { NextStep } from "@/components/ui/NextStep";
+import { LovableBadge } from "@/components/site/LovableBadge";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { founderSchema } from "@/lib/schema";
 import { founder, site } from "@/lib/site";
@@ -92,7 +93,7 @@ export default function AboutPage() {
       <section className="tone-ink">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:gap-20 lg:px-8">
           <div>
-            <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">Microsoft partnership.</h2>
+            <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">Partnerships.</h2>
             <Image
               src="/brand/microsoft-ai-cloud-partner.png"
               alt="Microsoft AI Cloud Partner"
@@ -101,11 +102,20 @@ export default function AboutPage() {
               sizes="220px"
               className="mt-8 h-14 w-auto"
             />
+            <div className="mt-4">
+              <LovableBadge size="lg" />
+            </div>
           </div>
           <dl className="grid gap-8">
             <div>
               <dt className="font-medium">Verified Microsoft AI Cloud Partner</dt>
               <dd className="mt-2 leading-relaxed text-ivory-dim">Partner Launch benefits.</dd>
+            </div>
+            <div>
+              <dt className="font-medium">Lovable Solution Partner</dt>
+              <dd className="mt-2 leading-relaxed text-ivory-dim">
+                Fast, production-ready apps built with Lovable, connected to the systems you already run.
+              </dd>
             </div>
             <div>
               <dt className="font-medium">Microsoft indirect reseller</dt>

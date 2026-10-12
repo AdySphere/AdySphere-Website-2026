@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LovableBadge } from "@/components/site/LovableBadge";
 
 const certifications = ["Microsoft certified", "Claude certified"];
 
@@ -28,6 +29,7 @@ export function TrustStrip() {
             className="h-9 w-auto"
           />
         </span>
+        <LovableBadge />
         <ul className="flex flex-wrap gap-2" aria-label="Certifications">
           {certifications.map((c) => (
             <li key={c} className="rounded-full border border-teal/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-ivory">

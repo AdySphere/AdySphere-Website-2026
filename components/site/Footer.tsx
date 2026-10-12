@@ -9,7 +9,7 @@ export function Footer() {
         <div className="max-w-sm">
           <Image src="/brand/wordmark-dark.png" alt="AdySphere Co." width={1704} height={271} sizes="160px" className="h-6 w-auto" />
           <p className="mt-5 text-sm leading-relaxed text-ivory-dim">
-            Microsoft AI Cloud Partner and indirect reseller. Based in Dubai, working across the U.A.E, the U.K. and
+            Microsoft AI Cloud Partner, Microsoft indirect reseller and Lovable Solution Partner. Based in Dubai, working across the U.A.E, the U.K. and
             India.
           </p>
         </div>
