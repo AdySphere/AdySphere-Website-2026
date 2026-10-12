@@ -25,7 +25,7 @@ export const founder = {
   photo: "",
   /** The founder's vision, shown as a quote on the homepage. Edit freely. */
   vision:
-    "Most businesses already own powerful software. My job is to make it run the business, not just record it, and to put AI to work where it gives people their time back.",
+    "The revolution isn't using AI. It's enabling it: built into how your business runs, so AI does the work and your people get their time back.",
 } as const;
 
 export const nav = [
