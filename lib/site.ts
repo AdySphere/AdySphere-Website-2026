@@ -25,7 +25,7 @@ export const founder = {
   photo: "",
   /** The founder's vision, shown as a quote on the homepage. Edit freely. */
   vision:
-    "The revolution isn't using AI. It's enabling it: built into how your business runs, so AI does the work and your people get their time back.",
+    "The revolution isn't using AI. It's enabling it: built into how your business runs, so it sharpens strategy, optimises processes and closes the gaps where data and money leak.",
 } as const;
 
 export const nav = [
