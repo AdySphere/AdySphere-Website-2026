@@ -1,12 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Item = { id: string; label: string };
 
 /** Sticky section navigation that highlights the section in view. */
 export function SectionNav({ items }: { items: Item[] }) {
   const [active, setActive] = useState(items[0]?.id);
+  const list = useRef<HTMLUListElement>(null);
+
+  // On narrow screens the pills scroll sideways: keep the active one in view.
+  useEffect(() => {
+    const ul = list.current;
+    const el = ul?.querySelector<HTMLElement>('[aria-current="true"]');
+    if (!ul || !el) return;
+    const left = el.offsetLeft - (ul.clientWidth - el.offsetWidth) / 2;
+    ul.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+  }, [active]);
 
   useEffect(() => {
     const els = items.map((i) => document.getElementById(i.id)).filter(Boolean) as HTMLElement[];
@@ -26,7 +36,7 @@ export function SectionNav({ items }: { items: Item[] }) {
       aria-label="On this page"
       className="sticky top-16 z-30 border-y border-ivory/10 bg-black/70 backdrop-blur-md lg:top-[72px]"
     >
-      <ul className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 py-2.5 sm:px-6 lg:px-8 [scrollbar-width:none]">
+      <ul ref={list} className="relative mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 py-2.5 sm:px-6 lg:px-8 [scrollbar-width:none]">
         {items.map((item) => {
           const on = item.id === active;
           return (

@@ -187,24 +187,74 @@ export const modules = [
 
 export const industries = [
   {
+    slug: "professional-services",
+    short: "Services & IT",
+    word: "Services",
     name: "Professional services & IT",
     body: "Project margins leak through unbilled changes, idle resources and timesheets that arrive late. We connect quoting, resourcing, delivery and billing so you see margin while you can still protect it.",
+    solutions: [
+      "Quote to cash in one flow: quoting, resourcing, time and expense, project accounting and billing",
+      "Resource planning by skill, availability and margin",
+      "Live project margin and utilisation reporting for leadership",
+    ],
+    platforms: ["Microsoft Dynamics 365 Project Operations", "Microsoft Dynamics 365 Sales", "Power BI", "Zoho for smaller teams"],
+    ai: "Drafts project status updates and flags work drifting over budget before the invoice goes out.",
   },
   {
+    slug: "commodity-trading",
+    short: "Trading",
+    word: "Trading",
     name: "Commodity trading",
     body: "Every deal carries its own purchase and sales contracts, terms and exposure. We model the contract lifecycle per deal in Microsoft Dynamics 365, so operations, finance and trading work from the same record.",
+    solutions: [
+      "Per-deal contract lifecycle linking purchase and sales",
+      "Shipments, documents and invoicing tied back to each deal",
+      "Position and exposure reporting that finance and trading both trust",
+    ],
+    platforms: ["Microsoft Dynamics 365 Finance & Operations", "Power Platform", "Custom deal capture applications"],
+    ai: "Reads contracts and shipping documents, checks the terms against the deal record and flags mismatches for review.",
   },
   {
+    slug: "manufacturing-food",
+    short: "Manufacturing",
+    word: "Manufacturing",
     name: "Manufacturing & food",
     body: "Planning, procurement, quality and inventory pull in different directions. We bring them into one supply chain system, with traceability and the reporting your auditors and customers ask for.",
+    solutions: [
+      "Planning, procurement, production and inventory in one system",
+      "Batch and lot traceability from supplier to customer",
+      "Quality checks and audit-ready reporting",
+    ],
+    platforms: ["Microsoft Dynamics 365 Supply Chain Management", "Microsoft Dynamics 365 Business Central", "Zoho Inventory"],
+    ai: "Spots demand shifts and supplier delays early, and suggests reorder changes for a planner to approve.",
   },
   {
+    slug: "real-estate",
+    short: "Real estate",
+    word: "Real estate",
     name: "Real estate",
     body: "Leases, projects, contractors and service requests usually live in separate tools. We bring them together so asset, project and finance teams stop reconciling each other's spreadsheets.",
+    solutions: [
+      "Leases, tenancies and renewals in one place",
+      "Projects and contractors tracked against budget",
+      "Service requests and maintenance connected to the asset and to finance",
+    ],
+    platforms: ["Microsoft Dynamics 365 Customer Service", "Power Apps", "Custom applications"],
+    ai: "Triages incoming service requests and summarises lease terms for asset and finance teams.",
   },
   {
+    slug: "field-service",
+    short: "Field service",
+    word: "Field service",
     name: "Field service businesses",
     body: "Engineers, parts, contracts and SLAs need to meet on the right site at the right time. We set up work orders, scheduling and mobile working, and connect them to finance so every visit is billed.",
+    solutions: [
+      "Work orders, scheduling and dispatch",
+      "Mobile working for engineers, with parts and asset history",
+      "Service contracts and SLAs billed through finance",
+    ],
+    platforms: ["Microsoft Dynamics 365 Field Service", "Power Apps", "Zoho for smaller teams"],
+    ai: "Briefs engineers with the job history and suggests schedules that respect SLAs and travel time.",
   },
 ] as const;
 

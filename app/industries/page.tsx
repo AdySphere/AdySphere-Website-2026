@@ -1,47 +1,143 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Check, Sparkle } from "@phosphor-icons/react/dist/ssr";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { NextStep } from "@/components/ui/NextStep";
 import { Reveal } from "@/components/ui/Reveal";
+import { SwarmBackground } from "@/components/swarm/Swarm";
+import { SectionNav } from "@/components/solutions/SectionNav";
+import { ParallaxWord } from "@/components/solutions/ParallaxWord";
 import { industries } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industries we work with in the UAE",
+  title: "Industry solutions in the UAE",
   description:
-    "Microsoft Dynamics 365, Power Platform and AI Enablement for professional services and IT, commodity trading, manufacturing and food, real estate and field service businesses in the UAE.",
+    "Industry solutions on Microsoft Dynamics 365, Power Platform, Zoho and custom applications, with AI Enablement, for professional services and IT, commodity trading, manufacturing and food, real estate and field service businesses in the UAE.",
   alternates: { canonical: "/industries" },
 };
+
+const shapes = ["scatter", "wave", "sphere", "helix", "galaxy"];
+
+const stack = [
+  {
+    title: "Microsoft Dynamics 365 & Power Platform",
+    body: "Our specialism. The core system for businesses that need finance, operations and customers on one platform.",
+  },
+  { title: "Zoho", body: "A lighter, faster start for teams that do not need an enterprise platform yet." },
+  {
+    title: "Custom applications",
+    body: "Built for the requirement no off-the-shelf product covers, and connected to the systems you already run.",
+  },
+  {
+    title: "AI Enablement",
+    body: "Microsoft Dynamics 365 AI where you already run it. Custom AI architecture built on Claude where you do not.",
+  },
+];
 
 export default function IndustriesPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Industries"
-        title="Different industries. The same gaps between teams."
-        intro="We work with mid-size and large UAE businesses where projects, contracts, assets or stock move between departments."
-      />
-      <section className="tone-ink">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
-          <ul className="divide-y divide-ivory/10">
-            {industries.map((industry, i) => (
-              <li key={industry.name}>
-                <Reveal className="grid gap-4 py-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:py-14">
-                  <h2 className="font-display text-3xl leading-tight sm:text-4xl">
-                    <span aria-hidden className="mr-4 font-mono text-sm text-teal">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {industry.name}
-                  </h2>
-                  <p className="max-w-[58ch] text-lg leading-relaxed text-ivory-dim">{industry.body}</p>
+      <SwarmBackground />
+      <div className="relative z-10">
+        <PageHeader
+          eyebrow="Industry solutions"
+          title="Solutions built for how your industry works."
+          intro="Different industries, the same gaps between teams. We pick the right platform for each one, build what it needs and enable AI where it pays back."
+        />
+        <SectionNav
+          items={[...industries.map((i) => ({ id: i.slug, label: i.short })), { id: "platforms", label: "How we choose" }]}
+        />
+
+        {industries.map((industry, i) => {
+          const flip = i % 2 === 1;
+          return (
+            <section
+              key={industry.slug}
+              id={industry.slug}
+              data-swarm={shapes[i % shapes.length]}
+              className="relative scroll-mt-32 overflow-hidden border-b border-ivory/10"
+            >
+              <ParallaxWord word={industry.word} />
+              <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pb-20 pt-28 sm:px-6 md:pb-28 md:pt-40 lg:grid-cols-2 lg:gap-20 lg:px-8">
+                <Reveal className={flip ? "lg:order-2" : undefined}>
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-teal">
+                    {String(i + 1).padStart(2, "0")} / {String(industries.length).padStart(2, "0")}
+                  </p>
+                  <h2 className="mt-3 font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">{industry.name}</h2>
+                  <p className="mt-6 max-w-lg text-lg leading-relaxed text-ivory-dim">{industry.body}</p>
+                  <ul className="mt-8 flex flex-wrap gap-2">
+                    {industry.platforms.map((p) => (
+                      <li key={p} className="rounded-full border border-ivory/15 bg-ivory/[0.03] px-3.5 py-1.5 text-xs text-ivory-dim">
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
                 </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <NextStep
-        title="Not on the list?"
-        body="If work moves between departments in your business, the same approach applies. Start with a Business X-Ray."
-      />
+
+                <div className={`grid content-start gap-4 ${flip ? "lg:order-1" : ""}`}>
+                  <div className="glass spotlight p-7 sm:p-9">
+                    <p className="font-medium">What we build</p>
+                    <ul className="mt-4 grid gap-3">
+                      {industry.solutions.map((s, j) => (
+                        <li key={s}>
+                          <Reveal delay={0.06 + j * 0.08} className="flex gap-3 leading-relaxed text-ivory-dim">
+                            <Check size={18} className="mt-1 shrink-0 text-teal" aria-hidden />
+                            {s}
+                          </Reveal>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Reveal delay={0.3} className="tone-gradient spotlight p-7 sm:p-9">
+                    <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-teal">
+                      <Sparkle size={14} weight="fill" aria-hidden /> Where AI helps
+                    </p>
+                    <p className="mt-3 text-lg leading-relaxed text-ivory">{industry.ai}</p>
+                  </Reveal>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
+        <section id="platforms" data-swarm="vortex" className="relative scroll-mt-32 overflow-hidden">
+          <ParallaxWord word="The right fit" />
+          <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-28 sm:px-6 md:pb-28 md:pt-40 lg:px-8">
+            <Reveal>
+              <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+                The right software for you, not the one we sell most.
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ivory-dim">
+                A unique business deserves unique attention. We start with how you work, then choose the platform.
+              </p>
+            </Reveal>
+            <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {stack.map((s, i) => (
+                <li key={s.title}>
+                  <Reveal
+                    delay={i * 0.08}
+                    className="glass spotlight h-full p-7 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
+                  >
+                    <p className="font-mono text-xs text-teal">{String(i + 1).padStart(2, "0")}</p>
+                    <h3 className="mt-4 font-display text-xl leading-snug">{s.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-ivory-dim">{s.body}</p>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+            <Reveal delay={0.3}>
+              <Link href="/solutions#implementation" className="btn-secondary mt-10">
+                How we choose and build <ArrowRight size={16} aria-hidden />
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+
+        <NextStep
+          title="Not on the list?"
+          body="If work moves between departments in your business, the same approach applies. Start with a Business X-Ray."
+        />
+      </div>
     </>
   );
 }

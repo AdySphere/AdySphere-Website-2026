@@ -108,7 +108,7 @@ export default function SolutionsPage() {
                 <li key={industry.name} className={i < 2 ? "md:col-span-3" : "md:col-span-2"}>
                   <Reveal delay={i * 0.06} className="h-full">
                     <Link
-                      href="/industries"
+                      href={`/industries#${industry.slug}`}
                       className={`spotlight group flex h-full flex-col justify-between p-7 transition-transform duration-500 ease-out-expo hover:-translate-y-1 sm:p-8 ${
                         i === 0 ? "tone-gradient" : "glass"
                       }`}
