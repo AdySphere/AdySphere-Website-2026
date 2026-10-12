@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="A founder-led Microsoft partner, built in Dubai."
-        intro="AdySphere Co. implements Dynamics 365 and Power Platform properly, then enables AI that removes work across your departments."
+        intro="AdySphere Co. implements Microsoft Dynamics 365 and Power Platform properly, then enables AI that removes work across your departments."
       />
 
       <section className="tone-ink">
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">Why we exist.</h2>
           <div className="grid max-w-2xl gap-5 text-lg leading-relaxed text-ivory-dim">
             <p>
-              Too many Dynamics 365 projects are sold on licences and delivered without understanding how the business
+              Too many Microsoft Dynamics 365 projects are sold on licences and delivered without understanding how the business
               actually runs. The system goes live, and the spreadsheets stay.
             </p>
             <p>
@@ -74,7 +74,7 @@ export default function AboutPage() {
             <p className="mt-2 text-teal">{founder.title}</p>
             <div className="mt-8 grid max-w-2xl gap-5 leading-relaxed text-ivory-dim">
               <p>
-                Adyasha is a techno-functional Dynamics 365 consultant who designs the solution, configures it and stays
+                Adyasha is a techno-functional Microsoft Dynamics 365 consultant who designs the solution, configures it and stays
                 with it through go-live. Clients work directly with Adyasha from the first workshop.
               </p>
               <p>

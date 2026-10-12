@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact: book a Business X-Ray",
-  description: "Book a Business X-Ray or talk to AdySphere Co. about Dynamics 365, Power Platform and AI Enablement across the U.A.E, the U.K. and India.",
+  description: "Book a Business X-Ray or talk to AdySphere Co. about Microsoft Dynamics 365, Power Platform and AI Enablement across the U.A.E, the U.K. and India.",
   alternates: { canonical: "/contact" },
 };
 

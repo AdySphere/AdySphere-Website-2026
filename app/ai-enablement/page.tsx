@@ -6,9 +6,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { DepartmentsDiagram } from "@/components/home/DepartmentsDiagram";
 
 export const metadata: Metadata = {
-  title: "AI Enablement for Dynamics 365 and the enterprise",
+  title: "AI Enablement for Microsoft Dynamics 365 and the enterprise",
   description:
-    "AI that removes work instead of adding it. Built into Dynamics 365, or standalone for enterprises on other systems, inside your tenant and security, with a full audit trail.",
+    "AI that removes work instead of adding it. Microsoft Dynamics 365 AI solutions where you already run it, custom AI architecture built on Claude where you do not, inside your own tenant and cloud, with a full audit trail.",
   alternates: { canonical: "/ai-enablement" },
 };
 
@@ -58,12 +58,12 @@ export default function AiEnablementPage() {
           </h2>
           <div className="mt-14 grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
             <Reveal className="tone-gradient flex flex-col p-8 sm:p-10">
-              <p className="eyebrow text-teal">Built into Dynamics 365</p>
-              <h3 className="mt-4 font-display text-3xl leading-snug">For businesses on Dynamics 365 and Power Platform.</h3>
+              <p className="eyebrow text-teal">Built into Microsoft Dynamics 365</p>
+              <h3 className="mt-4 font-display text-3xl leading-snug">Already on a Microsoft Dynamics 365 tenant.</h3>
               <ul className="mt-8 grid gap-3 text-ivory-dim">
                 {[
                   "Built on Dataverse, Copilot Studio and Power Automate, with Claude for deeper reasoning",
-                  "Works across Dynamics 365 apps, Teams, Outlook and Power BI, where people already work",
+                  "Works across Microsoft Dynamics 365 apps, Teams, Outlook and Power BI, where people already work",
                   "Uses the security roles and approvals you already run",
                   "The shortest path to production, because the data and processes are already there",
                 ].map((t) => (
@@ -75,12 +75,13 @@ export default function AiEnablementPage() {
               </ul>
             </Reveal>
             <Reveal delay={0.08} className="spotlight glass flex flex-col p-8 sm:p-10">
-              <p className="eyebrow text-teal">Standalone</p>
-              <h3 className="mt-4 font-display text-3xl leading-snug text-ivory">For enterprises on other systems.</h3>
+              <p className="eyebrow text-teal">Custom, built on Claude</p>
+              <h3 className="mt-4 font-display text-3xl leading-snug text-ivory">For businesses on any other stack.</h3>
               <ul className="mt-8 grid gap-3 text-ivory-dim">
                 {[
-                  "Connects to SAP, Oracle, other ERPs and in-house systems through Power Platform connectors and APIs",
-                  "Same governance: your tenant, your access rules, a full audit trail",
+                  "Custom AI architecture built on Claude, designed around the demands of your industry",
+                  "Connects to SAP, Oracle, Zoho, other ERPs and in-house systems through APIs",
+                  "Same governance: your cloud, your access rules, a full audit trail",
                   "No ERP replacement required to start",
                 ].map((t) => (
                   <li key={t} className="flex gap-3 leading-relaxed">

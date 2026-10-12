@@ -8,18 +8,18 @@ export const site = {
   phoneUkHref: "tel:+447301839764",
   /** Where we work, as shown on the contact page and in the footer. */
   location: "U.A.E | U.K. | India",
-  linkedin: "https://www.linkedin.com/company/adysphere-co",
+  linkedin: "https://www.linkedin.com/company/adysphere-co/",
   instagram: "https://www.instagram.com/adysphere/",
-  positioning: "We implement Dynamics 365 and Power Platform properly, then enable AI that removes work instead of adding it.",
+  positioning: "We implement Microsoft Dynamics 365 and Power Platform properly, then enable AI that removes work instead of adding it.",
   description:
-    "Dubai-based Microsoft AI Cloud Partner implementing Dynamics 365 and Power Platform, and enabling AI that removes work across your departments.",
+    "Dubai-based Microsoft AI Cloud Partner implementing Microsoft Dynamics 365 and Power Platform, and enabling AI that removes work across your departments.",
 } as const;
 
 export const founder = {
   name: "Adyasha Mallick",
   title: "Founder & CEO",
   shortBio:
-    "Techno-functional Dynamics 365 consultant who designs the solution and stays with it to go-live. BE Computer Science from BITS Pilani (First Division with Distinction) and a PGCert in Data Intensive Astrophysics from Cardiff University.",
+    "Techno-functional Microsoft Dynamics 365 consultant who designs the solution and stays with it to go-live. BE Computer Science from BITS Pilani (First Division with Distinction) and a PGCert in Data Intensive Astrophysics from Cardiff University.",
   linkedin: "https://www.linkedin.com/in/adyasha-mallick-adcm/",
   // TODO: add /public/people/adyasha-mallick.jpg (4:5 portrait) and set the path here. Until then no photo shows.
   photo: "",
@@ -107,16 +107,17 @@ export const offers = [
   {
     slug: "implementation",
     step: "Implement",
-    name: "Dynamics 365 & Power Platform implementation",
+    name: "Choose the right software for you",
     summary:
-      "Dynamics 365 and Power Platform implemented properly, with integrations and executive reporting that people actually use.",
-    forWho: "Companies replacing spreadsheets and disconnected tools, or rescuing a Dynamics 365 rollout that stalled.",
+      "We specialise in Microsoft Dynamics 365 and Power Platform implementation. We also implement Zoho and build custom applications where your business needs something of its own, because a unique business deserves unique attention.",
+    forWho:
+      "Companies replacing spreadsheets and disconnected tools, choosing their first proper system, or rescuing a rollout that stalled.",
     included: [
-      "Solution design led by a techno-functional consultant",
-      "Configuration, data migration and integrations with Power Automate",
-      "Power BI executive dashboards on a single version of the truth",
-      "Testing, training and go-live support",
-      "Licensing through our Microsoft indirect reseller status",
+      "Help choosing the right platform for your size, budget and processes",
+      "Microsoft Dynamics 365 and Power Platform, designed by a techno-functional consultant",
+      "Zoho implementation for teams that need a lighter, faster start",
+      "Custom applications for requirements no off-the-shelf product covers",
+      "Data migration, integrations, Power BI reporting, training and go-live support",
     ],
     starts: "Usually after a Business X-Ray, or from your existing requirements if you already have them.",
     href: "/solutions#implementation",
@@ -126,14 +127,15 @@ export const offers = [
     step: "Enable AI",
     name: "AI Enablement",
     summary:
-      "AI built into the systems your teams already use, so it removes work instead of creating another tool to check.",
-    forWho: "Teams on Dynamics 365, and enterprises on other systems, who want AI in production rather than another pilot.",
+      "AI built into how your business runs, so it sharpens decisions and removes work instead of creating another tool to check.",
+    forWho:
+      "Businesses on Microsoft Dynamics 365, and businesses on any other stack, who want AI in production rather than another pilot.",
     included: [
       "AI Enablement Blueprint: where AI pays back first",
+      "Already on a Microsoft Dynamics 365 tenant? Microsoft Dynamics 365 AI solutions with Copilot Studio and Power Platform",
+      "On other systems? Custom AI architecture built on Claude, designed for your industry",
       "One shared AI layer across departments, not one bot per task",
-      "Built on Dynamics 365, Copilot Studio, Power Platform and Claude",
-      "Runs inside your tenant, under your security roles, with a full audit trail",
-      "Human approval on every action that matters",
+      "Runs inside your own tenant and cloud, under your security, with a full audit trail",
     ],
     starts: "With an AI Enablement Blueprint: a clear map of where AI pays back first.",
     href: "/ai-enablement",
@@ -173,7 +175,7 @@ export const modules = [
   },
   {
     name: "Power Platform",
-    forWho: "Every Dynamics 365 customer",
+    forWho: "Every Microsoft Dynamics 365 customer",
     included: "Power Apps and Power Automate to close the gaps between systems and teams.",
   },
   {
@@ -190,7 +192,7 @@ export const industries = [
   },
   {
     name: "Commodity trading",
-    body: "Every deal carries its own purchase and sales contracts, terms and exposure. We model the contract lifecycle per deal in Dynamics 365, so operations, finance and trading work from the same record.",
+    body: "Every deal carries its own purchase and sales contracts, terms and exposure. We model the contract lifecycle per deal in Microsoft Dynamics 365, so operations, finance and trading work from the same record.",
   },
   {
     name: "Manufacturing & food",
@@ -208,20 +210,24 @@ export const industries = [
 
 export const faqs = [
   {
-    q: "Who implements Dynamics 365 Project Operations in Dubai?",
-    a: "AdySphere Co. is a Dubai-based Microsoft AI Cloud Partner that implements Dynamics 365 Project Operations for project-based businesses in the UAE, covering quoting, resourcing, time and expense, project accounting and billing.",
+    q: "Who implements Microsoft Dynamics 365 Project Operations in Dubai?",
+    a: "AdySphere Co. is a Dubai-based Microsoft AI Cloud Partner that implements Microsoft Dynamics 365 Project Operations for project-based businesses in the UAE, covering quoting, resourcing, time and expense, project accounting and billing.",
   },
   {
     q: "What does a Business X-Ray include?",
     a: "A Business X-Ray is an affordable, department-by-department diagnostic. We review your data, workflows, handoffs and reporting gaps, then deliver a written report and a prioritised roadmap of what to fix first.",
   },
   {
-    q: "What is AI Enablement for Dynamics 365?",
+    q: "What is AI Enablement for Microsoft Dynamics 365?",
     a: "AI Enablement puts AI inside the Microsoft systems your teams already use. One shared AI layer works across departments, inside your own tenant and security roles, and people approve the actions that matter. It starts with an AI Enablement Blueprint.",
   },
   {
-    q: "Can you enable AI if we do not use Dynamics 365?",
-    a: "Yes. AI Enablement also works standalone for enterprises on other ERP and CRM systems. We connect to your existing systems through Power Platform and APIs, and keep the same governance: your data, your security, a full audit trail.",
+    q: "Can you enable AI if we do not use Microsoft Dynamics 365?",
+    a: "Yes. For businesses on other ERP and CRM systems, we design custom AI architecture built on Claude, fitted to your industry and connected to your existing systems through APIs. The governance stays the same: your data, your security, a full audit trail.",
+  },
+  {
+    q: "Do you only work with Microsoft Dynamics 365?",
+    a: "No. We specialise in Microsoft Dynamics 365 and Power Platform, and we also implement Zoho and build custom applications when a business needs something of its own. For AI, we build on Microsoft Dynamics 365 where you already run it, and design custom AI architecture on Claude where you do not.",
   },
   {
     q: "Do you sell Microsoft licences?",

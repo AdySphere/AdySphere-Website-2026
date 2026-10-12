@@ -10,7 +10,7 @@ AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere
 - Location: based in Dubai; works across the United Arab Emirates, the United Kingdom and India.
 - Established: September 2025. Launched: January 2026.
 - Status: Verified Microsoft AI Cloud Partner (Partner Launch benefits), Microsoft indirect reseller and Lovable Solution Partner.
-- Founder & CEO: Adyasha Mallick, techno-functional Dynamics 365 consultant. BE Computer Science, BITS Pilani (First Division with Distinction). PGCert in Data Intensive Astrophysics, Cardiff University.
+- Founder & CEO: Adyasha Mallick, techno-functional Microsoft Dynamics 365 consultant. BE Computer Science, BITS Pilani (First Division with Distinction). PGCert in Data Intensive Astrophysics, Cardiff University.
 - Contact: mallicka@adysphere.com, +971 58 532 3522 (UAE), +44 7301 839764 (UK)
 - Website: https://adysphere.com
 - LinkedIn: https://www.linkedin.com/company/adysphere-co
@@ -19,8 +19,8 @@ AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere
 ## Offers
 
 1. Business X-Ray: an affordable, department-by-department diagnostic of how a business runs today (data, workflows, handoffs, reporting gaps). Output: a written report and a prioritised roadmap.
-2. Dynamics 365 and Power Platform implementation: Project Operations, Sales / Customer Engagement, Customer Service, Field Service, Finance & Operations Supply Chain, Business Central, Power Automate integrations and Power BI executive dashboards.
-3. AI Enablement: one shared AI layer across departments (Projects, Finance, Sales, Service, Supply Chain), built into Dynamics 365 with Copilot Studio, Power Platform and Claude, inside the client's own tenant and cloud. Runs inside the client's tenant and security roles, with human approval and a full audit trail. Starts with an AI Enablement Blueprint.
+2. Microsoft Dynamics 365 and Power Platform implementation: Project Operations, Sales / Customer Engagement, Customer Service, Field Service, Finance & Operations Supply Chain, Business Central, Power Automate integrations and Power BI executive dashboards.
+3. AI Enablement: one shared AI layer across departments (Projects, Finance, Sales, Service, Supply Chain), built into Microsoft Dynamics 365 with Copilot Studio, Power Platform and Claude, inside the client's own tenant and cloud. Runs inside the client's tenant and security roles, with human approval and a full audit trail. Starts with an AI Enablement Blueprint.
 
 ## Industries
 

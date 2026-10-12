@@ -151,7 +151,7 @@ export default function ResearchPage() {
       </section>
 
       <p className="border-t border-ivory/10 px-4 py-8 text-center text-sm text-mist">
-        AdySphere Co. also helps enterprises with Dynamics 365 and AI.{" "}
+        AdySphere Co. also helps enterprises with Microsoft Dynamics 365 and AI.{" "}
         <Link href="/solutions" className="text-ivory-dim underline-offset-4 hover:underline">
           See our solutions
         </Link>

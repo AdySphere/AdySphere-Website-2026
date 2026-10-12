@@ -6,8 +6,8 @@ import { getInsights } from "@/lib/content";
 import { getCategories } from "@/lib/insights";
 
 export const metadata: Metadata = {
-  title: "Insights on Dynamics 365, Power Platform and AI in operations",
-  description: "Practical writing on Dynamics 365, Power Platform and enabling AI in operations, for UAE business leaders.",
+  title: "Insights on Microsoft Dynamics 365, Power Platform and AI in operations",
+  description: "Practical writing on Microsoft Dynamics 365, Power Platform and enabling AI in operations, for UAE business leaders.",
   alternates: { canonical: "/insights" },
 };
 
@@ -16,7 +16,7 @@ export default function InsightsPage() {
     <>
       <PageHeader
         eyebrow="Insights"
-        title="Plain writing on Dynamics 365 and AI in operations."
+        title="Plain writing on Microsoft Dynamics 365 and AI in operations."
         intro="What we see in real implementations, written for the people who run the business."
       />
       <section className="tone-ink">

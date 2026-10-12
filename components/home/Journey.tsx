@@ -5,7 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const lines: Record<string, string> = {
   "business-x-ray": "See how the business really runs, department by department, before anyone buys software.",
-  implementation: "Put Dynamics 365 and Power Platform in properly, with the integrations and reporting people use.",
+  implementation: "Put Microsoft Dynamics 365 and Power Platform in properly, with the integrations and reporting people use.",
   "ai-enablement": "Enable AI inside those systems, so it takes work off your teams instead of adding to it.",
 };
 
@@ -32,7 +32,7 @@ export function Journey() {
                   href={offer.href}
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ivory underline-offset-4 hover:underline"
                 >
-                  {offer.slug === "business-x-ray" ? "What the X-Ray covers" : offer.slug === "implementation" ? "Modules we implement" : "How AI Enablement works"}
+                  {offer.slug === "business-x-ray" ? "What the X-Ray covers" : offer.slug === "implementation" ? "How we choose and build" : "How AI Enablement works"}
                   <ArrowRight size={16} aria-hidden />
                 </Link>
               </Reveal>

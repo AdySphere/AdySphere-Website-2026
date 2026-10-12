@@ -4,7 +4,7 @@ import { LovableBadge } from "@/components/site/LovableBadge";
 const certifications = ["Microsoft certified", "Claude certified"];
 
 const stack = [
-  "Dynamics 365",
+  "Microsoft Dynamics 365",
   "Power Platform",
   "Copilot Studio",
   "Dataverse",

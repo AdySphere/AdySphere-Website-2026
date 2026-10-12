@@ -7,7 +7,7 @@ import { industries } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Industries we work with in the UAE",
   description:
-    "Dynamics 365, Power Platform and AI Enablement for professional services and IT, commodity trading, manufacturing and food, real estate and field service businesses in the UAE.",
+    "Microsoft Dynamics 365, Power Platform and AI Enablement for professional services and IT, commodity trading, manufacturing and food, real estate and field service businesses in the UAE.",
   alternates: { canonical: "/industries" },
 };
 

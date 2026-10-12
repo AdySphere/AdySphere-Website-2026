@@ -7,9 +7,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { getCaseStudies } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Case studies: Dynamics 365 delivered in the UAE",
+  title: "Case studies: Microsoft Dynamics 365 delivered in the UAE",
   description:
-    "Anonymised case studies of Dynamics 365 Project Operations, Field Service, Customer Service, Finance & Operations and Customer Engagement implementations.",
+    "Anonymised case studies of Microsoft Dynamics 365 Project Operations, Field Service, Customer Service, Finance & Operations and Customer Engagement implementations.",
   alternates: { canonical: "/case-studies" },
 };
 
