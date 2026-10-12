@@ -95,7 +95,7 @@ export default function AiEnablementPage() {
               </em>
             </>
           }
-          intro="Most AI arrives as another tool to check. We enable AI inside the systems your teams already run, so it reads live data, acts within your security, and gives people time back."
+          intro="Most AI arrives as another tool to check. We enable AI inside the systems your teams already run, so it reads live data, acts within your security, and closes the gaps where data and money leak."
         />
 
         {/* Two ways in */}
