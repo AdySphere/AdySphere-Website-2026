@@ -39,6 +39,9 @@ export function Footer() {
           <a href={site.phoneUkHref} className="transition-colors hover:text-ivory">
             {site.phoneUk}
           </a>
+          <a href={site.phoneInHref} className="transition-colors hover:text-ivory">
+            {site.phoneIn}
+          </a>
           <span>{site.location}</span>
           <span className="mt-2 flex gap-5">
             <a href={site.linkedin} className="transition-colors hover:text-ivory" rel="noopener" target="_blank">

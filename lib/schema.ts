@@ -14,7 +14,7 @@ export const organizationSchema = {
   image: `${site.url}/opengraph-image`,
   description: site.description,
   email: site.email,
-  telephone: [site.phone, site.phoneUk],
+  telephone: [site.phone, site.phoneUk, site.phoneIn],
   foundingDate: "2025-09",
   address: {
     "@type": "PostalAddress",

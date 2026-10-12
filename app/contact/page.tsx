@@ -37,6 +37,11 @@ export default function ContactPage() {
                   {site.phoneUk}
                 </a>
               </dd>
+              <dd className="mt-1 text-lg">
+                <a href={site.phoneInHref} className="text-ivory hover:underline">
+                  {site.phoneIn}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="text-mist">Where we work</dt>

@@ -6,6 +6,8 @@ export const site = {
   phoneHref: "tel:+971585323522",
   phoneUk: "+44 7301 839764",
   phoneUkHref: "tel:+447301839764",
+  phoneIn: "+91 93212 69873",
+  phoneInHref: "tel:+919321269873",
   /** Where we work, as shown on the contact page and in the footer. */
   location: "U.A.E | U.K. | India",
   linkedin: "https://www.linkedin.com/company/adysphere-co/",
