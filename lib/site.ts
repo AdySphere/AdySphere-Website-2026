@@ -189,7 +189,6 @@ export const industries = [
   {
     slug: "professional-services",
     short: "Services & IT",
-    word: "Services",
     name: "Professional services & IT",
     body: "Project margins leak through unbilled changes, idle resources and timesheets that arrive late. We connect quoting, resourcing, delivery and billing so you see margin while you can still protect it.",
     solutions: [
@@ -203,7 +202,6 @@ export const industries = [
   {
     slug: "commodity-trading",
     short: "Trading",
-    word: "Trading",
     name: "Commodity trading",
     body: "Every deal carries its own purchase and sales contracts, terms and exposure. We model the contract lifecycle per deal in Microsoft Dynamics 365, so operations, finance and trading work from the same record.",
     solutions: [
@@ -217,7 +215,6 @@ export const industries = [
   {
     slug: "manufacturing-food",
     short: "Manufacturing",
-    word: "Manufacturing",
     name: "Manufacturing & food",
     body: "Planning, procurement, quality and inventory pull in different directions. We bring them into one supply chain system, with traceability and the reporting your auditors and customers ask for.",
     solutions: [
@@ -231,7 +228,6 @@ export const industries = [
   {
     slug: "real-estate",
     short: "Real estate",
-    word: "Real estate",
     name: "Real estate",
     body: "Leases, projects, contractors and service requests usually live in separate tools. We bring them together so asset, project and finance teams stop reconciling each other's spreadsheets.",
     solutions: [
@@ -245,7 +241,6 @@ export const industries = [
   {
     slug: "field-service",
     short: "Field service",
-    word: "Field service",
     name: "Field service businesses",
     body: "Engineers, parts, contracts and SLAs need to meet on the right site at the right time. We set up work orders, scheduling and mobile working, and connect them to finance so every visit is billed.",
     solutions: [

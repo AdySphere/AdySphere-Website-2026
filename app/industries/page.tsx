@@ -4,9 +4,8 @@ import { ArrowRight, Check, Sparkle } from "@phosphor-icons/react/dist/ssr";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { NextStep } from "@/components/ui/NextStep";
 import { Reveal } from "@/components/ui/Reveal";
-import { SwarmBackground } from "@/components/swarm/Swarm";
+import { NetworkBackground } from "@/components/industries/NetworkBackground";
 import { SectionNav } from "@/components/solutions/SectionNav";
-import { ParallaxWord } from "@/components/solutions/ParallaxWord";
 import { industries } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -15,8 +14,6 @@ export const metadata: Metadata = {
     "Industry solutions on Microsoft Dynamics 365, Power Platform, Zoho and custom applications, with AI Enablement, for professional services and IT, commodity trading, manufacturing and food, real estate and field service businesses in the UAE.",
   alternates: { canonical: "/industries" },
 };
-
-const shapes = ["scatter", "wave", "sphere", "helix", "galaxy"];
 
 const stack = [
   {
@@ -37,7 +34,7 @@ const stack = [
 export default function IndustriesPage() {
   return (
     <>
-      <SwarmBackground />
+      <NetworkBackground />
       <div className="relative z-10">
         <PageHeader
           eyebrow="Industry solutions"
@@ -54,11 +51,9 @@ export default function IndustriesPage() {
             <section
               key={industry.slug}
               id={industry.slug}
-              data-swarm={shapes[i % shapes.length]}
               className="relative scroll-mt-32 overflow-hidden border-b border-ivory/10"
             >
-              <ParallaxWord word={industry.word} />
-              <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pb-20 pt-28 sm:px-6 md:pb-28 md:pt-40 lg:grid-cols-2 lg:gap-20 lg:px-8">
+              <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:gap-20 lg:px-8">
                 <Reveal className={flip ? "lg:order-2" : undefined}>
                   <p className="font-mono text-xs uppercase tracking-[0.16em] text-teal">
                     {String(i + 1).padStart(2, "0")} / {String(industries.length).padStart(2, "0")}
@@ -100,9 +95,8 @@ export default function IndustriesPage() {
           );
         })}
 
-        <section id="platforms" data-swarm="vortex" className="relative scroll-mt-32 overflow-hidden">
-          <ParallaxWord word="The right fit" />
-          <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-28 sm:px-6 md:pb-28 md:pt-40 lg:px-8">
+        <section id="platforms" className="relative scroll-mt-32 overflow-hidden">
+          <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
             <Reveal>
               <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
                 The right software for you, not the one we sell most.
