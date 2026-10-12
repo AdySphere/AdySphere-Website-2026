@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { cityVideo, site } from "@/lib/site";
+import { cityVideo } from "@/lib/site";
 import { DubaiSkyline } from "./DubaiSkyline";
 
 /**
@@ -54,12 +54,11 @@ export function CitySection() {
       <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-start px-4 pt-20 sm:px-6 md:pt-28 lg:px-8">
         <p className="font-mono text-xs uppercase tracking-[0.16em] text-teal">25.1972° N, 55.2744° E</p>
         <h2 id="city-title" className="mt-4 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight text-ivory sm:text-6xl">
-          Built in Dubai. <em className="text-gradient not-italic">Working across the UAE and the UK.</em>
+          Built in Dubai. <em className="text-gradient not-italic">Working across the U.A.E, U.K. and India.</em>
         </h2>
         <p className="mt-5 max-w-lg leading-relaxed text-ivory-dim">
           Founder-led, close to the businesses we serve, and in the room from the first workshop to go-live.
         </p>
-        <p className="sr-only">{site.legalNote}</p>
       </div>
     </section>
   );

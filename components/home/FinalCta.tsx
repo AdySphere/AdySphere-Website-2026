@@ -9,7 +9,7 @@ export function FinalCta() {
         <div>
           <h2 className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">Book a Business <span className="whitespace-nowrap">X-Ray.</span></h2>
           <p className="mt-6 max-w-md leading-relaxed text-ivory-dim">
-            A paid, department-by-department diagnostic of how your business runs today. You get a written report and a
+            An affordable, department-by-department diagnostic of how your business runs today. You get a written report and a
             prioritised roadmap of what to fix first.
           </p>
           <dl className="mt-10 grid gap-4 text-sm">

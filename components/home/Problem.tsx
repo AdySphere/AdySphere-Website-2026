@@ -5,7 +5,7 @@ const problems = [
   {
     icon: Database,
     title: "Data scattered across systems",
-    body: "The same customer lives in Dynamics, three spreadsheets and someone's inbox. Every report starts with reconciling them.",
+    body: "The same customer lives in three different systems, a few spreadsheets and someone's inbox. Every report starts with reconciling them.",
   },
   {
     icon: EyeSlash,

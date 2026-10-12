@@ -2,33 +2,37 @@ import Image from "next/image";
 import { LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import { founder, site } from "@/lib/site";
 
+/** The founder's vision as one quote. The portrait appears once founder.photo is set. */
 export function Founder() {
   return (
     <section data-swarm="hold" className="tone-light">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-16 md:py-28 lg:px-8">
-        <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-mint">
-          {founder.photo ? (
+      <div
+        className={`mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 md:py-28 lg:px-8 ${
+          founder.photo ? "md:grid-cols-[minmax(0,320px)_1fr] md:gap-16" : ""
+        }`}
+      >
+        {founder.photo && (
+          <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden">
             <Image src={founder.photo} alt={founder.name} fill sizes="320px" className="object-cover" />
-          ) : (
-            <div className="absolute inset-0 flex items-end p-5">
-              <span className="font-mono text-xs text-slate">TODO: founder photo, 4:5, at least 800 x 1000</span>
-            </div>
-          )}
-        </div>
-        <div>
+          </div>
+        )}
+        <figure className="max-w-4xl">
           <p className="eyebrow text-teal-ink">Founder-led</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">{founder.name}</h2>
-          <p className="mt-2 text-slate">{founder.title}, {site.name}</p>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-900">{founder.shortBio}</p>
-          <a
-            href={founder.linkedin || site.linkedin}
-            target="_blank"
-            rel="noopener"
-            className="btn-outline-dark mt-8"
-          >
-            <LinkedinLogo size={18} aria-hidden /> LinkedIn
-          </a>
-        </div>
+          <blockquote className="mt-6 font-display text-3xl leading-[1.2] tracking-tight text-navy-900 sm:text-4xl lg:text-[2.75rem]">
+            &ldquo;{founder.vision}&rdquo;
+          </blockquote>
+          <figcaption className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <span>
+              <span className="block text-lg font-medium text-navy-900">{founder.name}</span>
+              <span className="block text-slate">
+                {founder.title}, {site.name}
+              </span>
+            </span>
+            <a href={founder.linkedin || site.linkedin} target="_blank" rel="noopener" className="btn-outline-dark">
+              <LinkedinLogo size={18} aria-hidden /> LinkedIn
+            </a>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

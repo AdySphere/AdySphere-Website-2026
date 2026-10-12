@@ -9,7 +9,7 @@ import { founder, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About AdySphere Co.",
   description:
-    "AdySphere Co. is a founder-led Microsoft AI Cloud Partner and indirect reseller, registered in Ajman NuVentures Centre Freezone and operating from Dubai, UAE.",
+    "AdySphere Co. is a founder-led Microsoft AI Cloud Partner and indirect reseller, based in Dubai and working across the U.A.E, the U.K. and India.",
   alternates: { canonical: "/about" },
 };
 
@@ -114,8 +114,8 @@ export default function AboutPage() {
               </dd>
             </div>
             <div>
-              <dt className="font-medium">Registration</dt>
-              <dd className="mt-2 leading-relaxed text-ivory-dim">{site.legalNote}</dd>
+              <dt className="font-medium">Where we work</dt>
+              <dd className="mt-2 leading-relaxed text-ivory-dim">{site.location}</dd>
             </div>
           </dl>
         </div>

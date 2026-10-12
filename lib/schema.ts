@@ -24,6 +24,7 @@ export const organizationSchema = {
   areaServed: [
     { "@type": "Country", name: "United Arab Emirates" },
     { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "India" },
   ],
   founder: { "@id": founderId },
   sameAs: [site.linkedin, site.instagram],

@@ -29,13 +29,9 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl text-center">
-        <p className="hero-rise inline-flex items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 px-3.5 py-1.5 text-xs text-ivory-dim backdrop-blur">
-          <span className="size-1.5 rounded-full bg-teal" aria-hidden />
-          Microsoft AI Cloud Partner, Dubai &amp; UK
-        </p>
         <h1
           id="hero-title"
-          className="hero-rise hero-headline mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-ivory [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
+          className="hero-rise hero-headline font-display text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-ivory [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
         >
           <span className="sm:whitespace-nowrap">Your ERP records the business.</span>
           <br />

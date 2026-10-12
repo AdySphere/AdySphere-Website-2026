@@ -7,11 +7,11 @@ export function ResearchTeaser() {
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-36 lg:px-8">
         <p className="font-mono text-xs text-mist">research.adysphere</p>
         <h2 className="mt-5 max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-          Beyond business: our research in space and astrophysics.
+          Beyond business: our research in space, astrophysics and quantum computing.
         </h2>
         <p className="mt-6 max-w-xl leading-relaxed text-ivory-dim">
-          Computational astrophysics, space technology and data-intensive science. The same methods that sift telescope
-          data shape how we build AI for enterprises.
+          Computational astrophysics, space technology, quantum computing and data-intensive science. The same methods that
+          sift telescope data shape how we build AI for enterprises.
         </p>
         <Link
           href="/research"

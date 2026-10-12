@@ -17,7 +17,7 @@ function keepXRay(text: string) {
 /** The closing band every page ends with: one clear next step. */
 export function NextStep({
   title = "Start with a Business X-Ray.",
-  body = "A paid, department-by-department diagnostic of how your business runs today, with a written report and a prioritised roadmap.",
+  body = "An affordable, department-by-department diagnostic of how your business runs today, with a written report and a prioritised roadmap.",
   href = bookCta.href,
   label = bookCta.label,
 }: {

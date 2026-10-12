@@ -1,7 +1,6 @@
 import Image from "next/image";
 
-// TODO: replace these with real certification names and badge images.
-const certifications = ["Certification 1", "Certification 2", "Certification 3"];
+const certifications = ["Microsoft certified", "Claude certified"];
 
 const stack = [
   "Dynamics 365",
@@ -29,12 +28,10 @@ export function TrustStrip() {
             className="h-9 w-auto"
           />
         </span>
-        <p className="font-mono text-xs uppercase tracking-[0.14em] text-ivory-dim">Microsoft indirect reseller</p>
-        <p className="font-mono text-xs uppercase tracking-[0.14em] text-ivory-dim">Dubai, UAE &amp; United Kingdom</p>
         <ul className="flex flex-wrap gap-2" aria-label="Certifications">
           {certifications.map((c) => (
-            <li key={c} className="border border-dashed border-ivory/25 px-2.5 py-1 font-mono text-[11px] text-mist" title="TODO: add certification">
-              TODO: {c}
+            <li key={c} className="rounded-full border border-teal/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-ivory">
+              {c}
             </li>
           ))}
         </ul>

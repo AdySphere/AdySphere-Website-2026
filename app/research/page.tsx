@@ -9,9 +9,9 @@ import publications from "@/content/research/publications.json";
 import tools from "@/content/research/tools.json";
 
 export const metadata: Metadata = {
-  title: "Research: space, astrophysics and data-intensive science",
+  title: "Research: space, astrophysics, quantum computing and data-intensive science",
   description:
-    "The AdySphere Co. research lab: computational astrophysics, space technology and mission data, data-intensive science methods, and AI for scientific discovery.",
+    "The AdySphere Co. research lab: computational astrophysics, space technology and mission data, quantum computing, data-intensive science methods, and AI for scientific discovery.",
   alternates: { canonical: "/research" },
 };
 
@@ -19,6 +19,10 @@ const areas = [
   { name: "Computational astrophysics", body: "Simulation and analysis of astrophysical systems, from star formation to compact objects." },
   { name: "Space technology & mission data", body: "Orbit determination, tracking and the data pipelines behind space missions." },
   { name: "Data-intensive science methods", body: "Handling survey-scale data: pipelines, provenance and reproducible analysis." },
+  {
+    name: "Quantum computing",
+    body: "Quantum algorithms and hybrid quantum-classical methods for optimisation and simulation problems.",
+  },
   { name: "AI for scientific discovery", body: "Machine learning that finds candidates in noisy data, with uncertainty that scientists can trust." },
   {
     name: "Applied crossovers",
@@ -34,7 +38,7 @@ export default function ResearchPage() {
       <PageHeader
         tone="space"
         eyebrow="Research lab"
-        title="Research in space, astrophysics and data-intensive science."
+        title="Research in space, astrophysics, quantum computing and data-intensive science."
         intro="This is where AdySphere Co. does its scientific work. It is separate from our client work, and it shapes how we think about data."
       />
 

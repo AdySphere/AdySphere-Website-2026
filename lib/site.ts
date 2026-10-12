@@ -1,13 +1,13 @@
 export const site = {
   name: "AdySphere Co.",
-  legalNote: "Registered in Ajman NuVentures Centre Freezone, operating from Dubai, UAE, with a presence in the United Kingdom.",
   url: "https://adysphere.com",
   email: "mallicka@adysphere.com",
   phone: "+971 58 532 3522",
   phoneHref: "tel:+971585323522",
   phoneUk: "+44 7301 839764",
   phoneUkHref: "tel:+447301839764",
-  location: "Dubai, UAE and United Kingdom",
+  /** Where we work, as shown on the contact page and in the footer. */
+  location: "U.A.E | U.K. | India",
   linkedin: "https://www.linkedin.com/company/adysphere-co",
   instagram: "https://www.instagram.com/adysphere/",
   positioning: "We implement Dynamics 365 and Power Platform properly, then enable AI that removes work instead of adding it.",
@@ -20,9 +20,12 @@ export const founder = {
   title: "Founder & CEO",
   shortBio:
     "Techno-functional Dynamics 365 consultant who designs the solution and stays with it to go-live. BE Computer Science from BITS Pilani (First Division with Distinction) and a PGCert in Data Intensive Astrophysics from Cardiff University.",
-  // TODO: add Adyasha's personal LinkedIn URL. Until then the company page is used.
-  linkedin: "",
-  photo: "", // TODO: add /public/people/adyasha-mallick.jpg and set the path here.
+  linkedin: "https://www.linkedin.com/in/adyasha-mallick-adcm/",
+  // TODO: add /public/people/adyasha-mallick.jpg (4:5 portrait) and set the path here. Until then no photo shows.
+  photo: "",
+  /** The founder's vision, shown as a quote on the homepage. Edit freely. */
+  vision:
+    "Most businesses already own powerful software. My job is to make it run the business, not just record it, and to put AI to work where it gives people their time back.",
 } as const;
 
 export const nav = [
@@ -89,7 +92,7 @@ export const offers = [
     step: "Diagnose",
     name: "Business X-Ray",
     summary:
-      "A paid, department-by-department diagnostic of how your business runs today: data, workflows, handoffs and reporting gaps.",
+      "An affordable, department-by-department diagnostic of how your business runs today: data, workflows, handoffs and reporting gaps.",
     forWho: "Leadership teams who know something is costing them, but not exactly where, or what to fix first.",
     included: [
       "Interviews and working sessions with each department",
@@ -210,7 +213,7 @@ export const faqs = [
   },
   {
     q: "What does a Business X-Ray include?",
-    a: "A Business X-Ray is a paid, department-by-department diagnostic. We review your data, workflows, handoffs and reporting gaps, then deliver a written report and a prioritised roadmap of what to fix first.",
+    a: "A Business X-Ray is an affordable, department-by-department diagnostic. We review your data, workflows, handoffs and reporting gaps, then deliver a written report and a prioritised roadmap of what to fix first.",
   },
   {
     q: "What is AI Enablement for Dynamics 365?",
@@ -226,6 +229,6 @@ export const faqs = [
   },
   {
     q: "Where are you based?",
-    a: "AdySphere Co. is registered in Ajman NuVentures Centre Freezone and operates from Dubai, UAE, with a presence in the United Kingdom.",
+    a: "AdySphere Co. is based in Dubai and works with clients across the U.A.E, the U.K. and India.",
   },
 ] as const;

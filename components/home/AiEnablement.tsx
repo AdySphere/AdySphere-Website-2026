@@ -11,8 +11,8 @@ export function AiEnablement() {
             One AI layer across every department. Not one bot per task.
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">
-            Built into Dynamics 365 when you run it, standalone when you don&rsquo;t. Either way it works on your live data,
-            inside your security, and takes work off your teams.
+            Built into your own tenant and cloud, alongside the systems you already run. It works on your live data, inside
+            your security, and takes work off your teams.
           </p>
         </div>
         <div className="mt-14">
