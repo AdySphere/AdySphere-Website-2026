@@ -1,20 +1,59 @@
 ---
-title: "Why AI pilots stall before production"
-description: "Most AI pilots add work instead of removing it. The fix is not a better model; it is putting AI where the work and the data already are."
-date: "2026-09-20"
+title: "Why AI pilots stall before production, and what works instead"
+description: "Most AI pilots sit outside your systems, so they add work instead of sharpening decisions. Here is why they stall, and how enabling AI inside your systems gets it into production."
+date: "2026-10-13"
 category: "AI in operations"
 tags: ["AI Enablement", "Copilot Studio", "Operations"]
-draft: true
 ---
 
-An AI pilot that lives outside your systems creates a new job: someone has to copy data in, check the answer, and copy the result back.
+**Short answer:** AI pilots stall when they live outside the systems where the work and the data already are. Someone has to copy data in, check the answer and copy the result back, so the pilot creates work instead of removing it. AI reaches production when it is enabled inside your systems, on live data, under your security, with a person approving the actions that matter.
 
-## Three reasons pilots stall
+## Why do so many AI pilots never reach production?
 
-- **No access to the real data.** The pilot sees an export, not the live record.
-- **One bot per task.** Each one is blind to the rest of the business.
-- **No owner for the output.** Nobody approves it, so nobody trusts it.
+Most businesses in the UAE have already tried AI. A chatbot here, a document tool there, a proof of concept that impressed in the demo. Months later, few of them are part of how the business actually runs. Three reasons come up again and again.
+
+### 1. No access to the real data
+
+The pilot sees an export, not the live record. Its answers are out of date the moment they arrive, and nobody acts on an answer they cannot trust.
+
+### 2. One bot per task
+
+Each tool is built for one job and is blind to the rest of the business. A finance question often needs project data. A service answer often needs the contract. A bot that sees one silo cannot answer either.
+
+### 3. No owner for the output
+
+The pilot produces suggestions, but nobody is accountable for approving them, and nothing is logged. So nobody trusts it, and it quietly stops being used.
+
+## What is the difference between using AI and enabling it?
+
+Using AI means more tools, more prompts and more output to check. Enabling AI means AI is built into how the business runs:
+
+- **It works on live data**, inside your own tenant and cloud.
+- **It is one shared layer** across departments, not one bot per task.
+- **It respects your security**, seeing only what the person asking is allowed to see.
+- **People approve the actions that matter**, and every action is logged.
+
+The result is not fewer people. It is sharper decisions: projects flagged before they go over budget, margin leaks spotted before month-end, documents checked against the record before they are approved.
 
 ## What works instead
 
-Put AI inside the systems your teams already use, under the same security roles, with a person approving the actions that matter. Start with one department where the payback is clear, prove it, then extend.
+1. **Start with a blueprint.** Map your systems, data and key decisions, and pick the first department where AI pays back most.
+2. **Build inside your systems.** On Microsoft Dynamics 365, that means Copilot Studio, Dataverse and Power Automate. On other stacks, a custom AI architecture built on Claude, connected through APIs.
+3. **Prove it in one department**, measured against a baseline set before you start.
+4. **Extend department by department.** Each one plugs into the same layer, so each one makes the others more useful.
+
+## Frequently asked questions
+
+### Do we need Microsoft Dynamics 365 to enable AI?
+
+No. If you already run Microsoft Dynamics 365, it is the shortest path to production because the data and processes are already there. If you run another ERP or CRM, we design custom AI architecture built on Claude, with the same governance.
+
+### Will AI replace our team?
+
+That is not the goal. AI enablement is about making efficient use of time, money and effort, and giving your people better information to decide with.
+
+### Where should we start?
+
+With an AI Enablement Blueprint: a clear map of where AI pays back first in your business, and what it takes to get there.
+
+[See how AI Enablement works](/ai-enablement), or [plan a Blueprint](/contact?interest=ai-enablement).

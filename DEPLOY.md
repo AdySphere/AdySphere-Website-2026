@@ -20,7 +20,7 @@ Every push to the main branch then redeploys automatically. Pull requests get th
 ## 2. Add the domain in Vercel
 
 1. In the Vercel project: **Settings → Domains**.
-2. Add `adysphere.com` and `www.adysphere.com`. Choose `adysphere.com` as the primary domain and let `www` redirect to it.
+2. Add `www.adysphere.com` and `adysphere.com`. Choose `www.adysphere.com` as the primary domain and let `adysphere.com` redirect to it. (The site's canonical URLs and sitemap use `https://www.adysphere.com`.)
 3. Vercel shows the DNS records it needs. Usually:
 
    | Type | Name | Value |
@@ -54,7 +54,14 @@ Change the A and CNAME records at that registrar as above, and remove the Wix-sp
 
 1. DNS can take from minutes to 48 hours. Check progress at [dnschecker.org](https://dnschecker.org).
 2. Vercel shows **Valid Configuration** and issues the SSL certificate automatically.
-3. Open `https://adysphere.com` and `https://www.adysphere.com`. Submit the contact form once to confirm email arrives.
-4. In Google Search Console, add the `adysphere.com` property if it is not there, and submit `https://adysphere.com/sitemap.xml`.
+3. Open `https://www.adysphere.com` and `https://adysphere.com` (it should redirect to `www`). Submit the contact form once to confirm email arrives.
+4. In Google Search Console, add the `adysphere.com` property if it is not there, and submit `https://www.adysphere.com/sitemap.xml`.
 5. Old Wix URLs that had traffic: add redirects in `next.config.ts` (`redirects()`) so they land on the matching new page.
 6. Only then cancel the Wix premium plan. Keep the Wix domain registration until you have transferred it, if it was bought there.
+
+## After launch
+
+- WhatsApp: a "Message us on WhatsApp" link (`https://wa.me/971585323522`) beside the contact form and in the footer.
+- Local compliance: a UAE VAT and e-invoicing section or blog post.
+- Microsoft listing: link the Microsoft partner directory listing once it is live.
+- Arabic: an Arabic version of the homepage if targeting government or semi-government clients.

@@ -1,6 +1,6 @@
 export const site = {
   name: "AdySphere Co.",
-  url: "https://adysphere.com",
+  url: "https://www.adysphere.com",
   email: "mallicka@adysphere.com",
   phone: "+971 58 532 3522",
   phoneHref: "tel:+971585323522",

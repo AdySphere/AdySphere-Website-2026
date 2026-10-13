@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LovableBadge } from "@/components/site/LovableBadge";
 
-const certifications = ["Microsoft certified", "Claude certified"];
+const certifications = ["Microsoft-certified team", "Claude-certified team"];
 
 const stack = [
   "Microsoft Dynamics 365",
