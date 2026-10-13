@@ -1,18 +1,35 @@
-import Chat from "@/components/Chat";
+import { Hero } from "@/components/hero/Hero";
+import { TrustStrip } from "@/components/home/TrustStrip";
+import { Problem } from "@/components/home/Problem";
+import { Journey } from "@/components/home/Journey";
+import { CitySection } from "@/components/city/CitySection";
+import { AiEnablement } from "@/components/home/AiEnablement";
+import { Proof } from "@/components/home/Proof";
+import { Founder } from "@/components/home/Founder";
+import { ResearchTeaser } from "@/components/home/ResearchTeaser";
+import { FinalCta } from "@/components/home/FinalCta";
+import { SwarmBackground } from "@/components/swarm/Swarm";
 
-export default function Home() {
+/**
+ * Homepage. One particle swarm sits behind the page and reshapes itself per section (data-swarm on each section):
+ * face, scattered data, a wave, the shared AI layer, a helix, a galaxy, a vortex.
+ */
+export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col px-4 py-8">
-      <header className="mb-6">
-        <h1 className="text-xl font-semibold tracking-tight text-white">
-          Space<span className="text-accent">Sphere</span>
-        </h1>
-        <p className="mt-1 text-sm text-slate-400">
-          Private space-tech ideation partner — pitches, sanity-checks, and grounds ideas in live
-          research, launch schedules, and near-Earth object data.
-        </p>
-      </header>
-      <Chat />
-    </main>
+    <>
+      <SwarmBackground />
+      <div className="relative z-10">
+        <Hero />
+        <TrustStrip />
+        <Problem />
+        <Journey />
+        <CitySection />
+        <AiEnablement />
+        <Proof />
+        <Founder />
+        <ResearchTeaser />
+        <FinalCta />
+      </div>
+    </>
   );
 }

@@ -1,23 +1,343 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html,
-body {
-  height: 100%;
+@theme {
+  /* Brand palette, taken from the AdySphere Co. offerings deck. */
+  --color-navy-950: #011827;
+  --color-navy-900: #01253b;
+  --color-navy-800: #06324d;
+  --color-navy-700: #064e68;
+  --color-ivory: #f8f7f5;
+  --color-ivory-dim: #cdd8de;
+  --color-mist: #a9c3cf;
+  --color-slate: #4a5a68;
+  --color-cloud: #e3e6e8;
+  --color-mint: #e8f3f4;
+  --color-ink: #0b0c0e;
+  --color-teal: #34c4c9;
+  --color-teal-deep: #0e7c8c;
+  /* Teal dark enough for small text on ivory (AA). */
+  --color-teal-ink: #0a6573;
+
+  /* Headlines: Geist, set tight. The serif lives only in the AdySphere Co wordmark image. */
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Z-index scale: base 0, hero overlay 10, header 40, mobile menu 50. */
+
+:root {
+  color-scheme: dark;
+  --accent-gradient: linear-gradient(110deg, #000 0%, #01253b 50%, #0e7c8c 100%);
+}
+
+html {
+  background: var(--color-navy-900);
+  color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background-color: #05060a;
+  background: var(--color-navy-900);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-teal-deep);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+@utility btn {
+  display: inline-flex;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: transform 300ms var(--ease-out-expo), background-color 300ms var(--ease-out-expo),
+    border-color 300ms var(--ease-out-expo), color 300ms var(--ease-out-expo);
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility btn-primary {
+  @apply btn bg-ivory text-ink hover:bg-white;
+}
+
+@utility btn-secondary {
+  @apply btn border border-ivory/30 text-ivory hover:border-ivory/70;
+}
+
+@utility btn-dark {
+  @apply btn bg-navy-900 text-ivory hover:bg-navy-700;
+}
+
+@utility btn-outline-dark {
+  @apply btn border border-navy-900/30 text-navy-900 hover:border-navy-900;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Section tones. Pages alternate dark and light, as in the brand deck. */
+@utility tone-light {
+  background: var(--color-ivory);
+  color: var(--color-navy-900);
+}
+
+@utility tone-dark {
+  background: var(--color-navy-900);
+  color: var(--color-ivory);
+}
+
+@utility tone-gradient {
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 100%, rgb(14 124 140 / 0.55), transparent 70%),
+    linear-gradient(120deg, #000 0%, #020507 30%, #01253b 65%, #064e68 88%, #0e7c8c 100%);
+  color: var(--color-ivory);
+}
+
+/* The darker of the two dark tones, with a faint technical grid. Replaces the old light sections. */
+@utility tone-ink {
+  background:
+    linear-gradient(rgb(248 247 245 / 0.025) 1px, transparent 1px) 0 0 / 72px 72px,
+    linear-gradient(90deg, rgb(248 247 245 / 0.025) 1px, transparent 1px) 0 0 / 72px 72px,
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgb(14 124 140 / 0.10), transparent 70%),
+    #02070b;
+  color: var(--color-ivory);
+}
+
+/* Glass panel on dark backgrounds, with a solid fallback when transparency is reduced. */
+@utility glass {
+  background: linear-gradient(160deg, rgb(248 247 245 / 0.06), rgb(248 247 245 / 0.02));
+  border: 1px solid rgb(248 247 245 / 0.09);
+  box-shadow: inset 0 1px 0 rgb(248 247 245 / 0.06);
+  backdrop-filter: blur(12px);
+  @media (prefers-reduced-transparency: reduce) {
+    background: var(--color-navy-800);
+    backdrop-filter: none;
+  }
+}
+
+@utility tone-space {
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgb(14 124 140 / 0.14), transparent 70%), #010f19;
+  color: var(--color-ivory);
+}
+
+@utility text-gradient {
+  background: linear-gradient(90deg, #34c4c9 0%, #5ea8ff 60%, #2b5cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility accent-rule {
+  height: 1px;
+  background: var(--accent-gradient);
+}
+
+/* Hero ------------------------------------------------------------------ */
+
+/* The deck cover gradient: black, through brand navy, to teal. */
+.hero-backdrop {
+  background:
+    radial-gradient(ellipse 50% 50% at 72% 48%, rgb(14 124 140 / 0.30), transparent 70%),
+    linear-gradient(120deg, #000 0%, #000 22%, #01253b 58%, #064e68 82%, #0e7c8c 100%);
+}
+
+/* Static star field, shown before WebGL loads and as the reduced-motion fallback. */
+.hero-stars {
+  opacity: 0.55;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(127, 212, 255, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(199, 146, 255, 0.08), transparent);
+    radial-gradient(1px 1px at 12% 18%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 34% 72%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 12%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 81% 64%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 92% 28%, #f8f7f5 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 48%, #cdd8de 50%, transparent 51%),
+    radial-gradient(1px 1px at 67% 88%, #cdd8de 50%, transparent 51%),
+    radial-gradient(1px 1px at 47% 38%, #cdd8de 50%, transparent 51%);
+  background-size: 420px 420px;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+/* Faint technical grid, fading out towards the edges. */
+.hero-grid {
+  background-image:
+    linear-gradient(rgb(248 247 245 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(248 247 245 / 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 60% 45%, #000 30%, transparent 75%);
 }
-::-webkit-scrollbar-thumb {
-  background-color: #1e2434;
-  border-radius: 4px;
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    animation: hero-rise 900ms var(--ease-out-expo) both;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+/* Long-form prose (MDX) --------------------------------------------------- */
+
+.prose-site {
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.prose-site > * + * {
+  margin-top: 1.1em;
+}
+.prose-site h2 {
+  margin-top: 2.2em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: 1.75rem;
+  line-height: 1.25;
+}
+.prose-site h3 {
+  margin-top: 1.8em;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.prose-site ul,
+.prose-site ol {
+  padding-left: 1.25em;
+}
+.prose-site ul {
+  list-style: disc;
+}
+.prose-site ol {
+  list-style: decimal;
+}
+.prose-site li + li {
+  margin-top: 0.4em;
+}
+.prose-site a {
+  color: var(--color-teal-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-site strong {
+  font-weight: 600;
+}
+.prose-site code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.tone-dark .prose-site a,
+.tone-space .prose-site a {
+  color: var(--color-teal);
+}
+
+/* Texture & interaction ------------------------------------------------ */
+
+/* Film grain over the whole page. Fixed and non-interactive so it never repaints on scroll. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Cards that light up under the cursor. --mx/--my are set by <Spotlight />. */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out-expo);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(52 196 201 / 0.14), transparent 60%);
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* A light that travels along accent rules. */
+@media (prefers-reduced-motion: no-preference) {
+  .rule-travel {
+    background-image: linear-gradient(90deg, transparent, #34c4c9 50%, transparent);
+    background-size: 30% 100%;
+    background-repeat: no-repeat;
+    animation: rule-travel 4.5s linear infinite;
+  }
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@keyframes rule-travel {
+  from {
+    background-position: -40% 0;
+  }
+  to {
+    background-position: 140% 0;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Headlines set in Geist: medium weight, tight tracking. */
+.font-display {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* Homepage swarm: hide the still hero artwork once the particles are live. */
+html[data-swarm-state="live"] .hero-still {
+  opacity: 0;
+}
+
+.swarm-backdrop {
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 100%, rgb(14 124 140 / 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 0%, rgb(1 37 59 / 0.6), transparent 70%),
+    #000;
+}
+
+/* Hero copy sits on top of the particle face: a soft dark halo keeps it readable. */
+.hero-headline {
+  text-shadow:
+    0 2px 18px rgb(0 0 0 / 0.85),
+    0 0 42px rgb(0 0 0 / 0.6);
+}
+/* Gradient text is transparent, so text-shadow would darken the glyphs; use a drop shadow instead. */
+.hero-headline .text-gradient {
+  text-shadow: none;
+  filter: drop-shadow(0 2px 14px rgb(0 0 0 / 0.9));
 }
