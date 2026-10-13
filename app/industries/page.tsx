@@ -11,7 +11,7 @@ import { industries } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Industry solutions in the UAE",
   description:
-    "Industry solutions on Microsoft Dynamics 365, Power Platform, Zoho and custom applications, with AI Enablement, for professional services and IT, commodity trading, manufacturing and food, real estate and field service businesses in the UAE.",
+    "Industry solutions on Microsoft Dynamics 365, Power Platform, Zoho and custom applications, with AI Enablement, for trading and manufacturing, real estate, sustainability, space technology and e-commerce and retail businesses in the UAE.",
   alternates: { canonical: "/industries" },
 };
 
@@ -67,6 +67,13 @@ export default function IndustriesPage() {
                       </li>
                     ))}
                   </ul>
+                  <Link
+                    href={`/case-studies/${industry.caseStudy}`}
+                    className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-ivory underline-offset-4 hover:underline"
+                  >
+                    Read the case study
+                    <ArrowRight size={16} aria-hidden className="transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </Reveal>
 
                 <div className={`grid content-start gap-4 ${flip ? "lg:order-1" : ""}`}>
