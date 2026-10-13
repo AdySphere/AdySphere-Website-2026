@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { formatDate, slugify, type Entry, type InsightMeta } from "@/lib/content";
+import { formatDate, slugify, type Entry, type PostMeta } from "@/lib/content";
 
-export function PostList({ posts }: { posts: Entry<InsightMeta>[] }) {
+export function PostList({ posts }: { posts: Entry<PostMeta>[] }) {
   if (posts.length === 0) {
     return (
       <p className="py-16 text-ivory-dim">
-        No articles here yet. New posts go in <code className="font-mono">content/insights</code>.
+        No articles here yet. New posts go in <code className="font-mono">content/blog</code>.
       </p>
     );
   }
@@ -15,14 +15,14 @@ export function PostList({ posts }: { posts: Entry<InsightMeta>[] }) {
         <li key={post.slug} className="grid gap-3 py-8 md:grid-cols-[180px_1fr] md:gap-10">
           <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-ivory-dim md:flex-col md:items-start">
             <time dateTime={post.meta.date}>{formatDate(post.meta.date)}</time>
-            <Link href={`/insights/category/${slugify(post.meta.category)}`} className="text-teal hover:underline">
+            <Link href={`/blog/category/${slugify(post.meta.category)}`} className="text-teal hover:underline">
               {post.meta.category}
             </Link>
             {post.meta.draft && <span className="border border-dashed border-ivory/30 px-1.5">Draft</span>}
           </div>
           <div>
             <h2 className="font-display text-2xl leading-snug sm:text-3xl">
-              <Link href={`/insights/${post.slug}`} className="hover:text-teal">
+              <Link href={`/blog/${post.slug}`} className="hover:text-teal">
                 {post.meta.title}
               </Link>
             </h2>
@@ -38,7 +38,7 @@ export function CategoryNav({ categories, active }: { categories: string[]; acti
   return (
     <nav aria-label="Categories" className="flex flex-wrap gap-2">
       <Link
-        href="/insights"
+        href="/blog"
         aria-current={!active ? "page" : undefined}
         className="border border-ivory/20 px-3.5 py-2 text-sm aria-[current=page]:bg-ivory aria-[current=page]:text-ink"
       >
@@ -47,7 +47,7 @@ export function CategoryNav({ categories, active }: { categories: string[]; acti
       {categories.map((c) => (
         <Link
           key={c}
-          href={`/insights/category/${slugify(c)}`}
+          href={`/blog/category/${slugify(c)}`}
           aria-current={active === c ? "page" : undefined}
           className="border border-ivory/20 px-3.5 py-2 text-sm aria-[current=page]:bg-ivory aria-[current=page]:text-ink"
         >

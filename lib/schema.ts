@@ -15,7 +15,7 @@ export const organizationSchema = {
   description: site.description,
   email: site.email,
   telephone: [site.phone, site.phoneUk, site.phoneIn],
-  foundingDate: "2025-09",
+  foundingDate: "2025",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Dubai",

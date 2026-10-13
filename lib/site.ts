@@ -21,10 +21,9 @@ export const founder = {
   name: "Adyasha Mallick",
   title: "Founder & CEO",
   shortBio:
-    "Techno-functional Microsoft Dynamics 365 consultant who designs the solution and stays with it to go-live. BE Computer Science from BITS Pilani (First Division with Distinction) and a PGCert in Data Intensive Astrophysics from Cardiff University.",
+    "Techno-functional Microsoft Dynamics 365 consultant and computational astrophysicist, who designs the solution and stays with it to go-live. BE Computer Science from BITS Pilani (First Division with Distinction) and a PGCert in Data Intensive Astrophysics from Cardiff University.",
   linkedin: "https://www.linkedin.com/in/adyasha-mallick-adcm/",
-  // TODO: add /public/people/adyasha-mallick.jpg (4:5 portrait) and set the path here. Until then no photo shows.
-  photo: "",
+  photo: "/brand/founder.webp",
   /** The founder's vision, shown as a quote on the homepage. Edit freely. */
   vision:
     "The revolution isn't using AI. It's enabling it: built into how your business runs, so it sharpens strategy, optimises processes and closes the gaps where data and money leak.",
@@ -36,7 +35,7 @@ export const nav = [
   { href: "/industries", label: "Industries" },
   { href: "/case-studies", label: "Case studies" },
   { href: "/research", label: "Research" },
-  { href: "/insights", label: "Insights" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ] as const;
 

@@ -48,7 +48,7 @@ export const getCaseStudies = () =>
   readCollection<CaseStudyMeta>("case-studies").sort((a, b) => a.meta.order - b.meta.order);
 export const getCaseStudy = (slug: string) => getCaseStudies().find((c) => c.slug === slug);
 
-/* Research (never mixed with insights) ------------------------------------ */
+/* Research (never mixed with the blog) ------------------------------------ */
 
 export type ResearchStatus = "Exploring" | "Active" | "Published";
 
@@ -66,9 +66,9 @@ export type ResearchMeta = {
 export const getResearch = () => readCollection<ResearchMeta>("research").sort(byDateDesc);
 export const getResearchProject = (slug: string) => getResearch().find((r) => r.slug === slug);
 
-/* Insights ------------------------------------------------------------------ */
+/* Blog --------------------------------------------------------------------- */
 
-export type InsightMeta = {
+export type PostMeta = {
   title: string;
   description: string;
   date: string;
@@ -77,8 +77,8 @@ export type InsightMeta = {
   draft?: boolean;
 };
 
-export const getInsights = () => readCollection<InsightMeta>("insights").sort(byDateDesc);
-export const getInsight = (slug: string) => getInsights().find((p) => p.slug === slug);
+export const getPosts = () => readCollection<PostMeta>("blog").sort(byDateDesc);
+export const getPost = (slug: string) => getPosts().find((p) => p.slug === slug);
 
 export const slugify = (value: string) =>
   value

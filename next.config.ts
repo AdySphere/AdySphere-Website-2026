@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/**": ["./content/**/*", "./public/brand/**/*"],
   },
+  // Insights was renamed to Blog.
+  async redirects() {
+    return [
+      { source: "/insights", destination: "/blog", permanent: true },
+      { source: "/insights/:path*", destination: "/blog/:path*", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

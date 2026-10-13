@@ -6,27 +6,27 @@ import { NextStep } from "@/components/ui/NextStep";
 import { Mdx } from "@/components/ui/Mdx";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema } from "@/lib/schema";
-import { formatDate, getInsight, getInsights, slugify } from "@/lib/content";
+import { formatDate, getPost, getPosts, slugify } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
-  return getInsights().map((p) => ({ slug: p.slug }));
+  return getPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const post = getInsight((await params).slug);
+  const post = getPost((await params).slug);
   if (!post) return {};
   return {
     title: post.meta.title,
     description: post.meta.description,
-    alternates: { canonical: `/insights/${post.slug}` },
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: { type: "article", publishedTime: post.meta.date },
     robots: post.meta.draft ? { index: false } : undefined,
   };
 }
 
-export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
-  const post = getInsight((await params).slug);
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const post = getPost((await params).slug);
   if (!post) notFound();
   const { meta } = post;
 
@@ -37,7 +37,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           title: meta.title,
           description: meta.description,
           date: meta.date,
-          url: `${site.url}/insights/${post.slug}`,
+          url: `${site.url}/blog/${post.slug}`,
         })}
       />
       <PageHeader eyebrow={meta.category} title={meta.title} intro={meta.description}>
@@ -53,7 +53,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
             {meta.tags.map((tag) => (
               <li key={tag}>
                 <Link
-                  href={`/insights/tag/${slugify(tag)}`}
+                  href={`/blog/tag/${slugify(tag)}`}
                   className="border border-ivory/10 px-3 py-1.5 text-sm text-ivory-dim hover:border-ivory/60"
                 >
                   {tag}

@@ -8,9 +8,9 @@ AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere
 
 - Name: AdySphere Co.
 - Location: based in Dubai; works across the United Arab Emirates, the United Kingdom and India.
-- Established: September 2025. Launched: January 2026.
+- Established: 2025.
 - Status: Verified Microsoft AI Cloud Partner (Partner Launch benefits), Microsoft indirect reseller and Lovable Solution Partner.
-- Founder & CEO: Adyasha Mallick, techno-functional Microsoft Dynamics 365 consultant. BE Computer Science, BITS Pilani (First Division with Distinction). PGCert in Data Intensive Astrophysics, Cardiff University.
+- Founder & CEO: Adyasha Mallick, techno-functional Microsoft Dynamics 365 consultant and computational astrophysicist. BE Computer Science, BITS Pilani (First Division with Distinction). PGCert in Data Intensive Astrophysics, Cardiff University.
 - Contact: mallicka@adysphere.com, +971 58 532 3522 (UAE), +44 7301 839764 (UK), +91 93212 69873 (India)
 - Website: https://adysphere.com
 - LinkedIn: https://www.linkedin.com/company/adysphere-co
@@ -34,5 +34,5 @@ Trading and manufacturing, real estate, sustainability, space technology, and e-
 - [Case studies](https://adysphere.com/case-studies)
 - [About](https://adysphere.com/about)
 - [Research](https://adysphere.com/research): the founder's research lab in astrophysics, space technology, quantum computing and data-intensive science
-- [Insights](https://adysphere.com/insights)
+- [Blog](https://adysphere.com/blog)
 - [Contact](https://adysphere.com/contact)

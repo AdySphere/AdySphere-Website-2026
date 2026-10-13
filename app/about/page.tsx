@@ -16,9 +16,18 @@ export const metadata: Metadata = {
 
 const values = [
   { title: "Diagnose before we prescribe", body: "We learn how your business runs before we recommend software. Sometimes the fix is a process, not a licence." },
-  { title: "One lead, end to end", body: "The person who designs the solution is the person who delivers it. No handoff from sales to a separate delivery team." },
-  { title: "AI that earns its place", body: "We enable AI where it removes work, and we measure it. If it adds steps, it does not ship." },
-  { title: "Plain language", body: "No jargon to hide behind. You should understand every recommendation and every line of a proposal." },
+  {
+    title: "One lead, end to end",
+    body: "The person who gathers your requirements is the person who designs and delivers the solution. Nothing is lost in a handoff.",
+  },
+  {
+    title: "AI that earns its place",
+    body: "We enable AI to make efficient use of time, money and effort, and to optimise the business as technology moves on. Not to replace work with AI, but to use AI for sharper decisions and better business strategy.",
+  },
+  {
+    title: "Your industry's language",
+    body: "We learn how your sector works and speak its language, so every recommendation fits how your business actually runs.",
+  },
 ];
 
 export default function AboutPage() {
@@ -28,7 +37,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="A founder-led Microsoft partner, built in Dubai."
-        intro="AdySphere Co. implements Microsoft Dynamics 365 and Power Platform properly, then enables AI that removes work across your departments."
+        intro="AdySphere Co. implements Microsoft Dynamics 365 and Power Platform properly, then enables AI that sharpens decisions across your departments."
       />
 
       <section className="tone-ink">
@@ -40,8 +49,8 @@ export default function AboutPage() {
               actually runs. The system goes live, and the spreadsheets stay.
             </p>
             <p>
-              AdySphere Co. was established in September 2025 and launched in January 2026 to do it the other way round:
-              start with the business, implement properly, then enable AI where it pays back.
+              AdySphere Co. was established in 2025 to do it the other way round: start with the business, implement
+              properly, then enable AI where it pays back.
             </p>
           </div>
         </div>
@@ -64,7 +73,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-[minmax(0,320px)_1fr] md:gap-16 md:py-28 lg:px-8">
           <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-navy-800">
             {founder.photo ? (
-              <Image src={founder.photo} alt={founder.name} fill sizes="320px" className="object-cover" />
+              <Image src={founder.photo} alt={founder.name} fill sizes="320px" className="object-cover object-top" priority />
             ) : (
               <span className="absolute bottom-5 left-5 font-mono text-xs text-mist">TODO: founder photo</span>
             )}
@@ -74,13 +83,9 @@ export default function AboutPage() {
             <p className="mt-2 text-teal">{founder.title}</p>
             <div className="mt-8 grid max-w-2xl gap-5 leading-relaxed text-ivory-dim">
               <p>
-                Adyasha is a techno-functional Microsoft Dynamics 365 consultant who designs the solution, configures it and stays
-                with it through go-live. Clients work directly with Adyasha from the first workshop.
-              </p>
-              <p>
-                Adyasha holds a BE in Computer Science from BITS Pilani, graduating First Division with Distinction, and a
-                PGCert in Data Intensive Astrophysics from Cardiff University. That research background shapes how
-                AdySphere Co. treats data: as evidence, handled carefully.
+                Adyasha is a techno-functional Microsoft Dynamics 365 consultant and a computational astrophysicist, who
+                designs the solution, configures it and stays with it through go-live. Clients work directly with Adyasha
+                from the first workshop.
               </p>
             </div>
             <a href={founder.linkedin || site.linkedin} target="_blank" rel="noopener" className="btn-secondary mt-8">

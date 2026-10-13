@@ -32,13 +32,13 @@ npm run typecheck  # TypeScript only
 | `lib/site.ts` | **Most copy lives here**: contact details, offers, modules, industries, FAQ, founder. Edit this first. |
 | `content/case-studies/` | Case studies (MDX). |
 | `content/research/` | Research projects (MDX), plus `publications.json` and `tools.json`. |
-| `content/insights/` | Insights blog posts (MDX). |
+| `content/blog/` | Blog blog posts (MDX). |
 | `public/brand/` | Logo files. |
 | `public/llms.txt` | Plain-text summary for AI assistants and search tools. |
 
-## Add an Insights post
+## Add an Blog post
 
-Create `content/insights/my-post-slug.mdx`:
+Create `content/blog/my-post-slug.mdx`:
 
 ```mdx
 ---
@@ -53,11 +53,11 @@ draft: false                      # true shows a Draft label and keeps it out of
 Write the post in Markdown. Use ## for section headings.
 ```
 
-The URL is `/insights/my-post-slug`. Category and tag pages update on the next build.
+The URL is `/blog/my-post-slug`. Category and tag pages update on the next build.
 
 ## Add a research project
 
-Research is a separate collection and never appears in Insights. Create `content/research/project-slug.mdx`:
+Research is a separate collection and never appears in Blog. Create `content/research/project-slug.mdx`:
 
 ```mdx
 ---
