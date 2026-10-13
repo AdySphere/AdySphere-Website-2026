@@ -114,7 +114,7 @@ export default function AboutPage() {
           <dl className="grid gap-8">
             <div>
               <dt className="font-medium">Verified Microsoft AI Cloud Partner</dt>
-              <dd className="mt-2 leading-relaxed text-ivory-dim">Partner Launch benefits.</dd>
+              <dd className="mt-2 leading-relaxed text-ivory-dim">A verified member of the Microsoft AI Cloud Partner Program.</dd>
             </div>
             <div>
               <dt className="font-medium">Lovable Solution Partner</dt>

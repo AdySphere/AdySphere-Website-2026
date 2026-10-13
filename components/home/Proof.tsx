@@ -4,7 +4,9 @@ import { getCaseStudies } from "@/lib/content";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Proof() {
-  const [lead, ...rest] = getCaseStudies().slice(0, 3);
+  const [lead, ...rest] = getCaseStudies()
+    .filter((c) => c.meta.status === "Delivered")
+    .slice(0, 3);
   if (!lead) return null;
 
   return (

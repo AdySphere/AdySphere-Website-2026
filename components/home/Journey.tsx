@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 const lines: Record<string, string> = {
   "business-x-ray": "See how the business really runs, department by department, before anyone buys software.",
   implementation: "Put Microsoft Dynamics 365 and Power Platform in properly, with the integrations and reporting people use.",
-  "ai-enablement": "Enable AI inside those systems, so it takes work off your teams instead of adding to it.",
+  "ai-enablement": "Enable AI inside those systems, so it sharpens decisions instead of becoming another tool to check.",
 };
 
 export function Journey() {

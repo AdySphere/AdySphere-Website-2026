@@ -12,7 +12,7 @@ export function AiEnablement() {
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">
             Built into your own tenant and cloud, alongside the systems you already run. It works on your live data, inside
-            your security, and takes work off your teams.
+            your security, and helps every team make sharper decisions.
           </p>
         </div>
         <div className="mt-14">

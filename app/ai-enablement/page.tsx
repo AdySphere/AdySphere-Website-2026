@@ -75,7 +75,7 @@ const steps = [
   },
   {
     name: "Run",
-    body: "We monitor, tune and grow it as your business changes, and report on the work it removes.",
+    body: "We monitor, tune and grow it as your business changes, and report on the value it delivers.",
   },
 ];
 

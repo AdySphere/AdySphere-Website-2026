@@ -12,9 +12,9 @@ export const site = {
   location: "U.A.E | U.K. | India",
   linkedin: "https://www.linkedin.com/company/adysphere-co/",
   instagram: "https://www.instagram.com/adysphere/",
-  positioning: "We implement Microsoft Dynamics 365 and Power Platform properly, then enable AI that removes work instead of adding it.",
+  positioning: "We implement Microsoft Dynamics 365 and Power Platform properly, then enable AI that sharpens decisions and closes the gaps where data and money leak.",
   description:
-    "Dubai-based Microsoft AI Cloud Partner implementing Microsoft Dynamics 365 and Power Platform, and enabling AI that removes work across your departments.",
+    "Dubai-based Microsoft AI Cloud Partner implementing Microsoft Dynamics 365 and Power Platform, and enabling AI that sharpens decisions across your departments.",
 } as const;
 
 export const founder = {
@@ -128,7 +128,7 @@ export const offers = [
     step: "Enable AI",
     name: "AI Enablement",
     summary:
-      "AI built into how your business runs, so it sharpens decisions and removes work instead of creating another tool to check.",
+      "AI built into how your business runs, so it sharpens decisions instead of becoming another tool to check.",
     forWho:
       "Businesses on Microsoft Dynamics 365, and businesses on any other stack, who want AI in production rather than another pilot.",
     included: [

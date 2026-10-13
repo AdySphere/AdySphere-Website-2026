@@ -1,6 +1,6 @@
 # AdySphere Co.
 
-> AdySphere Co. is a Dubai-based Microsoft AI Cloud Partner and Microsoft indirect reseller. It implements Microsoft Dynamics 365 and Power Platform for mid-size and large businesses in the UAE, then enables AI across their departments so it removes work instead of adding it.
+> AdySphere Co. is a Dubai-based Microsoft AI Cloud Partner and Microsoft indirect reseller. It implements Microsoft Dynamics 365 and Power Platform for mid-size and large businesses in the UAE, then enables AI across their departments so it sharpens decisions and closes the gaps where data and money leak.
 
 AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere. The company name is "AdySphere Co.".
 
@@ -9,7 +9,7 @@ AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere
 - Name: AdySphere Co.
 - Location: based in Dubai; works across the United Arab Emirates, the United Kingdom and India.
 - Established: 2025.
-- Status: Verified Microsoft AI Cloud Partner (Partner Launch benefits), Microsoft indirect reseller and Lovable Solution Partner.
+- Status: Verified Microsoft AI Cloud Partner, Microsoft indirect reseller and Lovable Solution Partner.
 - Founder & CEO: Adyasha Mallick, techno-functional Microsoft Dynamics 365 consultant and computational astrophysicist.
 - Contact: mallicka@adysphere.com, +971 58 532 3522 (UAE), +44 7301 839764 (UK), +91 93212 69873 (India)
 - Website: https://adysphere.com
