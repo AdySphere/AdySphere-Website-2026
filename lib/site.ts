@@ -21,7 +21,7 @@ export const founder = {
   name: "Adyasha Mallick",
   title: "Founder & CEO",
   shortBio:
-    "Techno-functional Microsoft Dynamics 365 consultant and computational astrophysicist, who designs the solution and stays with it to go-live. BE Computer Science from BITS Pilani (First Division with Distinction) and a PGCert in Data Intensive Astrophysics from Cardiff University.",
+    "Techno-functional Microsoft Dynamics 365 consultant and computational astrophysicist, who designs the solution and stays with it to go-live.",
   linkedin: "https://www.linkedin.com/in/adyasha-mallick-adcm/",
   photo: "/brand/founder.webp",
   /** The founder's vision, shown as a quote on the homepage. Edit freely. */

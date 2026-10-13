@@ -49,10 +49,6 @@ export const founderSchema = {
   name: founder.name,
   jobTitle: founder.title,
   worksFor: { "@id": orgId },
-  alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "BITS Pilani" },
-    { "@type": "CollegeOrUniversity", name: "Cardiff University" },
-  ],
   ...(founder.linkedin ? { sameAs: [founder.linkedin] } : {}),
 };
 
