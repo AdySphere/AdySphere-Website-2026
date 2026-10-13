@@ -27,10 +27,18 @@ export type CaseStudyMeta = {
   title: string;
   industry: string;
   scope: string;
+  /** Platforms used. */
   modules: string[];
-  /** TODO placeholders until real, client-approved outcomes are available. */
+  /** What the AI layer was built on. */
+  aiStack: string;
+  /** Qualitative only: no figures until a client approves them. */
   outcome: string;
   summary: string;
+  leaks: string[];
+  optimise: string[];
+  automate: string[];
+  ai: string[];
+  future: string;
   order: number;
 };
 

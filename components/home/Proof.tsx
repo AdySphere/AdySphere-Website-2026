@@ -12,7 +12,7 @@ export function Proof() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <p className="eyebrow text-teal">Proof</p>
         <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-          Delivered in production, across industries.
+          Leaks found. Processes automated. AI enabled.
         </h2>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 md:grid-rows-2">

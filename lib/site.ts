@@ -198,7 +198,7 @@ export const industries = [
       "Resource planning by skill, availability and margin",
       "Live project margin and utilisation reporting for leadership",
     ],
-    platforms: ["Microsoft Dynamics 365 Project Operations", "Microsoft Dynamics 365 Sales", "Power BI", "Zoho for smaller teams"],
+    platforms: ["Microsoft Dynamics 365 Project Operations", "Microsoft Dynamics 365 Sales", "Power BI", "Zoho suite"],
     ai: "Drafts project status updates and flags work drifting over budget before the invoice goes out.",
   },
   {
@@ -224,7 +224,7 @@ export const industries = [
       "Batch and lot traceability from supplier to customer",
       "Quality checks and audit-ready reporting",
     ],
-    platforms: ["Microsoft Dynamics 365 Supply Chain Management", "Microsoft Dynamics 365 Business Central", "Zoho Inventory"],
+    platforms: ["Microsoft Dynamics 365 Supply Chain Management", "Microsoft Dynamics 365 Business Central", "Zoho suite"],
     ai: "Spots demand shifts and supplier delays early, and suggests reorder changes for a planner to approve.",
   },
   {
@@ -250,7 +250,7 @@ export const industries = [
       "Mobile working for engineers, with parts and asset history",
       "Service contracts and SLAs billed through finance",
     ],
-    platforms: ["Microsoft Dynamics 365 Field Service", "Power Apps", "Zoho for smaller teams"],
+    platforms: ["Microsoft Dynamics 365 Field Service", "Power Apps", "Zoho suite"],
     ai: "Briefs engineers with the job history and suggests schedules that respect SLAs and travel time.",
   },
 ] as const;
