@@ -39,6 +39,8 @@ export type CaseStudyMeta = {
   automate: string[];
   ai: string[];
   future: string;
+  /** "In delivery" stories describe the plan, not results. */
+  status: "Delivered" | "In delivery";
   order: number;
 };
 

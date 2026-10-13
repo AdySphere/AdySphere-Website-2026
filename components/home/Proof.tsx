@@ -53,7 +53,7 @@ function CaseCard({ study, large = false }: { study: ReturnType<typeof getCaseSt
         <p className="mt-4 max-w-md text-sm leading-relaxed text-ivory-dim">{study.meta.scope}</p>
       </div>
       <p className="mt-8 border-t border-ivory/15 pt-4 text-sm text-ivory">
-        <span className="text-mist">Outcome: </span>
+        <span className="text-mist">{study.meta.status === "Delivered" ? "Outcome" : "Aim"}: </span>
         {study.meta.outcome}
       </p>
     </Link>

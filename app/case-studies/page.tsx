@@ -6,6 +6,7 @@ import { NextStep } from "@/components/ui/NextStep";
 import { Reveal } from "@/components/ui/Reveal";
 import { JourneyLine } from "@/components/case-studies/JourneyLine";
 import { stages } from "@/components/case-studies/stages";
+import { StatusBadge } from "@/components/case-studies/StatusBadge";
 import { getCaseStudies } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function CaseStudiesPage() {
       <PageHeader
         eyebrow="Case studies"
         title="Find the leaks. Fix the flow. Enable AI."
-        intro="Every engagement follows the same path, shaped to the industry. Client names and specifics are withheld."
+        intro="Every engagement follows the same path, shaped to the industry: find where data and money leak, fix the process, automate it, then enable AI. Client names are withheld."
       />
 
       <section className="tone-ink border-b border-ivory/10">
@@ -45,7 +46,10 @@ export default function CaseStudiesPage() {
                     }`}
                   >
                     <div className="flex flex-col">
-                      <p className="font-mono text-xs uppercase tracking-[0.14em] text-teal">{study.meta.industry}</p>
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <p className="font-mono text-xs uppercase tracking-[0.14em] text-teal">{study.meta.industry}</p>
+                        <StatusBadge status={study.meta.status} />
+                      </div>
                       <h2 className={`mt-4 font-display leading-snug ${lead ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"}`}>
                         {study.meta.title}
                       </h2>
@@ -66,7 +70,7 @@ export default function CaseStudiesPage() {
                       </ol>
                     ) : (
                       <p className="border-t border-ivory/10 pt-4 text-sm text-ivory">
-                        <span className="text-mist">Outcome: </span>
+                        <span className="text-mist">{study.meta.status === "Delivered" ? "Outcome" : "Aim"}: </span>
                         {study.meta.outcome}
                       </p>
                     )}

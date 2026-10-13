@@ -7,6 +7,7 @@ import { Mdx } from "@/components/ui/Mdx";
 import { Reveal } from "@/components/ui/Reveal";
 import { StageTimeline } from "@/components/case-studies/StageTimeline";
 import { stages } from "@/components/case-studies/stages";
+import { StatusBadge } from "@/components/case-studies/StatusBadge";
 import { getCaseStudies, getCaseStudy } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -27,10 +28,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const study = getCaseStudy((await params).slug);
   if (!study) notFound();
   const { meta } = study;
+  const delivered = meta.status === "Delivered";
 
   return (
     <>
       <PageHeader eyebrow={meta.industry} title={meta.title} intro={meta.summary}>
+        <div className="mt-6">
+          <StatusBadge status={meta.status} />
+        </div>
         <dl className="mt-12 grid max-w-5xl gap-6 border-t border-ivory/15 pt-8 text-sm sm:grid-cols-3">
           <div>
             <dt className="text-mist">Platforms</dt>
@@ -41,7 +46,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <dd className="mt-2 text-ivory">{meta.aiStack}</dd>
           </div>
           <div>
-            <dt className="text-mist">Outcome</dt>
+            <dt className="text-mist">{delivered ? "Outcome" : "Aim"}</dt>
             <dd className="mt-2 text-ivory">{meta.outcome}</dd>
           </div>
         </dl>
@@ -59,7 +64,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <section className="tone-dark">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-            How we got there.
+            {delivered ? "How we got there." : "How we are getting there."}
           </h2>
           <div className="mt-14">
             <StageTimeline>
@@ -79,7 +84,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                           <p className="font-mono text-xs uppercase tracking-[0.16em] text-teal">
                             {String(i + 1).padStart(2, "0")} · {s.label}
                           </p>
-                          <h3 className="mt-3 font-display text-2xl leading-snug sm:text-3xl">{s.title}</h3>
+                          <h3 className="mt-3 font-display text-2xl leading-snug sm:text-3xl">{delivered ? s.title : s.ongoing}</h3>
                           {isAi && (
                             <p className="mt-3 flex items-center gap-2 text-sm text-mist">
                               <Sparkle size={14} weight="fill" className="text-teal" aria-hidden /> {meta.aiStack}
