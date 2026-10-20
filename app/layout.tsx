@@ -7,6 +7,7 @@ import { Spotlight } from "@/components/ui/Spotlight";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema } from "@/lib/schema";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <Spotlight />
+        <Analytics />
       </body>
     </html>
   );

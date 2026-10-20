@@ -13,6 +13,7 @@
     "@phosphor-icons/react": "^2.1.10",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.1",
+    "@vercel/analytics": "^2.0.1",
     "geist": "^1.7.2",
     "gray-matter": "^4.0.3",
     "motion": "^14.1.0",
