@@ -16,7 +16,6 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   if (!category) return {};
   return {
     title: `${category} insights`,
-    description: `Articles on ${category} from AdySphere Co.`,
     alternates: { canonical: `/blog/category/${slugify(category)}` },
     openGraph: og(`/blog/category/${slugify(category)}`),
   };

@@ -16,7 +16,7 @@ const positions = departments.map((_, i) => {
 });
 
 /**
- * A shared AI layer with five departments around it. Hover, focus or tap a department to see one concrete
+ * AI agents on the tools each department already uses, with five departments around them. Hover, focus or tap a department to see one concrete
  * thing AI does there. Buttons are real buttons so it works with a keyboard and screen readers.
  */
 export function DepartmentsDiagram() {
@@ -45,8 +45,8 @@ export function DepartmentsDiagram() {
         </svg>
 
         <div className="absolute left-1/2 top-1/2 flex size-[34%] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-teal/50 bg-navy-950 text-center">
-          <span className="font-display text-lg leading-tight text-ivory sm:text-xl">Shared AI layer</span>
-          <span className="mt-1 px-3 font-mono text-[10px] uppercase tracking-[0.14em] text-mist">in your tenant</span>
+          <span className="font-display text-lg leading-tight text-ivory sm:text-xl">AI agents</span>
+          <span className="mt-1 px-3 font-mono text-[10px] uppercase tracking-[0.14em] text-mist">on your existing tools</span>
         </div>
 
         <ul>
@@ -95,8 +95,8 @@ export function DepartmentsDiagram() {
           </motion.div>
         </AnimatePresence>
         <p className="mt-10 border-t border-ivory/10 pt-5 text-sm leading-relaxed text-ivory-dim">
-          Every department plugs into the same layer, so each one sees across the business. A person approves the actions
-          that matter.
+          We set up AI agents on the tools each team already uses, so help arrives where the work happens. A person
+          approves the actions that matter.
         </p>
       </div>
     </div>

@@ -20,7 +20,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!study) return {};
   return {
     title: `${study.meta.title} (${study.meta.industry} case study)`,
-    description: study.meta.summary,
     alternates: { canonical: `/case-studies/${study.slug}` },
     openGraph: og(`/case-studies/${study.slug}`),
   };
@@ -125,7 +124,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       <NextStep
         title="If you plan ahead, so should your infrastructure."
-        body="Start with a Business X-Ray: we find where data and money leak in your business, and what to fix first."
+        body="Start with a 30-minute AI check-in: we find where AI would actually pay off in your business, and what to fix first."
       />
     </>
   );

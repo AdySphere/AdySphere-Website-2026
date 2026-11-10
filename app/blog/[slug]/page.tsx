@@ -19,7 +19,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
   return {
     title: post.meta.title,
-    description: post.meta.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: { ...og(`/blog/${post.slug}`), type: "article", publishedTime: post.meta.date },
     robots: post.meta.draft ? { index: false } : undefined,

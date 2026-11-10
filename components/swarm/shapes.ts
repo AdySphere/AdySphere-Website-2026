@@ -80,7 +80,7 @@ function wave(count: number) {
   return a;
 }
 
-/** A shell with a denser core: the shared AI layer. */
+/** A shell with a denser core. */
 function sphere(count: number) {
   const a = new Float32Array(count * 3);
   const golden = Math.PI * (3 - Math.sqrt(5));

@@ -29,7 +29,7 @@ export type CaseStudyMeta = {
   scope: string;
   /** Platforms used. */
   modules: string[];
-  /** What the AI layer was built on. */
+  /** What the AI agents were built on. */
   aiStack: string;
   /** Qualitative only: no figures until a client approves them. */
   outcome: string;

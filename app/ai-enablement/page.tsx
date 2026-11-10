@@ -16,14 +16,12 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "AI Enablement for Microsoft Dynamics 365 and the enterprise",
-  description:
-    "AI that works for you, without more workload or overheads. Microsoft Dynamics 365 AI solutions where you already run it, custom AI architecture built on Claude where you do not, inside your own tenant and cloud, with a full audit trail.",
   alternates: { canonical: "/ai-enablement" },
   openGraph: og("/ai-enablement"),
 };
 
 const contrast = [
-  ["A chatbot for every task", "One shared layer across every department"],
+  ["A chatbot for every task", "AI agents set up on the tools you already use"],
   ["Data copied out to an AI tool", "Works on live data, inside your tenant"],
   [
     "Answers someone has to check and re-key",
@@ -69,11 +67,11 @@ const steps = [
   },
   {
     name: "Deploy",
-    body: "Put the shared AI layer and the first department live, inside your tenant, connected to your systems.",
+    body: "Set up AI agents on the tools the first department already uses, inside your tenant, connected to your systems.",
   },
   {
     name: "Extend",
-    body: "Add departments one by one. Each one plugs into the same layer, so each makes the others more useful.",
+    body: "Add departments one by one, each with agents on the tools it already runs, so every step proves its value before the next.",
   },
   {
     name: "Run",
@@ -195,17 +193,17 @@ export default function AiEnablementPage() {
           </div>
         </section>
 
-        {/* One layer, every department */}
+        {/* AI agents on existing tools */}
         <section className="border-t border-ivory/10">
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
             <h2 className="max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-              One layer. Every department sees across the business.
+              AI agents on the tools you already use.
             </h2>
             <p className="mt-6 max-w-2xl leading-relaxed text-ivory-dim">
-              A finance question often needs project data. A service answer
-              often needs the contract. Because every department plugs into the
-              same layer, the answer comes from the whole business, not one
-              silo.
+              We set up AI agents on the tools your company already uses, from
+              Microsoft 365 and Microsoft Dynamics 365 to SAP. Each department
+              gets agents that do specific jobs where its people already work,
+              with no new platform to learn.
             </p>
             <div className="mt-14">
               <DepartmentsDiagram />
