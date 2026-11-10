@@ -56,10 +56,13 @@ export const cityVideo: { src: string; poster: string } | null = null;
 
 /** The main call to action on every page. `short` fits the header. */
 export const bookCta = {
-  href: "/contact?interest=check-in",
+  href: "/contact#book",
   label: "Book a 30-minute AI check-in",
   short: "Book an AI check-in",
 } as const;
+
+/** Calendly page for the 30-minute AI check-in. NEXT_PUBLIC_BOOKING_URL overrides it. */
+export const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "https://calendly.com/mallicka-adysphere/30min";
 
 /** The deeper diagnostic, offered beside the check-in. */
 export const xrayCta = { href: "/contact?interest=x-ray", label: "Book a Business X-Ray" } as const;
