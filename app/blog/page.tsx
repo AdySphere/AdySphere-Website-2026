@@ -4,11 +4,13 @@ import { NextStep } from "@/components/ui/NextStep";
 import { CategoryNav, PostList } from "@/components/blog/PostList";
 import { getPosts } from "@/lib/content";
 import { getCategories } from "@/lib/blog";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Blog: Microsoft Dynamics 365, Power Platform and AI in operations",
   description: "Practical writing on Microsoft Dynamics 365, Power Platform and enabling AI in operations, for UAE business leaders.",
   alternates: { canonical: "/blog" },
+  openGraph: og("/blog"),
 };
 
 export default function BlogPage() {

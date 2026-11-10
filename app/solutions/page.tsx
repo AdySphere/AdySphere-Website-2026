@@ -9,12 +9,14 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SwarmBackground } from "@/components/swarm/Swarm";
 import { SectionNav } from "@/components/solutions/SectionNav";
 import { ParallaxWord } from "@/components/solutions/ParallaxWord";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Solutions: Business X-Ray, Microsoft Dynamics 365 and AI Enablement",
   description:
     "Business X-Ray diagnostics, Microsoft Dynamics 365 and Power Platform implementation, and AI Enablement for UAE businesses, from a Dubai-based Microsoft AI Cloud Partner.",
   alternates: { canonical: "/solutions" },
+  openGraph: og("/solutions"),
 };
 
 const faqSchema = {

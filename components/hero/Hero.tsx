@@ -47,9 +47,9 @@ export function Hero() {
               <ArrowUpRight size={14} aria-hidden />
             </span>
           </Link>
-          <Link href="/ai-enablement" className="text-sm font-medium text-ivory underline-offset-8 hover:underline">
-            See AI Enablement
-          </Link>
+          <a href="#how-it-works" className="text-sm font-medium text-ivory underline-offset-8 hover:underline">
+            See how it works
+          </a>
         </div>
       </div>
     </section>

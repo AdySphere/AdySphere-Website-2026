@@ -5,6 +5,7 @@ import { NextStep } from "@/components/ui/NextStep";
 import { CategoryNav, PostList } from "@/components/blog/PostList";
 import { getPosts, slugify } from "@/lib/content";
 import { categoryFromSlug, getCategories } from "@/lib/blog";
+import { og } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getCategories().map((c) => ({ category: slugify(c) }));
@@ -17,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     title: `${category} insights`,
     description: `Articles on ${category} from AdySphere Co.`,
     alternates: { canonical: `/blog/category/${slugify(category)}` },
+    openGraph: og(`/blog/category/${slugify(category)}`),
   };
 }
 

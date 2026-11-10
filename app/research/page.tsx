@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { site } from "@/lib/site";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Research: space, astrophysics, quantum computing and data-intensive science",
   description:
     "The AdySphere Co. research lab: computational astrophysics, space technology and mission data, quantum computing, data-intensive science methods, and AI for scientific discovery.",
   alternates: { canonical: "/research" },
+  openGraph: og("/research"),
 };
 
 const areas = [

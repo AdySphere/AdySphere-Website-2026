@@ -13,8 +13,9 @@ export const site = {
   linkedin: "https://www.linkedin.com/company/adysphere-co/",
   instagram: "https://www.instagram.com/adysphere/",
   positioning: "We implement Microsoft Dynamics 365 and Power Platform properly, then enable AI that sharpens decisions and closes the gaps where data and money leak.",
+  /** The one-line description used everywhere: site, structured data, LinkedIn, Google, Bing and directories. */
   description:
-    "Dubai-based Microsoft AI Cloud Partner implementing Microsoft Dynamics 365 and Power Platform, and enabling AI that sharpens decisions across your departments.",
+    "AdySphere Co. is a Dubai-based AI enablement consultancy that helps UAE businesses get real value from the AI they already pay for, by setting up AI agents on their existing tools in two to three weeks.",
 } as const;
 
 export const founder = {
@@ -53,8 +54,15 @@ export const heroArt = "/brand/hero-face.webp";
  */
 export const cityVideo: { src: string; poster: string } | null = null;
 
-/** One label for the booking intent, used everywhere. */
-export const bookCta = { href: "/contact", label: "Book a Business X-Ray" } as const;
+/** The main call to action on every page. `short` fits the header. */
+export const bookCta = {
+  href: "/contact?interest=check-in",
+  label: "Book a 30-minute AI check-in",
+  short: "Book an AI check-in",
+} as const;
+
+/** The deeper diagnostic, offered beside the check-in. */
+export const xrayCta = { href: "/contact?interest=x-ray", label: "Book a Business X-Ray" } as const;
 
 /** The departments AI is enabled across, shown as nodes in the hero. */
 export const departments = ["Projects", "Finance", "Sales", "Service", "Supply Chain"] as const;

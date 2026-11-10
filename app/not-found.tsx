@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { bookCta } from "@/lib/site";
 
 export default function NotFound() {
   return (
@@ -8,8 +9,8 @@ export default function NotFound() {
         <Link href="/" className="btn-primary">
           Go to the homepage
         </Link>
-        <Link href="/solutions" className="btn-secondary">
-          See our solutions
+        <Link href={bookCta.href} className="btn-secondary">
+          {bookCta.label}
         </Link>
       </div>
     </PageHeader>

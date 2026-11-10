@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 
 type Status = { state: "idle" } | { state: "sending" } | { state: "sent" } | { state: "error"; message: string };
 
-const interests = ["Business X-Ray", "Implementation", "AI Enablement", "Other"] as const;
+const interests = ["AI check-in", "Business X-Ray", "Implementation", "AI Enablement", "Other"] as const;
 type Interest = (typeof interests)[number];
 
 /** ?interest=ai-enablement (etc.) preselects an option, so pages can link straight to the right one. */
 const interestBySlug: Record<string, Interest> = {
+  "check-in": "AI check-in",
   "x-ray": "Business X-Ray",
   implementation: "Implementation",
   "ai-enablement": "AI Enablement",
@@ -23,7 +24,7 @@ const labelClass = "text-sm font-medium text-navy-900";
 /** Booking form. Posts to /api/contact, which emails the team. Honeypot + timing check + server-side rate limit. */
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
-  const [interest, setInterest] = useState<Interest>("Business X-Ray");
+  const [interest, setInterest] = useState<Interest>("AI check-in");
   const startedAt = useRef(0);
 
   useEffect(() => {

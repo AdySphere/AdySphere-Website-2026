@@ -3,11 +3,13 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { BookingEmbed } from "@/components/contact/BookingEmbed";
 import { site } from "@/lib/site";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact: book a Business X-Ray",
-  description: "Book a Business X-Ray or talk to AdySphere Co. about Microsoft Dynamics 365, Power Platform and AI Enablement across the U.A.E, the U.K. and India.",
+  title: "Contact: book a 30-minute AI check-in",
+  description: "Book a 30-minute AI check-in or a Business X-Ray, or talk to AdySphere Co. about Microsoft Dynamics 365, Power Platform and AI Enablement across the U.A.E, the U.K. and India.",
   alternates: { canonical: "/contact" },
+  openGraph: og("/contact"),
 };
 
 export default function ContactPage() {
@@ -16,7 +18,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Tell us what you want to fix."
-        intro="We reply within one working day to arrange a call. The first step is usually a Business X-Ray."
+        intro="We reply within one working day to arrange a call. The first step is usually a 30-minute AI check-in, or a Business X-Ray if you want the full diagnostic."
       />
       <section className="tone-dark">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16 lg:px-8">

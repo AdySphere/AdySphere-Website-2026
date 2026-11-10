@@ -12,12 +12,14 @@ import { NextStep } from "@/components/ui/NextStep";
 import { Reveal } from "@/components/ui/Reveal";
 import { DepartmentsDiagram } from "@/components/home/DepartmentsDiagram";
 import { Starfield } from "@/components/ai/Starfield";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "AI Enablement for Microsoft Dynamics 365 and the enterprise",
   description:
     "AI that works for you, without more workload or overheads. Microsoft Dynamics 365 AI solutions where you already run it, custom AI architecture built on Claude where you do not, inside your own tenant and cloud, with a full audit trail.",
   alternates: { canonical: "/ai-enablement" },
+  openGraph: og("/ai-enablement"),
 };
 
 const contrast = [

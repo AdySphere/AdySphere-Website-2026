@@ -9,9 +9,19 @@ export function Footer() {
         <div className="max-w-sm">
           <Image src="/brand/wordmark-dark.png" alt="AdySphere Co." width={1704} height={271} sizes="160px" className="h-6 w-auto" />
           <p className="mt-5 text-sm leading-relaxed text-ivory-dim">
-            Microsoft AI Cloud Partner, Microsoft indirect reseller and Lovable Solution Partner. Based in Dubai, working across the U.A.E, the U.K. and
-            India.
+            AI enablement on the tools you already pay for. Microsoft AI Cloud Partner, Microsoft indirect reseller and
+            Lovable Solution Partner. Based in Dubai, working across the U.A.E, the U.K. and India.
           </p>
+          <span className="mt-6 inline-block bg-white px-2 py-1">
+            <Image
+              src="/brand/microsoft-ai-cloud-partner.png"
+              alt="Microsoft AI Cloud Partner"
+              width={696}
+              height={189}
+              sizes="150px"
+              className="h-9 w-auto"
+            />
+          </span>
         </div>
 
         <nav aria-label="Footer">
@@ -23,6 +33,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/answers" className="text-ivory-dim transition-colors hover:text-ivory">
+                Answers
+              </Link>
+            </li>
             <li>
               <Link href="/contact" className="text-ivory-dim transition-colors hover:text-ivory">
                 Contact

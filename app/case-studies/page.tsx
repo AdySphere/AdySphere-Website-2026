@@ -8,12 +8,14 @@ import { JourneyLine } from "@/components/case-studies/JourneyLine";
 import { stages } from "@/components/case-studies/stages";
 import { StatusBadge } from "@/components/case-studies/StatusBadge";
 import { getCaseStudies } from "@/lib/content";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Case studies: find the leaks, automate, enable AI",
   description:
     "How businesses in trading and manufacturing, real estate, sustainability, space technology and e-commerce found where data and money leaked, automated their processes and enabled AI.",
   alternates: { canonical: "/case-studies" },
+  openGraph: og("/case-studies"),
 };
 
 export default function CaseStudiesPage() {
