@@ -15,7 +15,7 @@ import { Starfield } from "@/components/ai/Starfield";
 import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "AI Enablement for Microsoft Dynamics 365 and the enterprise",
+  title: { absolute: "AI Enablement: AI Agents on the Tools You Already Use | AdySphere Co." },
   alternates: { canonical: "/ai-enablement" },
   openGraph: og("/ai-enablement"),
 };

@@ -12,7 +12,7 @@ import { ParallaxWord } from "@/components/solutions/ParallaxWord";
 import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Solutions: Business X-Ray, Microsoft Dynamics 365 and AI Enablement",
+  title: "Solutions: AI Enablement, Microsoft Dynamics 365 and Business X-Ray",
   alternates: { canonical: "/solutions" },
   openGraph: og("/solutions"),
 };
@@ -24,8 +24,12 @@ const faqSchema = {
 };
 
 const shapeFor: Record<string, string> = { "business-x-ray": "scatter", implementation: "wave", "ai-enablement": "sphere" };
+/** AI Enablement leads; implementation and the Business X-Ray follow. */
+const order = ["ai-enablement", "implementation", "business-x-ray"];
+const orderedOffers = order.map((slug) => offers.find((o) => o.slug === slug)!);
+
 const navItems = [
-  ...offers.map((o) => ({ id: o.slug, label: o.step })),
+  ...orderedOffers.map((o) => ({ id: o.slug, label: o.step })),
   { id: "industries", label: "Industries" },
   { id: "faq", label: "FAQ" },
 ];
@@ -38,12 +42,12 @@ export default function SolutionsPage() {
       <div className="relative z-10">
         <PageHeader
           eyebrow="Solutions"
-          title="Diagnose. Implement. Enable AI."
-          intro="Three offers, one journey. Each one stands on its own, and each one makes the next one work better."
+          title="Enable AI. Implement. Diagnose."
+          intro="Start with AI agents on the tools you already pay for. When the systems underneath need work, we implement the right software. And if you want the full picture first, a Business X-Ray maps the whole business."
         />
         <SectionNav items={navItems} />
 
-        {offers.map((offer) => (
+        {orderedOffers.map((offer) => (
           <section
             key={offer.slug}
             id={offer.slug}
