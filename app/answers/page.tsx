@@ -8,8 +8,6 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: { absolute: "AI Enablement Questions, Answered | AdySphere Co." },
-  description:
-    "Straight answers on Copilot ROI, AI agents, adoption timelines and costs for UAE businesses, from AdySphere Co. in Dubai.",
   alternates: { canonical: "/answers" },
   openGraph: og("/answers"),
 };

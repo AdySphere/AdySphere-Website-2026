@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import { bookCta, heroArt, site } from "@/lib/site";
+import { bookCta, heroArt } from "@/lib/site";
 
 /**
  * Centred hero inside the particle swarm (see components/swarm). Before the swarm starts, and for reduced motion,
@@ -16,8 +16,7 @@ export function Hero() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={heroArt}
-        alt=""
-        aria-hidden
+        alt="AdySphere Co. circuit-line face artwork"
         width={800}
         height={800}
         fetchPriority="high"
@@ -33,12 +32,14 @@ export function Hero() {
           id="hero-title"
           className="hero-rise hero-headline font-display text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-ivory [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
         >
-          <span className="sm:whitespace-nowrap">Your ERP records the business.</span>
+          <span className="sm:whitespace-nowrap">You&rsquo;re already paying for AI.</span>
           <br />
-          It doesn&rsquo;t run it. <span className="text-gradient sm:whitespace-nowrap">We enable both.</span>
+          <span className="text-gradient">Let&rsquo;s make it pay you back.</span>
         </h1>
-        <p className="hero-rise hero-headline mx-auto mt-7 max-w-xl text-base leading-relaxed text-ivory [animation-delay:160ms] sm:text-lg">
-          {site.positioning}
+        <p className="hero-rise hero-headline mx-auto mt-7 max-w-2xl text-base leading-relaxed text-ivory [animation-delay:160ms] sm:text-lg">
+          We set up AI agents on the tools your team already uses, from Microsoft 365 and Microsoft Dynamics 365 to SAP
+          and beyond, so your people spend less time on admin and more time on decisions. Most teams are up and running
+          in two to three weeks.
         </p>
         <div className="hero-rise mt-10 flex flex-col items-center justify-center gap-3 [animation-delay:240ms] sm:flex-row sm:gap-6">
           <Link href={bookCta.href} className="btn-primary group !pr-2">

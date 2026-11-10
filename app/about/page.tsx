@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { NextStep } from "@/components/ui/NextStep";
 import { LovableBadge } from "@/components/site/LovableBadge";
+import { ResearchTeaser } from "@/components/home/ResearchTeaser";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { founderSchema } from "@/lib/schema";
 import { founder, site } from "@/lib/site";
@@ -10,8 +11,6 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About AdySphere Co.",
-  description:
-    "AdySphere Co. is a founder-led Microsoft AI Cloud Partner and indirect reseller, based in Dubai and working across the U.A.E, the U.K. and India.",
   alternates: { canonical: "/about" },
   openGraph: og("/about"),
 };
@@ -90,6 +89,9 @@ export default function AboutPage() {
                 from the first workshop.
               </p>
             </div>
+            <blockquote className="mt-8 max-w-2xl border-l-2 border-teal pl-5 font-display text-xl leading-snug text-ivory sm:text-2xl">
+              &ldquo;{founder.vision}&rdquo;
+            </blockquote>
             <a href={founder.linkedin || site.linkedin} target="_blank" rel="noopener" className="btn-secondary mt-8">
               LinkedIn
             </a>
@@ -152,6 +154,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <ResearchTeaser />
       <NextStep />
     </>
   );

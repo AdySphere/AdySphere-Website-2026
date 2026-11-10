@@ -11,8 +11,6 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Industry solutions in the UAE",
-  description:
-    "Industry solutions on Microsoft Dynamics 365, Power Platform, Zoho and custom applications, with AI Enablement, for trading and manufacturing, real estate, sustainability, space technology and e-commerce and retail businesses in the UAE.",
   alternates: { canonical: "/industries" },
   openGraph: og("/industries"),
 };
@@ -138,7 +136,7 @@ export default function IndustriesPage() {
 
         <NextStep
           title="Not on the list?"
-          body="If work moves between departments in your business, the same approach applies. Start with a Business X-Ray."
+          body="If work moves between departments in your business, the same approach applies. Start with a 30-minute AI check-in."
         />
       </div>
     </>

@@ -23,8 +23,9 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_GB",
     url: "/",
+    description: site.description,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", description: site.description },
 };
 
 export const viewport: Viewport = {

@@ -8,7 +8,6 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Blog: Microsoft Dynamics 365, Power Platform and AI in operations",
-  description: "Practical writing on Microsoft Dynamics 365, Power Platform and enabling AI in operations, for UAE business leaders.",
   alternates: { canonical: "/blog" },
   openGraph: og("/blog"),
 };

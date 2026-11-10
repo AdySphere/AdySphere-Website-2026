@@ -16,7 +16,6 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   if (!tag) return {};
   return {
     title: `Articles tagged ${tag}`,
-    description: `AdySphere Co. articles tagged ${tag}.`,
     alternates: { canonical: `/blog/tag/${slugify(tag)}` },
     openGraph: og(`/blog/tag/${slugify(tag)}`),
   };

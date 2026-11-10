@@ -1,6 +1,8 @@
 # AdySphere Co.
 
-> Dubai-based AI enablement consultancy. We help UAE businesses get real value from the AI they already pay for (Microsoft Copilot, ChatGPT, Gemini) by setting up AI agents on their existing tools: Microsoft 365, Microsoft Dynamics 365, Power Platform, Business Central, SAP and others. Most teams are up and running in two to three weeks. Authorised member of the Microsoft AI Cloud Partner Program, with hands-on Microsoft Dynamics 365 and Power Platform implementation experience.
+> AdySphere Co. is a Dubai-based AI enablement consultancy that helps UAE businesses get real value from the AI they already pay for, by setting up AI agents on their existing tools in two to three weeks.
+
+We work on the tools a company already pays for: Microsoft Copilot, ChatGPT, Gemini, Microsoft 365, Microsoft Dynamics 365, Power Platform, Business Central, SAP and others. Authorised member of the Microsoft AI Cloud Partner Program, with hands-on Microsoft Dynamics 365 and Power Platform implementation experience.
 
 AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere. The company name is "AdySphere Co.".
 
@@ -21,7 +23,7 @@ AdySphere Co. is not affiliated with Anysphere (the makers of Cursor) or Asphere
 0. 30-minute AI check-in: a short call to see which AI tools a business already pays for, where the team loses the most time, and where an AI agent would pay off. Followed by a paid working session scoped to the business.
 1. Business X-Ray: an affordable, department-by-department diagnostic of how a business runs today (data, workflows, handoffs, reporting gaps). Output: a written report and a prioritised roadmap.
 2. Microsoft Dynamics 365 and Power Platform implementation: Project Operations, Sales / Customer Engagement, Customer Service, Field Service, Finance & Operations Supply Chain, Business Central, Power Automate integrations and Power BI executive dashboards.
-3. AI Enablement: one shared AI layer across departments (Projects, Finance, Sales, Service, Supply Chain), built into Microsoft Dynamics 365 with Copilot Studio, Power Platform and Claude, inside the client's own tenant and cloud. Runs inside the client's tenant and security roles, with human approval and a full audit trail. Starts with an AI Enablement Blueprint.
+3. AI Enablement: AI agents set up on the tools a company already uses (Microsoft 365, Microsoft Dynamics 365, Power Platform, SAP and others), built with Copilot Studio, Power Platform and Claude, inside the client's own tenant and cloud. Runs inside the client's tenant and security roles, with human approval and a full audit trail. Starts with an AI Enablement Blueprint.
 
 ## Industries
 

@@ -12,7 +12,6 @@ export const site = {
   location: "U.A.E | U.K. | India",
   linkedin: "https://www.linkedin.com/company/adysphere-co/",
   instagram: "https://www.instagram.com/adysphere/",
-  positioning: "We implement Microsoft Dynamics 365 and Power Platform properly, then enable AI that sharpens decisions and closes the gaps where data and money leak.",
   /** The one-line description used everywhere: site, structured data, LinkedIn, Google, Bing and directories. */
   description:
     "AdySphere Co. is a Dubai-based AI enablement consultancy that helps UAE businesses get real value from the AI they already pay for, by setting up AI agents on their existing tools in two to three weeks.",
@@ -64,8 +63,6 @@ export const bookCta = {
 /** Calendly page for the 30-minute AI check-in. NEXT_PUBLIC_BOOKING_URL overrides it. */
 export const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "https://calendly.com/mallicka-adysphere/30min";
 
-/** The deeper diagnostic, offered beside the check-in. */
-export const xrayCta = { href: "/contact?interest=x-ray", label: "Book a Business X-Ray" } as const;
 
 /** The departments AI is enabled across, shown as nodes in the hero. */
 export const departments = ["Projects", "Finance", "Sales", "Service", "Supply Chain"] as const;
@@ -146,7 +143,7 @@ export const offers = [
       "AI Enablement Blueprint: where AI pays back first",
       "Already on a Microsoft Dynamics 365 tenant? Microsoft Dynamics 365 AI solutions with Copilot Studio and Power Platform",
       "On other systems? Custom AI architecture built on Claude, designed for your industry",
-      "One shared AI layer across departments, not one bot per task",
+      "AI agents set up on the tools your teams already use, not another platform to learn",
       "Runs inside your own tenant and cloud, under your security, with a full audit trail",
     ],
     starts: "With an AI Enablement Blueprint: a clear map of where AI pays back first.",
@@ -281,7 +278,7 @@ export const faqs = [
   },
   {
     q: "What is AI Enablement for Microsoft Dynamics 365?",
-    a: "AI Enablement puts AI inside the Microsoft systems your teams already use. One shared AI layer works across departments, inside your own tenant and security roles, and people approve the actions that matter. It starts with an AI Enablement Blueprint.",
+    a: "AI Enablement sets up AI agents on the tools your teams already use, including Microsoft Dynamics 365 and Microsoft 365, inside your own tenant and security roles, and people approve the actions that matter. It starts with an AI Enablement Blueprint.",
   },
   {
     q: "Can you enable AI if we do not use Microsoft Dynamics 365?",

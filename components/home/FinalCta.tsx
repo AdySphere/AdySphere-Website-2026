@@ -14,10 +14,6 @@ export function FinalCta() {
             Start with a 30-minute AI check-in. No slides, no hard sell. You&rsquo;ll leave knowing where AI would actually
             pay off for your business.
           </p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-mist">
-            Want the full picture first? Choose a Business <span className="whitespace-nowrap">X-Ray</span> in the form: a
-            department-by-department diagnostic with a written report and a prioritised roadmap.
-          </p>
           <dl className="mt-10 grid gap-4 text-sm">
             <div>
               <dt className="text-mist">Email</dt>

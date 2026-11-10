@@ -2,7 +2,7 @@ export const dynamic = "force-static";
 
 import type { MetadataRoute } from "next";
 import { getCaseStudies, getPosts, slugify } from "@/lib/content";
-import { getCategories } from "@/lib/blog";
+import { getCategories, getTags } from "@/lib/blog";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getCaseStudies().map((c) => ({ url: `${site.url}/case-studies/${c.slug}`, lastModified: now, priority: 0.6 })),
     ...getPosts()
       .filter((p) => !p.meta.draft)
-      .map((p) => ({ url: `${site.url}/blog/${p.slug}`, lastModified: new Date(p.meta.date), priority: 0.6 })),
+      .map((p) => ({ url: `${site.url}/blog/${p.slug}`, lastModified: now, priority: 0.6 })),
     ...getCategories().map((c) => ({ url: `${site.url}/blog/category/${slugify(c)}`, lastModified: now, priority: 0.4 })),
+    ...getTags().map((t) => ({ url: `${site.url}/blog/tag/${slugify(t)}`, lastModified: now, priority: 0.3 })),
   ];
 }

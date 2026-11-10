@@ -12,8 +12,6 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Case studies: find the leaks, automate, enable AI",
-  description:
-    "How businesses in trading and manufacturing, real estate, sustainability, space technology and e-commerce found where data and money leaked, automated their processes and enabled AI.",
   alternates: { canonical: "/case-studies" },
   openGraph: og("/case-studies"),
 };
@@ -86,7 +84,7 @@ export default function CaseStudiesPage() {
 
       <NextStep
         title="If you plan ahead, so should your infrastructure."
-        body="Start with a Business X-Ray: we find where data and money leak in your business, and what to fix first."
+        body="Start with a 30-minute AI check-in: we find where AI would actually pay off in your business, and what to fix first."
       />
     </>
   );

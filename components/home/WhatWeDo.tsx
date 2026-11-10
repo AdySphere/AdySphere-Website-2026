@@ -22,11 +22,11 @@ const items = [
 /** What AI enablement means in practice, on the tools a business already pays for. */
 export function WhatWeDo() {
   return (
-    <section data-swarm="hold" className="relative">
+    <section data-swarm="wave" className="relative">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <p className="eyebrow text-teal">What we do</p>
         <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-          AI enablement, done with your team, not to it.
+          AI enablement, done with your team, not to it
         </h2>
         <ul className="mt-14 grid gap-4 md:grid-cols-3">
           {items.map(({ icon: Icon, title, body }, i) => (

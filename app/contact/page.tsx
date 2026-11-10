@@ -7,7 +7,6 @@ import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact: book a 30-minute AI check-in",
-  description: "Book a 30-minute AI check-in or a Business X-Ray, or talk to AdySphere Co. about Microsoft Dynamics 365, Power Platform and AI Enablement across the U.A.E, the U.K. and India.",
   alternates: { canonical: "/contact" },
   openGraph: og("/contact"),
 };
