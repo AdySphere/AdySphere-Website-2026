@@ -2,8 +2,8 @@ import { ogContentType, ogSize, renderOg } from "@/lib/og";
 
 export const size = ogSize;
 export const contentType = ogContentType;
-export const alt = "Your ERP records the business. It doesn't run it. We enable both.";
+export const alt = "You're already paying for AI. Let's make it pay you back.";
 
 export default function Image() {
-  return renderOg("Your ERP records the business. It doesn't run it. We enable both.", "Microsoft Dynamics 365 & AI Partner in Dubai");
+  return renderOg("You're already paying for AI. Let's make it pay you back.", "AI enablement for UAE businesses");
 }

@@ -4,6 +4,7 @@ import { LovableBadge } from "@/components/site/LovableBadge";
 const certifications = ["Microsoft-certified team", "Claude-certified team"];
 
 const stack = [
+  "Microsoft 365 Copilot",
   "Microsoft Dynamics 365",
   "Power Platform",
   "Copilot Studio",
@@ -13,6 +14,9 @@ const stack = [
   "Microsoft Fabric",
   "Azure",
   "Claude",
+  "ChatGPT",
+  "Gemini",
+  "SAP",
 ];
 
 export function TrustStrip() {

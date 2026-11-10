@@ -7,12 +7,14 @@ import { Reveal } from "@/components/ui/Reveal";
 import { NetworkBackground } from "@/components/industries/NetworkBackground";
 import { SectionNav } from "@/components/solutions/SectionNav";
 import { industries } from "@/lib/site";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Industry solutions in the UAE",
   description:
     "Industry solutions on Microsoft Dynamics 365, Power Platform, Zoho and custom applications, with AI Enablement, for trading and manufacturing, real estate, sustainability, space technology and e-commerce and retail businesses in the UAE.",
   alternates: { canonical: "/industries" },
+  openGraph: og("/industries"),
 };
 
 const stack = [

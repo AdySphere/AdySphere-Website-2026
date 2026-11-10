@@ -48,7 +48,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           {showCta && (
             <Link href={bookCta.href} className="btn-primary hidden !py-2.5 sm:inline-flex">
-              {bookCta.label}
+              {bookCta.short}
             </Link>
           )}
           <button

@@ -9,6 +9,7 @@ import { StageTimeline } from "@/components/case-studies/StageTimeline";
 import { stages } from "@/components/case-studies/stages";
 import { StatusBadge } from "@/components/case-studies/StatusBadge";
 import { getCaseStudies, getCaseStudy } from "@/lib/content";
+import { og } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getCaseStudies().map((c) => ({ slug: c.slug }));
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${study.meta.title} (${study.meta.industry} case study)`,
     description: study.meta.summary,
     alternates: { canonical: `/case-studies/${study.slug}` },
+    openGraph: og(`/case-studies/${study.slug}`),
   };
 }
 

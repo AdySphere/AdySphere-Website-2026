@@ -12,7 +12,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "AdySphere Co | Microsoft Dynamics 365 & AI Partner in Dubai",
+    default: "AI Enablement for UAE Businesses | AdySphere Co.",
     template: "%s | AdySphere Co.",
   },
   description: site.description,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: "en_GB",
-    url: site.url,
+    url: "/",
   },
   twitter: { card: "summary_large_image" },
 };

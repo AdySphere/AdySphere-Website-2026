@@ -6,12 +6,14 @@ import { LovableBadge } from "@/components/site/LovableBadge";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { founderSchema } from "@/lib/schema";
 import { founder, site } from "@/lib/site";
+import { og } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About AdySphere Co.",
   description:
     "AdySphere Co. is a founder-led Microsoft AI Cloud Partner and indirect reseller, based in Dubai and working across the U.A.E, the U.K. and India.",
   alternates: { canonical: "/about" },
+  openGraph: og("/about"),
 };
 
 const values = [

@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema } from "@/lib/schema";
 import { formatDate, getPost, getPosts, slugify } from "@/lib/content";
 import { site } from "@/lib/site";
+import { og } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }));
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.meta.title,
     description: post.meta.description,
     alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: { type: "article", publishedTime: post.meta.date },
+    openGraph: { ...og(`/blog/${post.slug}`), type: "article", publishedTime: post.meta.date },
     robots: post.meta.draft ? { index: false } : undefined,
   };
 }

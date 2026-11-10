@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["", "/solutions", "/ai-enablement", "/industries", "/case-studies", "/about", "/research", "/blog", "/contact"];
+  const pages = ["", "/solutions", "/ai-enablement", "/industries", "/case-studies", "/about", "/research", "/blog", "/answers", "/contact"];
 
   return [
     ...pages.map((path) => ({ url: `${site.url}${path}`, lastModified: now, priority: path === "" ? 1 : 0.8 })),

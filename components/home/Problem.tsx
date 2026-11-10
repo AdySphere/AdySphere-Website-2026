@@ -26,10 +26,13 @@ export function Problem() {
         <div className="lg:sticky lg:top-32 lg:self-start">
           <p className="eyebrow text-teal">The problem</p>
           <h2 className="mt-4 font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-            The work gets lost between systems.
+            The licences are there. The results aren&rsquo;t.
           </h2>
           <p className="mt-6 max-w-md leading-relaxed text-ivory-dim">
-            Most UAE businesses we meet already own good software. The cost sits in the gaps between it.
+            Most leadership teams in the UAE already pay for Copilot, ChatGPT or Gemini. Yet reports are still built by
+            hand, numbers are still copied between spreadsheets, and decisions still wait for someone to pull the data
+            together. The gap isn&rsquo;t the technology. It&rsquo;s that nobody set it up around the work your people
+            actually do.
           </p>
         </div>
         <ol className="divide-y divide-ivory/10 border-y border-ivory/10">

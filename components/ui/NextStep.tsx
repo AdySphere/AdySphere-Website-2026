@@ -16,8 +16,8 @@ function keepXRay(text: string) {
 
 /** The closing band every page ends with: one clear next step. */
 export function NextStep({
-  title = "Start with a Business X-Ray.",
-  body = "An affordable, department-by-department diagnostic of how your business runs today, with a written report and a prioritised roadmap.",
+  title = "Ready to make your AI pay for itself?",
+  body = "Start with a 30-minute AI check-in. No slides, no hard sell. You'll leave knowing where AI would actually pay off for your business.",
   href = bookCta.href,
   label = bookCta.label,
 }: {
